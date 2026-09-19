@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Privacy Policy - LocalSevai</title>
+
+    <meta
+        name="description"
+        content="Privacy Policy for LocalSevai, a WhatsApp-based local service discovery platform."
+    >
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+            background: #fffaf7;
+            color: #171717;
+
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1000px, 92%);
+            margin: auto;
+        }
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            background: rgba(255, 250, 247, 0.94);
+
+            backdrop-filter: blur(18px);
+
+            border-bottom:
+                1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar {
+            height: 72px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 21px;
+            font-weight: 800;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+
+            border-radius: 13px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #ff6b00;
+            color: white;
+
+            font-size: 21px;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            padding: 10px 15px;
+
+            background: white;
+
+            border: 1px solid #ebe3dd;
+
+            border-radius: 11px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            color: #555;
+
+            transition: 0.2s ease;
+        }
+
+        .back-button:hover {
+            border-color: #ff6b00;
+            color: #ff6b00;
+        }
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            padding: 72px 0 42px;
+        }
+
+        .hero-card {
+            background: #171717;
+
+            color: white;
+
+            border-radius: 28px;
+
+            padding: 44px;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .hero-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 260px;
+            height: 260px;
+
+            border-radius: 50%;
+
+            background: #ff6b00;
+
+            right: -100px;
+            top: -120px;
+
+            opacity: 0.15;
+        }
+
+        .eyebrow {
+            color: #ff9b55;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 56px);
+
+            letter-spacing: -2px;
+
+            line-height: 1.05;
+
+            margin-bottom: 14px;
+        }
+
+        .hero p {
+            color: #bdbdbd;
+
+            max-width: 650px;
+
+            font-size: 15px;
+        }
+
+        .updated {
+            margin-top: 18px;
+
+            font-size: 12px;
+
+            color: #929292;
+        }
+
+        /* =====================================================
+           CONTENT
+        ===================================================== */
+
+        .policy-layout {
+            display: grid;
+
+            grid-template-columns:
+                220px 1fr;
+
+            gap: 45px;
+
+            padding: 48px 0 80px;
+        }
+
+        .toc {
+            position: sticky;
+            top: 95px;
+
+            align-self: start;
+
+            background: white;
+
+            border:
+                1px solid #eee5df;
+
+            border-radius: 18px;
+
+            padding: 18px;
+        }
+
+        .toc-title {
+            font-size: 12px;
+
+            font-weight: 800;
+
+            color: #999;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 12px;
+        }
+
+        .toc a {
+            display: block;
+
+            padding: 7px 0;
+
+            color: #666;
+
+            font-size: 13px;
+        }
+
+        .toc a:hover {
+            color: #ff6b00;
+        }
+
+        .policy {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 18px;
+        }
+
+        .policy-section {
+            background: white;
+
+            border:
+                1px solid #eee5df;
+
+            border-radius: 20px;
+
+            padding: 28px;
+        }
+
+        .policy-section h2 {
+            font-size: 23px;
+
+            letter-spacing: -0.5px;
+
+            margin-bottom: 12px;
+        }
+
+        .policy-section h3 {
+            font-size: 16px;
+
+            margin-top: 20px;
+
+            margin-bottom: 7px;
+        }
+
+        .policy-section p {
+            font-size: 14px;
+
+            color: #606060;
+
+            margin-bottom: 11px;
+        }
+
+        .policy-section ul {
+            margin:
+
+                8px 0 10px 20px;
+
+            color: #606060;
+
+            font-size: 14px;
+        }
+
+        .policy-section li {
+            margin-bottom: 7px;
+        }
+
+        .highlight {
+            background: #fff2e8;
+
+            border-left:
+                4px solid #ff6b00;
+
+            padding: 14px 16px;
+
+            border-radius: 11px;
+
+            color: #5f4a3b;
+
+            font-size: 13px;
+
+            margin-top: 14px;
+        }
+
+        /* =====================================================
+           CONTACT CARD
+        ===================================================== */
+
+        .contact-card {
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff6b00,
+                    #e85d04
+                );
+
+            color: white;
+
+            border-radius: 22px;
+
+            padding: 28px;
+
+            margin-top: 5px;
+        }
+
+        .contact-card h2 {
+            font-size: 24px;
+
+            margin-bottom: 8px;
+        }
+
+        .contact-card p {
+            opacity: 0.9;
+
+            font-size: 14px;
+
+            max-width: 600px;
+
+            margin-bottom: 16px;
+        }
+
+        .whatsapp-button {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 12px 17px;
+
+            background: white;
+
+            color: #e85d04;
+
+            border-radius: 11px;
+
+            font-weight: 800;
+
+            font-size: 13px;
+        }
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            border-top:
+                1px solid #eee4dc;
+
+            padding: 28px 0;
+        }
+
+        .footer-row {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .footer-copy {
+            color: #8a8a8a;
+
+            font-size: 12px;
+        }
+
+        .footer-links {
+            display: flex;
+
+            gap: 18px;
+
+            font-size: 12px;
+
+            color: #777;
+        }
+
+        .footer-links a:hover {
+            color: #ff6b00;
+        }
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 760px) {
+
+            .hero {
+                padding-top: 35px;
+            }
+
+            .hero-card {
+                padding: 30px 24px;
+            }
+
+            .policy-layout {
+                grid-template-columns: 1fr;
+
+                gap: 20px;
+            }
+
+            .toc {
+                position: static;
+            }
+
+            .policy-section {
+                padding: 23px;
+            }
+
+            .footer-row {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header>
+
+    <div class="container navbar">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+
+            <div class="logo-icon">
+                🔧
+            </div>
+
+            <span>
+                LocalSevai
+            </span>
+
+        </a>
+
+        <a
+            href="index.html"
+            class="back-button"
+        >
+            ← Back to Home
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="hero-card">
+
+            <div class="eyebrow">
+                LocalSevai
+            </div>
+
+            <h1>
+                Privacy Policy
+            </h1>
+
+            <p>
+                We value your privacy and explain here how
+                LocalSevai collects, uses and protects information
+                when you use our website and WhatsApp-based services.
+            </p>
+
+            <div class="updated">
+                Last updated: September 19, 2026
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTENT
+========================================================= -->
+
+<main>
+
+    <div class="container policy-layout">
+
+        <!-- TABLE OF CONTENTS -->
+
+        <aside class="toc">
+
+            <div class="toc-title">
+                Contents
+            </div>
+
+            <a href="#about">
+                1. About LocalSevai
+            </a>
+
+            <a href="#information">
+                2. Information We Collect
+            </a>
+
+            <a href="#usage">
+                3. How We Use Information
+            </a>
+
+            <a href="#whatsapp">
+                4. WhatsApp
+            </a>
+
+            <a href="#sharing">
+                5. Information Sharing
+            </a>
+
+            <a href="#location">
+                6. Location Information
+            </a>
+
+            <a href="#storage">
+                7. Data Storage
+            </a>
+
+            <a href="#security">
+                8. Security
+            </a>
+
+            <a href="#retention">
+                9. Data Retention
+            </a>
+
+            <a href="#rights">
+                10. Your Choices
+            </a>
+
+            <a href="#children">
+                11. Children's Privacy
+            </a>
+
+            <a href="#changes">
+                12. Changes
+            </a>
+
+            <a href="#contact">
+                13. Contact
+            </a>
+
+        </aside>
+
+
+        <!-- POLICY -->
+
+        <div class="policy">
+
+
+            <!-- 1 -->
+
+            <section
+                class="policy-section"
+                id="about"
+            >
+
+                <h2>
+                    1. About LocalSevai
+                </h2>
+
+                <p>
+                    LocalSevai is a local service discovery platform
+                    designed to help customers find nearby service
+                    professionals such as plumbers, electricians,
+                    AC technicians, carpenters, painters and other
+                    home-service providers.
+                </p>
+
+                <p>
+                    LocalSevai may provide these services through
+                    WhatsApp, our website and related digital services.
+                </p>
+
+            </section>
+
+
+            <!-- 2 -->
+
+            <section
+                class="policy-section"
+                id="information"
+            >
+
+                <h2>
+                    2. Information We Collect
+                </h2>
+
+                <p>
+                    Depending on how you use LocalSevai, we may collect
+                    information that you voluntarily provide.
+                </p>
+
+                <h3>
+                    Customer information
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Name
+                    </li>
+
+                    <li>
+                        WhatsApp phone number
+                    </li>
+
+                    <li>
+                        Service requests
+                    </li>
+
+                    <li>
+                        Area or location information
+                    </li>
+
+                    <li>
+                        Messages sent to our WhatsApp service
+                    </li>
+
+                </ul>
+
+                <h3>
+                    Service provider information
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Name or business name
+                    </li>
+
+                    <li>
+                        Phone number
+                    </li>
+
+                    <li>
+                        Services offered
+                    </li>
+
+                    <li>
+                        Business/service area
+                    </li>
+
+                    <li>
+                        Location information
+                    </li>
+
+                    <li>
+                        Availability information
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+            <!-- 3 -->
+
+            <section
+                class="policy-section"
+                id="usage"
+            >
+
+                <h2>
+                    3. How We Use Information
+                </h2>
+
+                <p>
+                    We use collected information to operate and improve
+                    LocalSevai and to provide the services requested by
+                    customers and service providers.
+                </p>
+
+                <ul>
+
+                    <li>
+                        Find relevant local service providers.
+                    </li>
+
+                    <li>
+                        Respond to customer requests.
+                    </li>
+
+                    <li>
+                        Register and manage service providers.
+                    </li>
+
+                    <li>
+                        Connect customers with service providers.
+                    </li>
+
+                    <li>
+                        Maintain service availability and listings.
+                    </li>
+
+                    <li>
+                        Prevent abuse, fraud and misuse.
+                    </li>
+
+                    <li>
+                        Improve the performance and reliability of our services.
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+            <!-- 4 -->
+
+            <section
+                class="policy-section"
+                id="whatsapp"
+            >
+
+                <h2>
+                    4. WhatsApp
+                </h2>
+
+                <p>
+                    LocalSevai may use the WhatsApp Business Platform
+                    to communicate with customers and service providers.
+                </p>
+
+                <p>
+                    When you contact LocalSevai through WhatsApp,
+                    your messages and related information are processed
+                    through WhatsApp and Meta's services as applicable.
+                </p>
+
+                <div class="highlight">
+
+                    By communicating with LocalSevai through WhatsApp,
+                    you understand that your communication is also
+                    subject to WhatsApp's and Meta's applicable terms
+                    and privacy policies.
+
+                </div>
+
+            </section>
+
+
+            <!-- 5 -->
+
+            <section
+                class="policy-section"
+                id="sharing"
+            >
+
+                <h2>
+                    5. Information Sharing
+                </h2>
+
+                <p>
+                    LocalSevai may share relevant information when
+                    necessary to provide the service requested by a customer.
+                </p>
+
+                <p>
+                    For example, when a customer requests a plumber,
+                    information necessary to connect the customer with
+                    an appropriate plumber may be shared with that
+                    service provider.
+                </p>
+
+                <p>
+                    We do not intend to sell personal information to
+                    unrelated third parties.
+                </p>
+
+            </section>
+
+
+            <!-- 6 -->
+
+            <section
+                class="policy-section"
+                id="location"
+            >
+
+                <h2>
+                    6. Location Information
+                </h2>
+
+                <p>
+                    Location information may be used to identify
+                    service providers near a customer's requested area.
+                </p>
+
+                <p>
+                    You may choose to provide an area, locality or
+                    other location information when requesting a service.
+                </p>
+
+                <p>
+                    Service providers may provide their service area
+                    or location so that customers can discover relevant
+                    local providers.
+                </p>
+
+            </section>
+
+
+            <!-- 7 -->
+
+            <section
+                class="policy-section"
+                id="storage"
+            >
+
+                <h2>
+                    7. Data Storage
+                </h2>
+
+                <p>
+                    Information collected by LocalSevai may be stored
+                    using third-party infrastructure and cloud services
+                    used to operate our platform.
+                </p>
+
+                <p>
+                    These services may include databases, hosting,
+                    authentication and messaging infrastructure.
+                </p>
+
+            </section>
+
+
+            <!-- 8 -->
+
+            <section
+                class="policy-section"
+                id="security"
+            >
+
+                <h2>
+                    8. Security
+                </h2>
+
+                <p>
+                    We take reasonable technical and organizational
+                    measures to protect information handled through
+                    LocalSevai.
+                </p>
+
+                <p>
+                    However, no internet transmission or electronic
+                    storage system can be guaranteed to be completely
+                    secure.
+                </p>
+
+            </section>
+
+
+            <!-- 9 -->
+
+            <section
+                class="policy-section"
+                id="retention"
+            >
+
+                <h2>
+                    9. Data Retention
+                </h2>
+
+                <p>
+                    We may retain information for as long as reasonably
+                    necessary to provide our services, maintain records,
+                    resolve disputes, comply with legal obligations,
+                    and protect the security of our platform.
+                </p>
+
+            </section>
+
+
+            <!-- 10 -->
+
+            <section
+                class="policy-section"
+                id="rights"
+            >
+
+                <h2>
+                    10. Your Choices
+                </h2>
+
+                <p>
+                    You may contact us to request information about
+                    personal information associated with your use of
+                    LocalSevai and, where applicable, request correction
+                    or deletion.
+                </p>
+
+                <p>
+                    Certain information may need to be retained where
+                    required for legitimate business, security or legal
+                    purposes.
+                </p>
+
+            </section>
+
+
+            <!-- 11 -->
+
+            <section
+                class="policy-section"
+                id="children"
+            >
+
+                <h2>
+                    11. Children's Privacy
+                </h2>
+
+                <p>
+                    LocalSevai is intended for general users and is not
+                    designed specifically for children.
+                </p>
+
+                <p>
+                    We do not knowingly request unnecessary personal
+                    information from children.
+                </p>
+
+            </section>
+
+
+            <!-- 12 -->
+
+            <section
+                class="policy-section"
+                id="changes"
+            >
+
+                <h2>
+                    12. Changes to This Privacy Policy
+                </h2>
+
+                <p>
+                    We may update this Privacy Policy from time to time
+                    as our services, technology or legal requirements
+                    change.
+                </p>
+
+                <p>
+                    When we make changes, the updated version will be
+                    published on this page with a revised "Last updated"
+                    date.
+                </p>
+
+            </section>
+
+
+            <!-- 13 -->
+
+            <section
+                class="policy-section"
+                id="contact"
+            >
+
+                <div class="contact-card">
+
+                    <h2>
+                        Questions about privacy?
+                    </h2>
+
+                    <p>
+                        Contact LocalSevai through our official
+                        WhatsApp business account.
+                    </p>
+
+                    <a
+                        class="whatsapp-button"
+                        href="https://wa.me/919443393440?text=Hi%20I%20have%20a%20privacy%20question"
+                    >
+                        💬 Contact us on WhatsApp
+                    </a>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="container footer-row">
+
+        <div class="footer-copy">
+            © 2026 LocalSevai. All rights reserved.
+        </div>
+
+        <div class="footer-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+
+            <a href="privacy-policy.html">
+                Privacy Policy
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
