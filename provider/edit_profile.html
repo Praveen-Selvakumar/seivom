@@ -1,0 +1,3734 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <title>Edit Service Profile - Seivom</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+            --orange: #ff6b00;
+            --orange-light: #fff1e7;
+            --black: #171717;
+            --gray: #666;
+            --light-gray: #f7f7f7;
+            --border: #e8e8e8;
+            --background: #fffaf7;
+            --white: #ffffff;
+            --green: #159957;
+            --red: #dc3545;
+        }
+
+
+        body {
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+            background: var(--background);
+
+            color: var(--black);
+
+            line-height: 1.5;
+        }
+
+
+        button,
+        input,
+        textarea,
+        select {
+            font: inherit;
+        }
+
+
+        button {
+            cursor: pointer;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =========================================
+           NAVBAR
+        ========================================= */
+
+        .navbar {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            height: 68px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            background:
+                rgba(255, 250, 247, 0.92);
+
+            backdrop-filter: blur(14px);
+
+            border-bottom:
+                1px solid rgba(0, 0, 0, 0.05);
+        }
+
+
+        .logo {
+
+            text-decoration: none;
+
+            color: var(--black);
+
+            font-size: 23px;
+
+            font-weight: 850;
+
+            letter-spacing: -1px;
+        }
+
+
+        .logo span {
+            color: var(--orange);
+        }
+
+
+        .nav-right {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 22px;
+        }
+
+
+        /* =========================================
+           NAV LINKS
+        ========================================= */
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
+
+            font-size: 13px;
+
+            font-weight: 750;
+
+            color: #666;
+        }
+
+
+        .nav-links a {
+
+            transition:
+                color 0.2s ease;
+        }
+
+
+        .nav-links a:hover {
+
+            color:
+                var(--orange);
+        }
+
+
+        .provider-login-link {
+
+            padding:
+                9px 14px;
+
+            border-radius: 11px;
+
+            border:
+                1px solid var(--border);
+
+            background: white;
+
+            color: var(--black);
+
+            font-weight: 800;
+        }
+
+
+        .provider-login-link:hover {
+
+            border-color:
+                var(--orange);
+
+            color:
+                var(--orange);
+        }
+
+
+        /* =========================================
+           LANGUAGE
+        ========================================= */
+
+        .language-switcher {
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 4px;
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 30px;
+        }
+
+
+        .lang-btn {
+
+            border: none;
+
+            background: transparent;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+
+            color: #777;
+
+            font-size: 13px;
+
+            font-weight: 750;
+        }
+
+
+        .lang-btn.active {
+
+            background: var(--black);
+
+            color: white;
+        }
+
+
+        /* =========================================
+           PAGE
+        ========================================= */
+
+        .page {
+
+            width: min(920px, 92%);
+
+            margin: 0 auto;
+
+            padding: 55px 0 80px;
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+
+            text-align: center;
+
+            margin-bottom: 40px;
+        }
+
+
+        .badge {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 7px 14px;
+
+            margin-bottom: 18px;
+
+            border-radius: 30px;
+
+            background: var(--orange-light);
+
+            color: var(--orange);
+
+            font-size: 12px;
+
+            font-weight: 800;
+        }
+
+
+        .badge-dot {
+
+            width: 7px;
+
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: var(--orange);
+        }
+
+
+        .hero h1 {
+
+            font-size:
+                clamp(36px, 6vw, 60px);
+
+            line-height: 1.02;
+
+            letter-spacing: -2.7px;
+
+            font-weight: 850;
+
+            margin-bottom: 18px;
+        }
+
+
+        .hero h1 span {
+            color: var(--orange);
+        }
+
+
+        .hero p {
+
+            max-width: 680px;
+
+            margin: auto;
+
+            color: var(--gray);
+
+            font-size: 17px;
+        }
+
+
+        /* =========================================
+           PROFILE UPDATE CARD
+        ========================================= */
+
+        .promise-card {
+
+            background: var(--black);
+
+            color: white;
+
+            border-radius: 28px;
+
+            padding: 30px;
+
+            margin-bottom: 28px;
+
+            box-shadow:
+                0 15px 45px rgba(0, 0, 0, 0.08);
+        }
+
+
+        .promise-header {
+            margin-bottom: 24px;
+        }
+
+
+        .promise-header h2 {
+
+            font-size: 25px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .promise-header p {
+
+            color: #aaa;
+
+            font-size: 14px;
+        }
+
+
+        .promise-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 12px;
+        }
+
+
+        .promise-item {
+
+            background: #232323;
+
+            border:
+                1px solid #303030;
+
+            border-radius: 18px;
+
+            padding: 18px;
+        }
+
+
+        .promise-icon {
+
+            width: 38px;
+
+            height: 38px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: var(--orange);
+
+            color: white;
+
+            margin-bottom: 12px;
+
+            font-size: 17px;
+
+            font-weight: 800;
+        }
+
+
+        .promise-item h3 {
+
+            font-size: 15px;
+
+            margin-bottom: 6px;
+        }
+
+
+        .promise-item p {
+
+            color: #aaa;
+
+            font-size: 13px;
+
+            line-height: 1.55;
+        }
+
+
+        /* =========================================
+           FORM CARD
+        ========================================= */
+
+        .form-card {
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 28px;
+
+            padding: 34px;
+
+            box-shadow:
+                0 10px 40px rgba(0, 0, 0, 0.035);
+        }
+
+
+        .form-header {
+
+            margin-bottom: 30px;
+        }
+
+
+        .form-header h2 {
+
+            font-size: 26px;
+
+            margin-bottom: 6px;
+        }
+
+
+        .form-header p {
+
+            color: var(--gray);
+
+            font-size: 14px;
+        }
+
+
+        .form-section {
+
+            margin-bottom: 32px;
+        }
+
+
+        .section-title {
+
+            margin-bottom: 14px;
+        }
+
+
+        .section-title span {
+
+            display: block;
+
+            font-size: 15px;
+
+            font-weight: 800;
+        }
+
+
+        .section-title small {
+
+            display: block;
+
+            margin-top: 3px;
+
+            color: #888;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================================
+           FIELDS
+        ========================================= */
+
+        .field-group {
+
+            margin-bottom: 18px;
+
+            position: relative;
+        }
+
+
+        .field-group label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 13px;
+
+            font-weight: 750;
+        }
+
+
+        .optional {
+
+            color: #999;
+
+            font-weight: 500;
+
+            margin-left: 3px;
+        }
+
+
+        input,
+        textarea,
+        select {
+
+            width: 100%;
+
+            border:
+                1px solid var(--border);
+
+            background: white;
+
+            color: var(--black);
+
+            border-radius: 14px;
+
+            padding: 14px 15px;
+
+            outline: none;
+
+            transition: 0.2s;
+        }
+
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+
+            border-color:
+                var(--orange);
+
+            box-shadow:
+                0 0 0 4px rgba(255, 107, 0, 0.08);
+        }
+
+
+        textarea {
+
+            resize: vertical;
+
+            min-height: 110px;
+        }
+
+
+        .field-hint {
+
+            color: #999;
+
+            font-size: 11px;
+
+            margin-top: 6px;
+        }
+
+
+        /* =========================================
+           TWO COLUMN
+        ========================================= */
+
+        .two-columns {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 16px;
+        }
+
+
+        /* =========================================
+           CHIPS
+        ========================================= */
+
+        .chip-grid {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 9px;
+        }
+
+
+        .chip {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 6px;
+
+            border:
+                1px solid var(--border);
+
+            background: white;
+
+            color: #555;
+
+            border-radius: 30px;
+
+            padding: 10px 14px;
+
+            font-size: 13px;
+
+            font-weight: 650;
+
+            transition: 0.2s;
+        }
+
+
+        .chip:hover {
+
+            border-color:
+                var(--orange);
+
+            color:
+                var(--orange);
+        }
+
+
+        .chip.selected {
+
+            background:
+                var(--orange);
+
+            border-color:
+                var(--orange);
+
+            color: white;
+
+            box-shadow:
+                0 5px 15px rgba(255, 107, 0, 0.18);
+        }
+
+
+        .all-services-chip {
+
+            width: 100%;
+
+            margin-top: 13px;
+
+            padding: 13px;
+
+            font-weight: 800;
+
+            border-style: dashed;
+        }
+
+
+        .all-services-chip.selected {
+
+            background: var(--black);
+
+            border-color: var(--black);
+
+            color: white;
+        }
+
+
+        /* =========================================
+           LOCATION
+        ========================================= */
+
+        .location-box {
+
+            background: #fafafa;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 18px;
+
+            padding: 18px;
+        }
+
+
+        .location-label {
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            margin-bottom: 12px;
+        }
+
+
+        .district-select {
+
+            margin-bottom: 18px;
+        }
+
+
+        .district-select select {
+
+            background: white;
+        }
+
+
+        .overall-option {
+
+            margin-top: 16px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 14px;
+
+            border-radius: 15px;
+
+            border:
+                1px dashed #ddd;
+
+            background: white;
+
+            cursor: pointer;
+        }
+
+
+        .overall-option input {
+
+            width: auto;
+
+            accent-color:
+                var(--orange);
+        }
+
+
+        .overall-option strong {
+
+            display: block;
+
+            font-size: 13px;
+        }
+
+
+        .overall-option span {
+
+            display: block;
+
+            color: #888;
+
+            font-size: 11px;
+        }
+
+
+        /* =========================================
+           ACTION BUTTONS
+        ========================================= */
+
+        .action-buttons {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 12px;
+
+            margin-top: 10px;
+        }
+
+
+        .cancel-button,
+        .save-button {
+
+            width: 100%;
+
+            border-radius: 16px;
+
+            padding: 16px 20px;
+
+            font-size: 15px;
+
+            font-weight: 800;
+
+            transition: 0.2s;
+        }
+
+
+        .cancel-button {
+
+            border:
+                1px solid var(--border);
+
+            background:
+                white;
+
+            color:
+                var(--black);
+        }
+
+
+        .cancel-button:hover {
+
+            background:
+                var(--light-gray);
+
+            border-color:
+                #d5d5d5;
+        }
+
+
+        .save-button {
+
+            border: none;
+
+            background:
+                var(--orange);
+
+            color: white;
+
+            box-shadow:
+                0 10px 25px rgba(255, 107, 0, 0.2);
+        }
+
+
+        .save-button:hover {
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 14px 30px rgba(255, 107, 0, 0.28);
+        }
+
+
+        .save-button:active,
+        .cancel-button:active {
+
+            transform:
+                translateY(0);
+        }
+
+
+        .form-note {
+
+            text-align: center;
+
+            margin-top: 13px;
+
+            color: #999;
+
+            font-size: 11px;
+        }
+
+
+        /* =========================================
+           SUCCESS
+        ========================================= */
+
+        .success-message {
+
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 20px;
+
+            border-radius: 16px;
+
+            background: #ecfff4;
+
+            border:
+                1px solid #bcefd0;
+
+            color: #147a45;
+
+            text-align: center;
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+
+        .success-message p {
+
+            margin-bottom: 14px;
+        }
+
+
+        .profile-after-save {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-height: 42px;
+
+            padding: 0 18px;
+
+            border-radius: 12px;
+
+            background:
+                var(--black);
+
+            color: white;
+
+            font-size: 12px;
+
+            font-weight: 800;
+        }
+
+
+        .profile-after-save:hover {
+
+            background:
+                var(--orange);
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 30px 20px 45px;
+
+            color: #999;
+
+            font-size: 12px;
+        }
+
+
+        footer strong {
+            color: var(--black);
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 760px) {
+
+            .nav-right {
+
+                gap: 8px;
+            }
+
+
+            .nav-links {
+
+                display: none;
+            }
+
+
+            .navbar {
+
+                height: 62px;
+
+                padding:
+                    0 4%;
+            }
+
+
+            .logo {
+
+                font-size: 20px;
+            }
+
+
+            .page {
+
+                width: 94%;
+
+                padding-top: 38px;
+            }
+
+
+            .hero {
+
+                margin-bottom: 30px;
+            }
+
+
+            .hero h1 {
+
+                letter-spacing: -1.8px;
+            }
+
+
+            .hero p {
+
+                font-size: 15px;
+            }
+
+
+            .promise-card {
+
+                padding: 22px;
+
+                border-radius: 22px;
+            }
+
+
+            .promise-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .form-card {
+
+                padding: 22px;
+
+                border-radius: 22px;
+            }
+
+
+            .two-columns {
+
+                grid-template-columns: 1fr;
+
+                gap: 0;
+            }
+
+
+            .action-buttons {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .chip {
+
+                font-size: 12px;
+
+                padding:
+                    9px 12px;
+            }
+
+        }
+
+
+        @media (max-width: 420px) {
+
+            .hero h1 {
+
+                font-size: 34px;
+            }
+
+
+            .form-card {
+
+                padding: 18px;
+            }
+
+
+            .promise-card {
+
+                padding: 18px;
+            }
+
+
+            .promise-item {
+
+                padding: 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     NAVBAR
+========================================= -->
+
+<nav class="navbar">
+
+    <a
+        href="../index.html"
+        class="logo"
+    >
+        Seiv<span>om</span>
+    </a>
+
+
+    <div class="nav-right">
+
+
+        <div class="nav-links">
+
+            <a
+                href="../index.html"
+                data-i18n="nav_home"
+            >
+                Home
+            </a>
+
+
+            <a
+                href="my_profile.html"
+                class="provider-login-link"
+                data-i18n="nav_profile"
+            >
+                My Profile
+            </a>
+
+        </div>
+
+
+        <div class="language-switcher">
+
+            <button
+                class="lang-btn active"
+                id="englishBtn"
+                onclick="setLanguage('en')"
+            >
+                EN
+            </button>
+
+
+            <button
+                class="lang-btn"
+                id="tamilBtn"
+                onclick="setLanguage('ta')"
+            >
+                தமிழ்
+            </button>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<main class="page">
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="hero">
+
+    <div class="badge">
+
+        <span class="badge-dot"></span>
+
+        <span data-i18n="provider_badge">
+            Edit your service profile
+        </span>
+
+    </div>
+
+
+    <h1 data-i18n="hero_title">
+        Keep your profile <span>up to date.</span>
+    </h1>
+
+
+    <p data-i18n="hero_description">
+        Update your service details, service areas and availability so
+        customers always see the latest information about your service.
+    </p>
+
+</section>
+
+
+
+<!-- =========================================
+     PROMISE CARD
+========================================= -->
+
+<section class="promise-card">
+
+    <div class="promise-header">
+
+        <h2 data-i18n="promise_title">
+            Keep your service profile accurate
+        </h2>
+
+
+        <p data-i18n="promise_description">
+            Customers should always see the information you currently provide.
+        </p>
+
+    </div>
+
+
+    <div class="promise-grid">
+
+
+        <div class="promise-item">
+
+            <div class="promise-icon">
+                ↗
+            </div>
+
+
+            <h3 data-i18n="promise_direct_title">
+                Direct contact
+            </h3>
+
+
+            <p data-i18n="promise_direct_text">
+                Keep your contact details updated so customers can reach you
+                directly.
+            </p>
+
+        </div>
+
+
+
+        <div class="promise-item">
+
+            <div class="promise-icon">
+                ◎
+            </div>
+
+
+            <h3 data-i18n="promise_service_title">
+                Keep your service clear
+            </h3>
+
+
+            <p data-i18n="promise_service_text">
+                Update the main service and the specific work you currently provide.
+            </p>
+
+        </div>
+
+
+
+        <div class="promise-item">
+
+            <div class="promise-icon">
+                ✦
+            </div>
+
+
+            <h3 data-i18n="promise_experience_title">
+                Show your experience
+            </h3>
+
+
+            <p data-i18n="promise_experience_text">
+                Keep your experience and profile information current for customers.
+            </p>
+
+        </div>
+
+
+
+        <div class="promise-item">
+
+            <div class="promise-icon">
+                ⌖
+            </div>
+
+
+            <h3 data-i18n="promise_area_title">
+                Update your service area
+            </h3>
+
+
+            <p data-i18n="promise_area_text">
+                Change the localities you serve or make your service available
+                across Madurai.
+            </p>
+
+        </div>
+
+
+
+        <div class="promise-item">
+
+            <div class="promise-icon">
+                ✓
+            </div>
+
+
+            <h3 data-i18n="promise_availability_title">
+                Update availability
+            </h3>
+
+
+            <p data-i18n="promise_availability_text">
+                Keep your availability information useful for customers.
+            </p>
+
+        </div>
+
+
+
+        <div class="promise-item">
+
+            <div class="promise-icon">
+                ↻
+            </div>
+
+
+            <h3 data-i18n="promise_changes_title">
+                Save whenever things change
+            </h3>
+
+
+            <p data-i18n="promise_changes_text">
+                Update your profile whenever your services, locations or
+                availability change.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     FORM
+========================================= -->
+
+<section class="form-card">
+
+
+    <div class="form-header">
+
+        <h2 data-i18n="form_title">
+            Edit your service profile
+        </h2>
+
+
+        <p data-i18n="form_description">
+            Update the details customers see when they discover your service.
+        </p>
+
+    </div>
+
+
+
+    <!-- =====================================
+         BASIC DETAILS
+    ===================================== -->
+
+    <div class="form-section">
+
+        <div class="section-title">
+
+            <span data-i18n="basic_details">
+                Basic Details
+            </span>
+
+
+            <small data-i18n="basic_details_hint">
+                Update your contact information
+            </small>
+
+        </div>
+
+
+
+        <div class="two-columns">
+
+
+            <!-- NAME -->
+
+            <div class="field-group">
+
+                <label
+                    for="name"
+                    data-i18n="name"
+                >
+                    Name
+                </label>
+
+
+                <input
+                    type="text"
+                    id="name"
+                    value="Kumar"
+                    placeholder="Your name"
+                    data-i18n-placeholder="name_placeholder"
+                    autocomplete="name"
+                >
+
+            </div>
+
+
+
+            <!-- MOBILE -->
+
+            <div class="field-group">
+
+                <label
+                    for="phone"
+                    data-i18n="mobile"
+                >
+                    Mobile Number
+                </label>
+
+
+                <input
+                    type="tel"
+                    id="phone"
+                    value="9876543210"
+                    placeholder="10 digit mobile number"
+                    data-i18n-placeholder="mobile_placeholder"
+                    maxlength="10"
+                    inputmode="numeric"
+                    autocomplete="tel"
+                >
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================
+             ABOUT ME
+        ================================= -->
+
+        <div class="field-group">
+
+            <label for="aboutMe">
+
+                <span data-i18n="about_me">
+                    About Me
+                </span>
+
+
+                <span
+                    class="optional"
+                    data-i18n="optional"
+                >
+                    (Optional)
+                </span>
+
+            </label>
+
+
+            <textarea
+                id="aboutMe"
+                rows="4"
+                maxlength="300"
+                data-i18n-placeholder="about_me_placeholder"
+                placeholder="Tell customers briefly about your experience or service..."
+            >Experienced plumber providing tap repair, leak repair, pipe repair and bathroom plumbing services. I focus on reliable work and direct communication with customers.</textarea>
+
+
+            <div class="field-hint">
+
+                <span data-i18n="about_me_hint">
+                    Keep it short. Tell customers what you do and your experience.
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+         SERVICE
+    ===================================== -->
+
+    <div class="form-section">
+
+        <div class="section-title">
+
+            <span data-i18n="service">
+                Service
+            </span>
+
+
+            <small data-i18n="service_hint">
+                Update the main service you provide
+            </small>
+
+        </div>
+
+
+        <div class="field-group">
+
+            <select id="service">
+
+                <option
+                    value=""
+                    data-i18n="select_service"
+                >
+                    Select service
+                </option>
+
+
+                <option
+                    value="plumbing"
+                    selected
+                >
+                    Plumbing
+                </option>
+
+
+                <option value="electrical">
+                    Electrical
+                </option>
+
+
+                <option value="ac_service">
+                    AC Service
+                </option>
+
+
+                <option value="carpenter">
+                    Carpenter
+                </option>
+
+
+                <option value="cleaning">
+                    Cleaning
+                </option>
+
+
+                <option value="painting">
+                    Painting
+                </option>
+
+
+                <option value="cctv">
+                    CCTV
+                </option>
+
+
+                <option value="wifi">
+                    Wi-Fi & Internet
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+         SERVICE TYPES
+    ===================================== -->
+
+    <div class="form-section">
+
+        <div class="section-title">
+
+            <span data-i18n="service_type">
+                Service Type
+            </span>
+
+
+            <small data-i18n="service_type_hint">
+                Update the specific services you provide
+            </small>
+
+        </div>
+
+
+        <div
+            id="subServiceChips"
+            class="chip-grid"
+        ></div>
+
+
+        <button
+            type="button"
+            class="chip all-services-chip"
+            id="allServicesChip"
+            onclick="toggleAllServices()"
+        >
+
+            <span>✓</span>
+
+
+            <span data-i18n="all_services">
+                All Types of Services
+            </span>
+
+        </button>
+
+    </div>
+
+
+
+    <!-- =====================================
+         SERVICE AREA
+    ===================================== -->
+
+    <div class="form-section">
+
+        <div class="section-title">
+
+            <span data-i18n="service_area">
+                Service Area
+            </span>
+
+
+            <small data-i18n="service_area_hint">
+                Update where you are available
+            </small>
+
+        </div>
+
+
+        <div class="location-box">
+
+
+            <div
+                class="location-label"
+                data-i18n="district"
+            >
+                District
+            </div>
+
+
+            <div class="district-select">
+
+                <select id="district">
+
+                    <option
+                        value=""
+                        data-i18n="select_district"
+                    >
+                        Select district
+                    </option>
+
+
+                    <option
+                        value="madurai"
+                        selected
+                    >
+                        Madurai
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div
+                id="localitySection"
+                style="display:none;"
+            >
+
+                <div
+                    class="location-label"
+                    data-i18n="localities"
+                >
+                    Localities
+                </div>
+
+
+                <div
+                    id="localityChips"
+                    class="chip-grid"
+                ></div>
+
+            </div>
+
+
+
+            <label class="overall-option">
+
+                <input
+                    type="checkbox"
+                    id="overallMadurai"
+                >
+
+
+                <div>
+
+                    <strong data-i18n="entire_madurai">
+                        Entire Madurai
+                    </strong>
+
+
+                    <span data-i18n="entire_madurai_hint">
+                        I can provide my service across Madurai district
+                    </span>
+
+                </div>
+
+            </label>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+         EXPERIENCE
+    ===================================== -->
+
+    <div class="form-section">
+
+        <div class="section-title">
+
+            <span data-i18n="experience">
+                Experience
+            </span>
+
+
+            <small data-i18n="experience_hint">
+                Update your experience and availability
+            </small>
+
+        </div>
+
+
+        <div class="two-columns">
+
+
+            <div class="field-group">
+
+                <label
+                    for="experience"
+                    data-i18n="years_experience"
+                >
+                    Years of Experience
+                </label>
+
+
+                <select id="experience">
+
+                    <option
+                        value=""
+                        data-i18n="select"
+                    >
+                        Select
+                    </option>
+
+
+                    <option value="0-1">
+                        0 - 1 year
+                    </option>
+
+
+                    <option value="2-5" selected>
+                        2 - 5 years
+                    </option>
+
+
+                    <option value="6-10">
+                        6 - 10 years
+                    </option>
+
+
+                    <option value="10+">
+                        10+ years
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="field-group">
+
+                <label
+                    for="availability"
+                    data-i18n="availability"
+                >
+                    Availability
+                </label>
+
+
+                <select id="availability">
+
+                    <option
+                        value="available"
+                        selected
+                        data-i18n="available"
+                    >
+                        Available
+                    </option>
+
+
+                    <option
+                        value="weekdays"
+                        data-i18n="weekdays"
+                    >
+                        Weekdays
+                    </option>
+
+
+                    <option
+                        value="weekends"
+                        data-i18n="weekends"
+                    >
+                        Weekends
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+         ACTION BUTTONS
+    ===================================== -->
+
+    <div class="action-buttons">
+
+
+        <button
+            type="button"
+            class="cancel-button"
+            onclick="cancelEdit()"
+            data-i18n="cancel"
+        >
+            Cancel
+        </button>
+
+
+        <button
+            type="button"
+            class="save-button"
+            onclick="saveProfile()"
+            data-i18n="save_changes"
+        >
+            Save Changes
+        </button>
+
+    </div>
+
+
+    <div
+        class="form-note"
+        data-i18n="form_note"
+    >
+        Your changes will update the information customers see on your profile.
+    </div>
+
+
+    <div
+        id="successMessage"
+        class="success-message"
+    >
+
+        <p data-i18n="success_message">
+            Your service profile has been updated successfully.
+        </p>
+
+
+        <a
+            href="my_profile.html"
+            class="profile-after-save"
+            data-i18n="view_profile"
+        >
+            View My Profile
+        </a>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<footer>
+
+    <strong>Seivom</strong>
+
+    —
+
+    <span data-i18n="footer_text">
+        Local services, just around you.
+    </span>
+
+</footer>
+
+
+
+<script>
+
+
+/* =====================================================
+   TRANSLATIONS
+===================================================== */
+
+const translations = {
+
+    en: {
+
+        nav_home:
+            "Home",
+
+        nav_profile:
+            "My Profile",
+
+        provider_badge:
+            "Edit your service profile",
+
+        hero_title:
+            'Keep your profile <span>up to date.</span>',
+
+        hero_description:
+            "Update your service details, service areas and availability so customers always see the latest information about your service.",
+
+
+        promise_title:
+            "Keep your service profile accurate",
+
+        promise_description:
+            "Customers should always see the information you currently provide.",
+
+
+        promise_direct_title:
+            "Direct contact",
+
+        promise_direct_text:
+            "Keep your contact details updated so customers can reach you directly.",
+
+
+        promise_service_title:
+            "Keep your service clear",
+
+        promise_service_text:
+            "Update the main service and the specific work you currently provide.",
+
+
+        promise_experience_title:
+            "Show your experience",
+
+        promise_experience_text:
+            "Keep your experience and profile information current for customers.",
+
+
+        promise_area_title:
+            "Update your service area",
+
+        promise_area_text:
+            "Change the localities you serve or make your service available across Madurai.",
+
+
+        promise_availability_title:
+            "Update availability",
+
+        promise_availability_text:
+            "Keep your availability information useful for customers.",
+
+
+        promise_changes_title:
+            "Save whenever things change",
+
+        promise_changes_text:
+            "Update your profile whenever your services, locations or availability change.",
+
+
+        form_title:
+            "Edit your service profile",
+
+        form_description:
+            "Update the details customers see when they discover your service.",
+
+
+        basic_details:
+            "Basic Details",
+
+        basic_details_hint:
+            "Update your contact information",
+
+
+        name:
+            "Name",
+
+        name_placeholder:
+            "Your name",
+
+
+        mobile:
+            "Mobile Number",
+
+        mobile_placeholder:
+            "10 digit mobile number",
+
+
+        about_me:
+            "About Me",
+
+        optional:
+            "(Optional)",
+
+        about_me_placeholder:
+            "Tell customers briefly about your experience or service...",
+
+        about_me_hint:
+            "Keep it short. Tell customers what you do and your experience.",
+
+
+        service:
+            "Service",
+
+        service_hint:
+            "Update the main service you provide",
+
+        select_service:
+            "Select service",
+
+
+        service_type:
+            "Service Type",
+
+        service_type_hint:
+            "Update the specific services you provide",
+
+        all_services:
+            "All Types of Services",
+
+
+        service_area:
+            "Service Area",
+
+        service_area_hint:
+            "Update where you are available",
+
+        district:
+            "District",
+
+        select_district:
+            "Select district",
+
+        localities:
+            "Localities",
+
+        entire_madurai:
+            "Entire Madurai",
+
+        entire_madurai_hint:
+            "I can provide my service across Madurai district",
+
+
+        experience:
+            "Experience",
+
+        experience_hint:
+            "Update your experience and availability",
+
+        years_experience:
+            "Years of Experience",
+
+        select:
+            "Select",
+
+        availability:
+            "Availability",
+
+        available:
+            "Available",
+
+        weekdays:
+            "Weekdays",
+
+        weekends:
+            "Weekends",
+
+
+        cancel:
+            "Cancel",
+
+        save_changes:
+            "Save Changes",
+
+        form_note:
+            "Your changes will update the information customers see on your profile.",
+
+        success_message:
+            "Your service profile has been updated successfully.",
+
+        view_profile:
+            "View My Profile",
+
+
+        footer_text:
+            "Local services, just around you."
+
+    },
+
+
+    ta: {
+
+        nav_home:
+            "முகப்பு",
+
+        nav_profile:
+            "என் சுயவிவரம்",
+
+        provider_badge:
+            "உங்கள் சேவை சுயவிவரத்தை திருத்துங்கள்",
+
+        hero_title:
+            'உங்கள் சுயவிவரத்தை <span>புதுப்பித்து வைத்திருங்கள்.</span>',
+
+        hero_description:
+            "உங்கள் சேவை, சேவை பகுதிகள் மற்றும் கிடைப்புநிலையை புதுப்பிக்கவும். வாடிக்கையாளர்கள் எப்போதும் சமீபத்திய தகவல்களை பார்க்கலாம்.",
+
+
+        promise_title:
+            "உங்கள் சேவை சுயவிவரத்தை சரியாக வைத்திருங்கள்",
+
+        promise_description:
+            "வாடிக்கையாளர்கள் நீங்கள் தற்போது வழங்கும் சேவைகளின் தகவல்களை பார்க்க வேண்டும்.",
+
+
+        promise_direct_title:
+            "நேரடி தொடர்பு",
+
+        promise_direct_text:
+            "வாடிக்கையாளர்கள் உங்களை நேரடியாக தொடர்பு கொள்ள உங்கள் தொடர்பு தகவல்களை புதுப்பித்து வைத்திருங்கள்.",
+
+
+        promise_service_title:
+            "உங்கள் சேவையை தெளிவாக குறிப்பிடுங்கள்",
+
+        promise_service_text:
+            "நீங்கள் தற்போது வழங்கும் முக்கிய சேவை மற்றும் குறிப்பிட்ட வேலைகளை புதுப்பிக்கவும்.",
+
+
+        promise_experience_title:
+            "உங்கள் அனுபவத்தை காட்டுங்கள்",
+
+        promise_experience_text:
+            "உங்கள் அனுபவம் மற்றும் சுயவிவர தகவல்களை புதுப்பித்து வைத்திருங்கள்.",
+
+
+        promise_area_title:
+            "சேவை பகுதியை புதுப்பிக்கவும்",
+
+        promise_area_text:
+            "நீங்கள் சேவை செய்யும் பகுதிகளை மாற்றலாம் அல்லது மதுரை முழுவதும் சேவை வழங்கலாம்.",
+
+
+        promise_availability_title:
+            "கிடைப்புநிலையை புதுப்பிக்கவும்",
+
+        promise_availability_text:
+            "வாடிக்கையாளர்களுக்கு உங்கள் தற்போதைய கிடைப்புநிலையை சரியாக காட்டுங்கள்.",
+
+
+        promise_changes_title:
+            "மாற்றம் ஏற்பட்டால் சேமிக்கவும்",
+
+        promise_changes_text:
+            "உங்கள் சேவை, பகுதிகள் அல்லது கிடைப்புநிலை மாறும்போது சுயவிவரத்தை புதுப்பிக்கவும்.",
+
+
+        form_title:
+            "உங்கள் சேவை சுயவிவரத்தை திருத்துங்கள்",
+
+        form_description:
+            "வாடிக்கையாளர்கள் உங்கள் சேவையை கண்டுபிடிக்கும் போது பார்க்கும் தகவல்களை புதுப்பிக்கவும்.",
+
+
+        basic_details:
+            "அடிப்படை விவரங்கள்",
+
+        basic_details_hint:
+            "உங்கள் தொடர்பு தகவல்களை புதுப்பிக்கவும்",
+
+
+        name:
+            "பெயர்",
+
+        name_placeholder:
+            "உங்கள் பெயர்",
+
+
+        mobile:
+            "மொபைல் எண்",
+
+        mobile_placeholder:
+            "10 இலக்க மொபைல் எண்",
+
+
+        about_me:
+            "என்னைப் பற்றி",
+
+        optional:
+            "(விருப்பம்)",
+
+        about_me_placeholder:
+            "உங்கள் அனுபவம் அல்லது சேவை பற்றி சுருக்கமாக சொல்லுங்கள்...",
+
+        about_me_hint:
+            "சுருக்கமாக எழுதுங்கள். நீங்கள் செய்யும் வேலை மற்றும் அனுபவத்தை குறிப்பிடுங்கள்.",
+
+
+        service:
+            "சேவை",
+
+        service_hint:
+            "நீங்கள் வழங்கும் முக்கிய சேவையை புதுப்பிக்கவும்",
+
+        select_service:
+            "சேவையை தேர்வு செய்யுங்கள்",
+
+
+        service_type:
+            "சேவை வகை",
+
+        service_type_hint:
+            "நீங்கள் வழங்கும் குறிப்பிட்ட சேவைகளை புதுப்பிக்கவும்",
+
+        all_services:
+            "அனைத்து சேவை வகைகளும்",
+
+
+        service_area:
+            "சேவை பகுதி",
+
+        service_area_hint:
+            "நீங்கள் சேவை வழங்கும் இடத்தை புதுப்பிக்கவும்",
+
+        district:
+            "மாவட்டம்",
+
+        select_district:
+            "மாவட்டத்தை தேர்வு செய்யுங்கள்",
+
+        localities:
+            "பகுதிகள்",
+
+        entire_madurai:
+            "முழு மதுரை",
+
+        entire_madurai_hint:
+            "மதுரை மாவட்டம் முழுவதும் சேவை வழங்க முடியும்",
+
+
+        experience:
+            "அனுபவம்",
+
+        experience_hint:
+            "உங்கள் அனுபவம் மற்றும் கிடைப்புநிலையை புதுப்பிக்கவும்",
+
+        years_experience:
+            "அனுபவ ஆண்டுகள்",
+
+        select:
+            "தேர்வு செய்யுங்கள்",
+
+        availability:
+            "கிடைக்கும் நேரம்",
+
+        available:
+            "கிடைக்கும்",
+
+        weekdays:
+            "வார நாட்கள்",
+
+        weekends:
+            "வார இறுதி நாட்கள்",
+
+
+        cancel:
+            "ரத்து செய்",
+
+        save_changes:
+            "மாற்றங்களை சேமிக்கவும்",
+
+        form_note:
+            "உங்கள் மாற்றங்கள் வாடிக்கையாளர்கள் உங்கள் சுயவிவரத்தில் பார்க்கும் தகவல்களை புதுப்பிக்கும்.",
+
+        success_message:
+            "உங்கள் சேவை சுயவிவரம் வெற்றிகரமாக புதுப்பிக்கப்பட்டது.",
+
+        view_profile:
+            "என் சுயவிவரத்தை பார்க்க",
+
+
+        footer_text:
+            "உள்ளூர் சேவைகள், உங்களைச் சுற்றியே."
+
+    }
+
+};
+
+
+
+/* =====================================================
+   SUB SERVICES
+===================================================== */
+
+const subServices = {
+
+    plumbing: [
+
+        [
+            "tap_repair",
+            "Tap Repair",
+            "குழாய் பழுது"
+        ],
+
+        [
+            "leak_repair",
+            "Leak Repair",
+            "கசிவு பழுது"
+        ],
+
+        [
+            "pipe_repair",
+            "Pipe Repair",
+            "குழாய் பழுது"
+        ],
+
+        [
+            "bathroom_plumbing",
+            "Bathroom Plumbing",
+            "குளியலறை குழாய் வேலை"
+        ],
+
+        [
+            "sink_repair",
+            "Sink Repair",
+            "சிங்க் பழுது"
+        ],
+
+        [
+            "water_tank",
+            "Water Tank",
+            "தண்ணீர் தொட்டி வேலை"
+        ]
+
+    ],
+
+
+    electrical: [
+
+        [
+            "switch_repair",
+            "Switch Repair",
+            "சுவிட்ச் பழுது"
+        ],
+
+        [
+            "fan_repair",
+            "Fan Repair",
+            "விசிறி பழுது"
+        ],
+
+        [
+            "light_installation",
+            "Light Installation",
+            "லைட் பொருத்துதல்"
+        ],
+
+        [
+            "wiring",
+            "Wiring",
+            "வயரிங்"
+        ],
+
+        [
+            "socket_repair",
+            "Socket Repair",
+            "சாக்கெட் பழுது"
+        ],
+
+        [
+            "inverter",
+            "Inverter",
+            "இன்வெர்டர்"
+        ]
+
+    ],
+
+
+    ac_service: [
+
+        [
+            "ac_service",
+            "AC Service",
+            "ஏசி சர்வீஸ்"
+        ],
+
+        [
+            "ac_repair",
+            "AC Repair",
+            "ஏசி பழுது"
+        ],
+
+        [
+            "ac_installation",
+            "AC Installation",
+            "ஏசி பொருத்துதல்"
+        ],
+
+        [
+            "gas_filling",
+            "Gas Filling",
+            "கேஸ் நிரப்புதல்"
+        ],
+
+        [
+            "ac_cleaning",
+            "AC Cleaning",
+            "ஏசி சுத்தம்"
+        ]
+
+    ],
+
+
+    carpenter: [
+
+        [
+            "door_repair",
+            "Door Repair",
+            "கதவு பழுது"
+        ],
+
+        [
+            "furniture_repair",
+            "Furniture Repair",
+            "பர்னிச்சர் பழுது"
+        ],
+
+        [
+            "cupboard",
+            "Cupboard Work",
+            "அலமாரி வேலை"
+        ],
+
+        [
+            "wood_work",
+            "Wood Work",
+            "மர வேலை"
+        ],
+
+        [
+            "bed_repair",
+            "Bed Repair",
+            "கட்டில் பழுது"
+        ]
+
+    ],
+
+
+    cleaning: [
+
+        [
+            "home_cleaning",
+            "Home Cleaning",
+            "வீட்டு சுத்தம்"
+        ],
+
+        [
+            "bathroom_cleaning",
+            "Bathroom Cleaning",
+            "குளியலறை சுத்தம்"
+        ],
+
+        [
+            "kitchen_cleaning",
+            "Kitchen Cleaning",
+            "சமையலறை சுத்தம்"
+        ],
+
+        [
+            "sofa_cleaning",
+            "Sofa Cleaning",
+            "சோபா சுத்தம்"
+        ],
+
+        [
+            "deep_cleaning",
+            "Deep Cleaning",
+            "ஆழமான சுத்தம்"
+        ]
+
+    ],
+
+
+    painting: [
+
+        [
+            "home_painting",
+            "Home Painting",
+            "வீட்டு பெயிண்டிங்"
+        ],
+
+        [
+            "wall_painting",
+            "Wall Painting",
+            "சுவர் பெயிண்டிங்"
+        ],
+
+        [
+            "exterior",
+            "Exterior Painting",
+            "வெளிப்புற பெயிண்டிங்"
+        ],
+
+        [
+            "interior",
+            "Interior Painting",
+            "உட்புற பெயிண்டிங்"
+        ]
+
+    ],
+
+
+    cctv: [
+
+        [
+            "cctv_installation",
+            "CCTV Installation",
+            "CCTV பொருத்துதல்"
+        ],
+
+        [
+            "cctv_repair",
+            "CCTV Repair",
+            "CCTV பழுது"
+        ],
+
+        [
+            "camera_setup",
+            "Camera Setup",
+            "கேமரா அமைப்பு"
+        ],
+
+        [
+            "dvr_nvr",
+            "DVR / NVR",
+            "DVR / NVR"
+        ]
+
+    ],
+
+
+    wifi: [
+
+        [
+            "wifi_setup",
+            "Wi-Fi Setup",
+            "Wi-Fi அமைப்பு"
+        ],
+
+        [
+            "router_setup",
+            "Router Setup",
+            "ரூட்டர் அமைப்பு"
+        ],
+
+        [
+            "network_repair",
+            "Network Repair",
+            "நெட்வொர்க் பழுது"
+        ],
+
+        [
+            "internet_setup",
+            "Internet Setup",
+            "இணைய அமைப்பு"
+        ]
+
+    ]
+
+};
+
+
+
+/* =====================================================
+   LOCALITIES
+===================================================== */
+
+const localities = {
+
+    madurai: [
+
+        [
+            "anna_nagar",
+            "Anna Nagar",
+            "அண்ணா நகர்"
+        ],
+
+        [
+            "kk_nagar",
+            "KK Nagar",
+            "கே.கே. நகர்"
+        ],
+
+        [
+            "arasaradi",
+            "Arasaradi",
+            "அரசரடி"
+        ],
+
+        [
+            "thirunagar",
+            "Thirunagar",
+            "திருநகர்"
+        ],
+
+        [
+            "mattuthavani",
+            "Mattuthavani",
+            "மாட்டுத்தாவணி"
+        ],
+
+        [
+            "simmakkal",
+            "Simmakkal",
+            "சிம்மக்கல்"
+        ],
+
+        [
+            "kalavasal",
+            "Kalavasal",
+            "காளவாசல்"
+        ],
+
+        [
+            "villapuram",
+            "Villapuram",
+            "வில்லாபுரம்"
+        ],
+
+        [
+            "thiruppalai",
+            "Thiruppalai",
+            "திருப்பாலை"
+        ],
+
+        [
+            "goripalayam",
+            "Goripalayam",
+            "கோரிப்பாளையம்"
+        ],
+
+        [
+            "alagar_kovil_road",
+            "Alagar Kovil Road",
+            "அழகர் கோவில் சாலை"
+        ],
+
+        [
+            "palanganatham",
+            "Palanganatham",
+            "பழங்காநத்தம்"
+        ],
+
+        [
+            "by_pass_road",
+            "Bypass Road",
+            "பைபாஸ் ரோடு"
+        ],
+
+        [
+            "avaniyapuram",
+            "Avaniyapuram",
+            "அவனியாபுரம்"
+        ],
+
+        [
+            "uthangudi",
+            "Uthangudi",
+            "உத்தங்குடி"
+        ]
+
+    ]
+
+};
+
+
+
+/* =====================================================
+   EXISTING PROFILE DATA
+===================================================== */
+
+const existingProfile = {
+
+    name: "Kumar",
+
+    phone: "9876543210",
+
+    aboutMe:
+        "Experienced plumber providing tap repair, leak repair, pipe repair and bathroom plumbing services. I focus on reliable work and direct communication with customers.",
+
+    service:
+        "plumbing",
+
+    subServices: [
+
+        "tap_repair",
+        "leak_repair",
+        "pipe_repair",
+        "bathroom_plumbing",
+        "sink_repair",
+        "water_tank"
+
+    ],
+
+    district:
+        "madurai",
+
+    localities: [
+
+        "anna_nagar",
+        "kk_nagar",
+        "arasaradi"
+
+    ],
+
+    serviceArea:
+        "localities",
+
+    experience:
+        "2-5",
+
+    availability:
+        "available"
+
+};
+
+
+
+/* =====================================================
+   STATE
+===================================================== */
+
+let selectedSubServices =
+    [...existingProfile.subServices];
+
+let selectedLocalities =
+    [...existingProfile.localities];
+
+let allServicesSelected =
+    false;
+
+let overallMadurai =
+    existingProfile.serviceArea === "district";
+
+let currentLanguage =
+    localStorage.getItem(
+        "seivom_language"
+    ) || "en";
+
+
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
+
+function setLanguage(language) {
+
+    currentLanguage =
+        language;
+
+
+    localStorage.setItem(
+        "seivom_language",
+        language
+    );
+
+
+    document.documentElement.lang =
+        language;
+
+
+    document
+        .querySelectorAll("[data-i18n]")
+        .forEach(element => {
+
+            const key =
+                element.getAttribute(
+                    "data-i18n"
+                );
+
+
+            if (
+                translations[language] &&
+                translations[language][key]
+            ) {
+
+                element.innerHTML =
+                    translations[language][key];
+
+            }
+
+        });
+
+
+    document
+        .querySelectorAll(
+            "[data-i18n-placeholder]"
+        )
+        .forEach(element => {
+
+            const key =
+                element.getAttribute(
+                    "data-i18n-placeholder"
+                );
+
+
+            if (
+                translations[language] &&
+                translations[language][key]
+            ) {
+
+                element.placeholder =
+                    translations[language][key];
+
+            }
+
+        });
+
+
+    document
+        .getElementById("englishBtn")
+        .classList.toggle(
+            "active",
+            language === "en"
+        );
+
+
+    document
+        .getElementById("tamilBtn")
+        .classList.toggle(
+            "active",
+            language === "ta"
+        );
+
+
+    renderCurrentSubServices();
+
+    renderLocalities();
+
+}
+
+
+
+/* =====================================================
+   SERVICE CHANGE
+===================================================== */
+
+document
+    .getElementById("service")
+    .addEventListener(
+        "change",
+        function () {
+
+            selectedSubServices =
+                [];
+
+            allServicesSelected =
+                false;
+
+
+            document
+                .getElementById(
+                    "allServicesChip"
+                )
+                .classList.remove(
+                    "selected"
+                );
+
+
+            renderCurrentSubServices();
+
+        }
+    );
+
+
+
+/* =====================================================
+   CURRENT SUB SERVICES
+===================================================== */
+
+function renderCurrentSubServices() {
+
+    const serviceId =
+        document.getElementById(
+            "service"
+        ).value;
+
+
+    renderSubServices(serviceId);
+
+}
+
+
+
+/* =====================================================
+   RENDER SUB SERVICES
+===================================================== */
+
+function renderSubServices(serviceId) {
+
+    const container =
+        document.getElementById(
+            "subServiceChips"
+        );
+
+
+    container.innerHTML = "";
+
+
+    if (!serviceId) {
+
+        updateAllServicesChip();
+
+        return;
+
+    }
+
+
+    const services =
+        subServices[serviceId] || [];
+
+
+    allServicesSelected =
+        services.length > 0 &&
+        selectedSubServices.length ===
+            services.length;
+
+
+    services.forEach(
+        ([id, nameEn, nameTa]) => {
+
+            const chip =
+                document.createElement(
+                    "button"
+                );
+
+
+            chip.type =
+                "button";
+
+            chip.className =
+                "chip";
+
+
+            if (
+                selectedSubServices
+                    .includes(id)
+            ) {
+
+                chip.classList.add(
+                    "selected"
+                );
+
+            }
+
+
+            const displayName =
+                currentLanguage === "ta"
+                    ? nameTa
+                    : nameEn;
+
+
+            chip.innerHTML =
+                `<span>${displayName}</span>`;
+
+
+            chip.onclick =
+                function () {
+
+                    toggleSubService(
+                        id,
+                        chip
+                    );
+
+                };
+
+
+            container.appendChild(
+                chip
+            );
+
+        }
+    );
+
+
+    updateAllServicesChip();
+
+}
+
+
+
+/* =====================================================
+   TOGGLE SUB SERVICE
+===================================================== */
+
+function toggleSubService(
+    id,
+    chip
+) {
+
+    if (
+        selectedSubServices
+            .includes(id)
+    ) {
+
+        selectedSubServices =
+            selectedSubServices.filter(
+                item =>
+                    item !== id
+            );
+
+
+        chip.classList.remove(
+            "selected"
+        );
+
+    } else {
+
+        selectedSubServices.push(
+            id
+        );
+
+
+        chip.classList.add(
+            "selected"
+        );
+
+    }
+
+
+    const serviceId =
+        document.getElementById(
+            "service"
+        ).value;
+
+
+    const services =
+        subServices[serviceId] || [];
+
+
+    allServicesSelected =
+        services.length > 0 &&
+        selectedSubServices.length ===
+            services.length;
+
+
+    updateAllServicesChip();
+
+}
+
+
+
+/* =====================================================
+   ALL SERVICES
+===================================================== */
+
+function toggleAllServices() {
+
+    const serviceId =
+        document.getElementById(
+            "service"
+        ).value;
+
+
+    if (!serviceId) {
+
+        alert(
+            currentLanguage === "ta"
+                ? "முதலில் ஒரு சேவையை தேர்வு செய்யுங்கள்."
+                : "Please select a service first."
+        );
+
+        return;
+
+    }
+
+
+    const services =
+        subServices[serviceId] || [];
+
+
+    allServicesSelected =
+        !allServicesSelected;
+
+
+    if (allServicesSelected) {
+
+        selectedSubServices =
+            services.map(
+                service =>
+                    service[0]
+            );
+
+    } else {
+
+        selectedSubServices =
+            [];
+
+    }
+
+
+    renderSubServices(
+        serviceId
+    );
+
+}
+
+
+
+function updateAllServicesChip() {
+
+    const chip =
+        document.getElementById(
+            "allServicesChip"
+        );
+
+
+    chip.classList.toggle(
+        "selected",
+        allServicesSelected
+    );
+
+}
+
+
+
+/* =====================================================
+   DISTRICT CHANGE
+===================================================== */
+
+document
+    .getElementById("district")
+    .addEventListener(
+        "change",
+        function () {
+
+            selectedLocalities =
+                [];
+
+            overallMadurai =
+                false;
+
+
+            document
+                .getElementById(
+                    "overallMadurai"
+                )
+                .checked =
+                false;
+
+
+            renderLocalities();
+
+        }
+    );
+
+
+
+/* =====================================================
+   RENDER LOCALITIES
+===================================================== */
+
+function renderLocalities() {
+
+    const district =
+        document.getElementById(
+            "district"
+        ).value;
+
+
+    const section =
+        document.getElementById(
+            "localitySection"
+        );
+
+
+    const container =
+        document.getElementById(
+            "localityChips"
+        );
+
+
+    container.innerHTML = "";
+
+
+    if (!district) {
+
+        section.style.display =
+            "none";
+
+        return;
+
+    }
+
+
+    section.style.display =
+        "block";
+
+
+    const items =
+        localities[district] || [];
+
+
+    items.forEach(
+        ([id, nameEn, nameTa]) => {
+
+            const chip =
+                document.createElement(
+                    "button"
+                );
+
+
+            chip.type =
+                "button";
+
+            chip.className =
+                "chip";
+
+
+            if (
+                selectedLocalities
+                    .includes(id)
+            ) {
+
+                chip.classList.add(
+                    "selected"
+                );
+
+            }
+
+
+            chip.innerHTML =
+                `<span>${
+                    currentLanguage === "ta"
+                        ? nameTa
+                        : nameEn
+                }</span>`;
+
+
+            chip.onclick =
+                function () {
+
+                    toggleLocality(
+                        id,
+                        chip
+                    );
+
+                };
+
+
+            container.appendChild(
+                chip
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   LOCALITY TOGGLE
+===================================================== */
+
+function toggleLocality(
+    id,
+    chip
+) {
+
+    if (
+        selectedLocalities
+            .includes(id)
+    ) {
+
+        selectedLocalities =
+            selectedLocalities.filter(
+                item =>
+                    item !== id
+            );
+
+
+        chip.classList.remove(
+            "selected"
+        );
+
+    } else {
+
+        selectedLocalities.push(
+            id
+        );
+
+
+        chip.classList.add(
+            "selected"
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   ENTIRE MADURAI
+===================================================== */
+
+document
+    .getElementById(
+        "overallMadurai"
+    )
+    .addEventListener(
+        "change",
+        function () {
+
+            overallMadurai =
+                this.checked;
+
+
+            if (overallMadurai) {
+
+                selectedLocalities =
+                    [];
+
+
+                document
+                    .querySelectorAll(
+                        "#localityChips .chip"
+                    )
+                    .forEach(chip => {
+
+                        chip.classList.remove(
+                            "selected"
+                        );
+
+                    });
+
+            }
+
+        }
+    );
+
+
+
+/* =====================================================
+   CANCEL
+===================================================== */
+
+function cancelEdit() {
+
+    window.history.back();
+
+}
+
+
+
+/* =====================================================
+   SAVE PROFILE
+===================================================== */
+
+function saveProfile() {
+
+    const name =
+        document.getElementById(
+            "name"
+        ).value.trim();
+
+
+    const phone =
+        document.getElementById(
+            "phone"
+        ).value.trim();
+
+
+    const aboutMe =
+        document.getElementById(
+            "aboutMe"
+        ).value.trim();
+
+
+    const service =
+        document.getElementById(
+            "service"
+        ).value;
+
+
+    const district =
+        document.getElementById(
+            "district"
+        ).value;
+
+
+    const experience =
+        document.getElementById(
+            "experience"
+        ).value;
+
+
+    const availability =
+        document.getElementById(
+            "availability"
+        ).value;
+
+
+
+    /* =====================================
+       NAME
+    ===================================== */
+
+    if (!name) {
+
+        alert(
+            currentLanguage === "ta"
+                ? "உங்கள் பெயரை உள்ளிடுங்கள்."
+                : "Please enter your name."
+        );
+
+        return;
+
+    }
+
+
+
+    /* =====================================
+       MOBILE
+    ===================================== */
+
+    if (
+        !phone ||
+        !/^[0-9]{10}$/.test(phone)
+    ) {
+
+        alert(
+            currentLanguage === "ta"
+                ? "சரியான 10 இலக்க மொபைல் எண்ணை உள்ளிடுங்கள்."
+                : "Please enter a valid 10 digit mobile number."
+        );
+
+        return;
+
+    }
+
+
+
+    /* =====================================
+       SERVICE
+    ===================================== */
+
+    if (!service) {
+
+        alert(
+            currentLanguage === "ta"
+                ? "ஒரு சேவையை தேர்வு செய்யுங்கள்."
+                : "Please select a service."
+        );
+
+        return;
+
+    }
+
+
+
+    /* =====================================
+       SUB SERVICE
+    ===================================== */
+
+    if (
+        selectedSubServices.length === 0
+    ) {
+
+        alert(
+            currentLanguage === "ta"
+                ? "குறைந்தது ஒரு சேவை வகையை தேர்வு செய்யுங்கள்."
+                : "Please select at least one service type."
+        );
+
+        return;
+
+    }
+
+
+
+    /* =====================================
+       DISTRICT
+    ===================================== */
+
+    if (!district) {
+
+        alert(
+            currentLanguage === "ta"
+                ? "மாவட்டத்தை தேர்வு செய்யுங்கள்."
+                : "Please select a district."
+        );
+
+        return;
+
+    }
+
+
+
+    /* =====================================
+       LOCALITY
+    ===================================== */
+
+    if (
+        !overallMadurai &&
+        selectedLocalities.length === 0
+    ) {
+
+        alert(
+            currentLanguage === "ta"
+                ? "குறைந்தது ஒரு பகுதியை தேர்வு செய்யுங்கள் அல்லது முழு மதுரையை தேர்வு செய்யுங்கள்."
+                : "Please select at least one locality or choose Entire Madurai."
+        );
+
+        return;
+
+    }
+
+
+
+    /* =====================================
+       PROFILE OBJECT
+    ===================================== */
+
+    const updatedProfile = {
+
+        name: name,
+
+        phone: phone,
+
+        aboutMe: aboutMe,
+
+        service: service,
+
+        subServices:
+            selectedSubServices,
+
+        districtId:
+            district,
+
+        localities:
+            overallMadurai
+                ? ["*"]
+                : selectedLocalities,
+
+        serviceArea:
+            overallMadurai
+                ? "district"
+                : "localities",
+
+        experience:
+            experience,
+
+        availability:
+            availability,
+
+        active: true
+
+    };
+
+
+
+    /* =====================================
+       TEMPORARY DEMO
+    ===================================== */
+
+    console.log(
+        "Updated provider profile:",
+        updatedProfile
+    );
+
+
+    const success =
+        document.getElementById(
+            "successMessage"
+        );
+
+
+    success.style.display =
+        "block";
+
+
+    success.scrollIntoView({
+
+        behavior:
+            "smooth",
+
+        block:
+            "center"
+
+    });
+
+}
+
+
+
+/* =====================================================
+   INITIALIZE EXISTING VALUES
+===================================================== */
+
+document.getElementById(
+    "name"
+).value =
+    existingProfile.name;
+
+
+document.getElementById(
+    "phone"
+).value =
+    existingProfile.phone;
+
+
+document.getElementById(
+    "aboutMe"
+).value =
+    existingProfile.aboutMe;
+
+
+document.getElementById(
+    "service"
+).value =
+    existingProfile.service;
+
+
+document.getElementById(
+    "district"
+).value =
+    existingProfile.district;
+
+
+document.getElementById(
+    "experience"
+).value =
+    existingProfile.experience;
+
+
+document.getElementById(
+    "availability"
+).value =
+    existingProfile.availability;
+
+
+document.getElementById(
+    "overallMadurai"
+).checked =
+    overallMadurai;
+
+
+setLanguage(
+    currentLanguage
+);
+
+</script>
+
+
+</body>
+
+</html>

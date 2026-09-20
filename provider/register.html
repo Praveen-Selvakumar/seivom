@@ -1,0 +1,4235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <title>Register Your Service - Seivom</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+            --orange: #ff6b00;
+            --orange-light: #fff1e7;
+            --black: #171717;
+            --gray: #666;
+            --light-gray: #f7f7f7;
+            --border: #e8e8e8;
+            --background: #fffaf7;
+            --white: #ffffff;
+            --green: #159957;
+            --red: #dc3545;
+        }
+
+
+        body {
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+            background: var(--background);
+
+            color: var(--black);
+
+            line-height: 1.5;
+        }
+
+
+        button,
+        input,
+        textarea,
+        select {
+            font: inherit;
+        }
+
+
+        button {
+            cursor: pointer;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =========================================
+           NAVBAR
+        ========================================= */
+
+        .navbar {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            height: 68px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            background:
+                rgba(255, 250, 247, 0.92);
+
+            backdrop-filter: blur(14px);
+
+            border-bottom:
+                1px solid rgba(0, 0, 0, 0.05);
+        }
+
+
+        .logo {
+
+            text-decoration: none;
+
+            color: var(--black);
+
+            font-size: 23px;
+
+            font-weight: 850;
+
+            letter-spacing: -1px;
+        }
+
+
+        .logo span {
+            color: var(--orange);
+        }
+
+
+        .nav-right {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 22px;
+        }
+
+
+        /* =========================================
+           NAV LINKS
+        ========================================= */
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
+
+            font-size: 13px;
+
+            font-weight: 750;
+
+            color: #666;
+        }
+
+
+        .nav-links a {
+
+            transition:
+                color 0.2s ease;
+        }
+
+
+        .nav-links a:hover {
+
+            color:
+                var(--orange);
+        }
+
+
+        .provider-login-link {
+
+            padding:
+                9px 14px;
+
+            border-radius: 11px;
+
+            border:
+                1px solid var(--border);
+
+            background: white;
+
+            color: var(--black);
+
+            font-weight: 800;
+        }
+
+
+        .provider-login-link:hover {
+
+            border-color:
+                var(--orange);
+
+            color:
+                var(--orange);
+        }
+
+
+        /* =========================================
+           LANGUAGE
+        ========================================= */
+
+        .language-switcher {
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 4px;
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 30px;
+        }
+
+
+        .lang-btn {
+
+            border: none;
+
+            background: transparent;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+
+            color: #777;
+
+            font-size: 13px;
+
+            font-weight: 750;
+        }
+
+
+        .lang-btn.active {
+
+            background: var(--black);
+
+            color: white;
+        }
+
+
+        /* =========================================
+           PAGE
+        ========================================= */
+
+        .page {
+
+            width: min(920px, 92%);
+
+            margin: 0 auto;
+
+            padding: 55px 0 80px;
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+
+            text-align: center;
+
+            margin-bottom: 40px;
+        }
+
+
+        .badge {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 7px 14px;
+
+            margin-bottom: 18px;
+
+            border-radius: 30px;
+
+            background: var(--orange-light);
+
+            color: var(--orange);
+
+            font-size: 12px;
+
+            font-weight: 800;
+        }
+
+
+        .badge-dot {
+
+            width: 7px;
+
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: var(--orange);
+        }
+
+
+        .hero h1 {
+
+            font-size:
+                clamp(36px, 6vw, 60px);
+
+            line-height: 1.02;
+
+            letter-spacing: -2.7px;
+
+            font-weight: 850;
+
+            margin-bottom: 18px;
+        }
+
+
+        .hero h1 span {
+            color: var(--orange);
+        }
+
+
+        .hero p {
+
+            max-width: 680px;
+
+            margin: auto;
+
+            color: var(--gray);
+
+            font-size: 17px;
+        }
+
+
+        /* =========================================
+           PROMISE CARD
+        ========================================= */
+
+        .promise-card {
+
+            background: var(--black);
+
+            color: white;
+
+            border-radius: 28px;
+
+            padding: 30px;
+
+            margin-bottom: 28px;
+
+            box-shadow:
+                0 15px 45px rgba(0, 0, 0, 0.08);
+        }
+
+
+        .promise-header {
+            margin-bottom: 24px;
+        }
+
+
+        .promise-header h2 {
+
+            font-size: 25px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .promise-header p {
+
+            color: #aaa;
+
+            font-size: 14px;
+        }
+
+
+        .promise-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 12px;
+        }
+
+
+        .promise-item {
+
+            background: #232323;
+
+            border:
+                1px solid #303030;
+
+            border-radius: 18px;
+
+            padding: 18px;
+        }
+
+
+        .promise-icon {
+
+            width: 38px;
+
+            height: 38px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: var(--orange);
+
+            color: white;
+
+            margin-bottom: 12px;
+
+            font-size: 17px;
+
+            font-weight: 800;
+        }
+
+
+        .promise-item h3 {
+
+            font-size: 15px;
+
+            margin-bottom: 6px;
+        }
+
+
+        .promise-item p {
+
+            color: #aaa;
+
+            font-size: 13px;
+
+            line-height: 1.55;
+        }
+
+
+        /* =========================================
+           FORM CARD
+        ========================================= */
+
+        .form-card {
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 28px;
+
+            padding: 34px;
+
+            box-shadow:
+                0 10px 40px rgba(0, 0, 0, 0.035);
+        }
+
+
+        .form-header {
+
+            margin-bottom: 30px;
+        }
+
+
+        .form-header h2 {
+
+            font-size: 26px;
+
+            margin-bottom: 6px;
+        }
+
+
+        .form-header p {
+
+            color: var(--gray);
+
+            font-size: 14px;
+        }
+
+
+        .form-section {
+
+            margin-bottom: 32px;
+        }
+
+
+        .section-title {
+
+            margin-bottom: 14px;
+        }
+
+
+        .section-title span {
+
+            display: block;
+
+            font-size: 15px;
+
+            font-weight: 800;
+        }
+
+
+        .section-title small {
+
+            display: block;
+
+            margin-top: 3px;
+
+            color: #888;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================================
+           FIELDS
+        ========================================= */
+
+        .field-group {
+
+            margin-bottom: 18px;
+
+            position: relative;
+        }
+
+
+        .field-group label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 13px;
+
+            font-weight: 750;
+        }
+
+
+        .optional {
+
+            color: #999;
+
+            font-weight: 500;
+
+            margin-left: 3px;
+        }
+
+
+        input,
+        textarea,
+        select {
+
+            width: 100%;
+
+            border:
+                1px solid var(--border);
+
+            background: white;
+
+            color: var(--black);
+
+            border-radius: 14px;
+
+            padding: 14px 15px;
+
+            outline: none;
+
+            transition: 0.2s;
+        }
+
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+
+            border-color:
+                var(--orange);
+
+            box-shadow:
+                0 0 0 4px rgba(255, 107, 0, 0.08);
+        }
+
+
+        textarea {
+
+            resize: vertical;
+
+            min-height: 110px;
+        }
+
+
+        .field-hint {
+
+            color: #999;
+
+            font-size: 11px;
+
+            margin-top: 6px;
+        }
+
+
+        /* =========================================
+           PASSWORD FIELD
+        ========================================= */
+
+        .password-wrapper {
+
+            position: relative;
+
+            width: 100%;
+        }
+
+
+        .password-wrapper input {
+
+            padding-right: 50px;
+        }
+
+
+        .password-eye {
+
+            position: absolute;
+
+            right: 14px;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            width: 32px;
+
+            height: 32px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border: none;
+
+            background: transparent;
+
+            color: #777;
+
+            padding: 0;
+
+            font-size: 19px;
+
+            cursor: pointer;
+        }
+
+
+        .password-eye:hover {
+            color: var(--black);
+        }
+
+
+        /* =========================================
+           VALIDATION
+        ========================================= */
+
+        .validation-message {
+
+            display: none;
+
+            margin-top: 6px;
+
+            color: var(--red);
+
+            font-size: 11px;
+
+            font-weight: 600;
+        }
+
+
+        .validation-message.show {
+            display: block;
+        }
+
+
+        .password-wrapper.valid input {
+
+            border-color:
+                var(--green);
+
+            box-shadow:
+                0 0 0 3px rgba(21, 153, 87, 0.07);
+        }
+
+
+        .password-wrapper.invalid input {
+
+            border-color:
+                var(--red);
+
+            box-shadow:
+                0 0 0 3px rgba(220, 53, 69, 0.07);
+        }
+
+
+        /* =========================================
+           TWO COLUMN
+        ========================================= */
+
+        .two-columns {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 16px;
+        }
+
+
+        /* =========================================
+           CHIPS
+        ========================================= */
+
+        .chip-grid {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 9px;
+        }
+
+
+        .chip {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 6px;
+
+            border:
+                1px solid var(--border);
+
+            background: white;
+
+            color: #555;
+
+            border-radius: 30px;
+
+            padding: 10px 14px;
+
+            font-size: 13px;
+
+            font-weight: 650;
+
+            transition: 0.2s;
+        }
+
+
+        .chip:hover {
+
+            border-color:
+                var(--orange);
+
+            color:
+                var(--orange);
+        }
+
+
+        .chip.selected {
+
+            background:
+                var(--orange);
+
+            border-color:
+                var(--orange);
+
+            color: white;
+
+            box-shadow:
+                0 5px 15px rgba(255, 107, 0, 0.18);
+        }
+
+
+        .all-services-chip {
+
+            width: 100%;
+
+            margin-top: 13px;
+
+            padding: 13px;
+
+            font-weight: 800;
+
+            border-style: dashed;
+        }
+
+
+        .all-services-chip.selected {
+
+            background: var(--black);
+
+            border-color: var(--black);
+
+            color: white;
+        }
+
+
+        /* =========================================
+           LOCATION
+        ========================================= */
+
+        .location-box {
+
+            background: #fafafa;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 18px;
+
+            padding: 18px;
+        }
+
+
+        .location-label {
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            margin-bottom: 12px;
+        }
+
+
+        .district-select {
+
+            margin-bottom: 18px;
+        }
+
+
+        .district-select select {
+
+            background: white;
+        }
+
+
+        .overall-option {
+
+            margin-top: 16px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 14px;
+
+            border-radius: 15px;
+
+            border:
+                1px dashed #ddd;
+
+            background: white;
+
+            cursor: pointer;
+        }
+
+
+        .overall-option input {
+
+            width: auto;
+
+            accent-color:
+                var(--orange);
+        }
+
+
+        .overall-option strong {
+
+            display: block;
+
+            font-size: 13px;
+        }
+
+
+        .overall-option span {
+
+            display: block;
+
+            color: #888;
+
+            font-size: 11px;
+        }
+
+
+        /* =========================================
+           BUTTON
+        ========================================= */
+
+        .register-button {
+
+            width: 100%;
+
+            border: none;
+
+            background:
+                var(--orange);
+
+            color: white;
+
+            border-radius: 16px;
+
+            padding: 16px 20px;
+
+            font-size: 15px;
+
+            font-weight: 800;
+
+            transition: 0.2s;
+
+            box-shadow:
+                0 10px 25px rgba(255, 107, 0, 0.2);
+        }
+
+
+        .register-button:hover {
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 14px 30px rgba(255, 107, 0, 0.28);
+        }
+
+
+        .register-button:active {
+            transform: translateY(0);
+        }
+
+
+        .form-note {
+
+            text-align: center;
+
+            margin-top: 13px;
+
+            color: #999;
+
+            font-size: 11px;
+        }
+
+
+        /* =========================================
+           SUCCESS
+        ========================================= */
+
+        .success-message {
+
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 20px;
+
+            border-radius: 16px;
+
+            background: #ecfff4;
+
+            border:
+                1px solid #bcefd0;
+
+            color: #147a45;
+
+            text-align: center;
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+
+        .success-message p {
+
+            margin-bottom: 14px;
+        }
+
+
+        .login-after-register {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-height: 42px;
+
+            padding: 0 18px;
+
+            border-radius: 12px;
+
+            background:
+                var(--black);
+
+            color: white;
+
+            font-size: 12px;
+
+            font-weight: 800;
+        }
+
+
+        .login-after-register:hover {
+
+            background:
+                var(--orange);
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 30px 20px 45px;
+
+            color: #999;
+
+            font-size: 12px;
+        }
+
+
+        footer strong {
+            color: var(--black);
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 760px) {
+
+            .nav-right {
+
+                gap: 8px;
+            }
+
+
+            .nav-links {
+
+                display: none;
+            }
+
+
+            .navbar {
+
+                height: 62px;
+
+                padding:
+                    0 4%;
+            }
+
+
+            .logo {
+
+                font-size: 20px;
+            }
+
+
+            .page {
+
+                width: 94%;
+
+                padding-top: 38px;
+            }
+
+
+            .hero {
+
+                margin-bottom: 30px;
+            }
+
+
+            .hero h1 {
+
+                letter-spacing: -1.8px;
+            }
+
+
+            .hero p {
+                font-size: 15px;
+            }
+
+
+            .promise-card {
+
+                padding: 22px;
+
+                border-radius: 22px;
+            }
+
+
+            .promise-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .form-card {
+
+                padding: 22px;
+
+                border-radius: 22px;
+            }
+
+
+            .two-columns {
+
+                grid-template-columns: 1fr;
+
+                gap: 0;
+            }
+
+
+            .chip {
+
+                font-size: 12px;
+
+                padding:
+                    9px 12px;
+            }
+
+        }
+
+
+        @media (max-width: 420px) {
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+
+            .form-card {
+                padding: 18px;
+            }
+
+
+            .promise-card {
+                padding: 18px;
+            }
+
+
+            .promise-item {
+                padding: 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     NAVBAR
+========================================= -->
+
+<nav class="navbar">
+
+    <a
+        href="../index.html"
+        class="logo"
+    >
+        Seiv<span>om</span>
+    </a>
+
+
+    <div class="nav-right">
+
+
+        <div class="nav-links">
+
+            <a
+                href="../index.html"
+                data-i18n="nav_home"
+            >
+                Home
+            </a>
+
+
+            <a
+                href="login.html"
+                class="provider-login-link"
+                data-i18n="nav_login"
+            >
+                Provider Login
+            </a>
+
+        </div>
+
+
+        <div class="language-switcher">
+
+            <button
+                class="lang-btn active"
+                id="englishBtn"
+                onclick="setLanguage('en')"
+            >
+                EN
+            </button>
+
+
+            <button
+                class="lang-btn"
+                id="tamilBtn"
+                onclick="setLanguage('ta')"
+            >
+                தமிழ்
+            </button>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<main class="page">
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="hero">
+
+    <div class="badge">
+
+        <span class="badge-dot"></span>
+
+        <span data-i18n="provider_badge">
+            Register your service
+        </span>
+
+    </div>
+
+
+    <h1 data-i18n="hero_title">
+        Let customers <span>find you.</span>
+    </h1>
+
+
+    <p data-i18n="hero_description">
+        Tell people what you do, where you work and how they can contact
+        you. Seivom helps customers discover local service providers
+        directly.
+    </p>
+
+</section>
+
+
+
+<!-- =========================================
+     PROMISE CARD
+========================================= -->
+
+<section class="promise-card">
+
+    <div class="promise-header">
+
+        <h2 data-i18n="promise_title">
+            What Seivom stands for
+        </h2>
+
+
+        <p data-i18n="promise_description">
+            Local services should be simple and direct.
+        </p>
+
+    </div>
+
+
+    <div class="promise-grid">
+
+
+        <div class="promise-item">
+
+            <div class="promise-icon">
+                ↗
+            </div>
+
+
+            <h3 data-i18n="promise_direct_title">
+                Direct contact
+            </h3>
+
+
+            <p data-i18n="promise_direct_text">
+                Customers contact you directly. No third person between
+                you and the customer.
+            </p>
+
+        </div>
+
+
+
+        <div class="promise-item">
+
+            <div class="promise-icon">
+                ◎
+            </div>
+
+
+            <h3 data-i18n="promise_middleman_title">
+                No middleman
+            </h3>
+
+
+            <p data-i18n="promise_middleman_text">
+                Seivom helps customers discover you. You deal directly
+                with your customer.
+            </p>
+
+        </div>
+
+
+
+        <div class="promise-item">
+
+            <div class="promise-icon">
+                ✦
+            </div>
+
+
+            <h3 data-i18n="promise_daily_title">
+                Not daily-wage work
+            </h3>
+
+
+            <p data-i18n="promise_daily_text">
+                You are registering your service and expertise — not
+                looking for daily labour.
+            </p>
+
+        </div>
+
+
+
+        <div class="promise-item">
+
+            <div class="promise-icon">
+                %
+            </div>
+
+
+            <h3 data-i18n="promise_commission_title">
+                No commission on your work
+            </h3>
+
+
+            <p data-i18n="promise_commission_text">
+                Your work stays between you and your customer. Seivom is
+                not a commission-based job marketplace.
+            </p>
+
+        </div>
+
+
+
+        <div class="promise-item">
+
+            <div class="promise-icon">
+                ✓
+            </div>
+
+
+            <h3 data-i18n="promise_services_title">
+                Show what you actually do
+            </h3>
+
+
+            <p data-i18n="promise_services_text">
+                Select your service and the exact sub-services you provide.
+            </p>
+
+        </div>
+
+
+
+        <div class="promise-item">
+
+            <div class="promise-icon">
+                ⌖
+            </div>
+
+
+            <h3 data-i18n="promise_area_title">
+                Choose your local reach
+            </h3>
+
+
+            <p data-i18n="promise_area_text">
+                Select individual localities or make yourself available
+                across the district.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     FORM
+========================================= -->
+
+<section class="form-card">
+
+
+    <div class="form-header">
+
+        <h2 data-i18n="form_title">
+            Register your service
+        </h2>
+
+
+        <p data-i18n="form_description">
+            Add a few details so customers can find the right service for
+            their needs.
+        </p>
+
+    </div>
+
+
+
+    <!-- =====================================
+         BASIC DETAILS
+    ===================================== -->
+
+    <div class="form-section">
+
+        <div class="section-title">
+
+            <span data-i18n="basic_details">
+                Basic Details
+            </span>
+
+
+            <small data-i18n="basic_details_hint">
+                Tell customers who they are contacting
+            </small>
+
+        </div>
+
+
+
+        <div class="two-columns">
+
+
+            <!-- NAME -->
+
+            <div class="field-group">
+
+                <label
+                    for="name"
+                    data-i18n="name"
+                >
+                    Name
+                </label>
+
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Your name"
+                    data-i18n-placeholder="name_placeholder"
+                    autocomplete="name"
+                >
+
+            </div>
+
+
+
+            <!-- MOBILE -->
+
+            <div class="field-group">
+
+                <label
+                    for="phone"
+                    data-i18n="mobile"
+                >
+                    Mobile Number
+                </label>
+
+
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="10 digit mobile number"
+                    data-i18n-placeholder="mobile_placeholder"
+                    maxlength="10"
+                    inputmode="numeric"
+                    autocomplete="tel"
+                >
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================
+             PASSWORD
+        ================================= -->
+
+        <div class="two-columns">
+
+
+            <!-- PASSWORD -->
+
+            <div class="field-group">
+
+                <label
+                    for="password"
+                    data-i18n="password"
+                >
+                    Password
+                </label>
+
+
+                <div
+                    class="password-wrapper"
+                    id="passwordWrapper"
+                >
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Create a password"
+                        data-i18n-placeholder="password_placeholder"
+                        minlength="6"
+                        autocomplete="new-password"
+                    >
+
+
+                    <button
+                        type="button"
+                        class="password-eye"
+                        onclick="togglePassword(
+                            'password',
+                            'passwordEye'
+                        )"
+                        aria-label="Show password"
+                    >
+
+                        <span id="passwordEye">
+                            👁
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="field-hint"
+                    data-i18n="password_hint"
+                >
+                    Password must be at least 6 characters.
+                </div>
+
+
+                <div
+                    class="validation-message"
+                    id="passwordValidation"
+                ></div>
+
+            </div>
+
+
+
+            <!-- CONFIRM PASSWORD -->
+
+            <div class="field-group">
+
+                <label
+                    for="confirmPassword"
+                    data-i18n="confirm_password"
+                >
+                    Confirm Password
+                </label>
+
+
+                <div
+                    class="password-wrapper"
+                    id="confirmPasswordWrapper"
+                >
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Confirm your password"
+                        data-i18n-placeholder="confirm_password_placeholder"
+                        minlength="6"
+                        autocomplete="new-password"
+                    >
+
+
+                    <button
+                        type="button"
+                        class="password-eye"
+                        onclick="togglePassword(
+                            'confirmPassword',
+                            'confirmPasswordEye'
+                        )"
+                        aria-label="Show password"
+                    >
+
+                        <span id="confirmPasswordEye">
+                            👁
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="validation-message"
+                    id="confirmPasswordValidation"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================
+             ABOUT ME
+        ================================= -->
+
+        <div class="field-group">
+
+            <label for="aboutMe">
+
+                <span data-i18n="about_me">
+                    About Me
+                </span>
+
+
+                <span
+                    class="optional"
+                    data-i18n="optional"
+                >
+                    (Optional)
+                </span>
+
+            </label>
+
+
+            <textarea
+                id="aboutMe"
+                rows="4"
+                maxlength="300"
+                placeholder="Tell customers briefly about your experience or service..."
+                data-i18n-placeholder="about_me_placeholder"
+            ></textarea>
+
+
+            <div class="field-hint">
+
+                <span data-i18n="about_me_hint">
+                    Keep it short. Tell customers what you do and your
+                    experience.
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+         SERVICE
+    ===================================== -->
+
+    <div class="form-section">
+
+        <div class="section-title">
+
+            <span data-i18n="service">
+                Service
+            </span>
+
+
+            <small data-i18n="service_hint">
+                Choose the main service you provide
+            </small>
+
+        </div>
+
+
+        <div class="field-group">
+
+            <select id="service">
+
+                <option
+                    value=""
+                    data-i18n="select_service"
+                >
+                    Select service
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+         SERVICE TYPES
+    ===================================== -->
+
+    <div class="form-section">
+
+        <div class="section-title">
+
+            <span data-i18n="service_type">
+                Service Type
+            </span>
+
+
+            <small data-i18n="service_type_hint">
+                Select the specific services you provide
+            </small>
+
+        </div>
+
+
+        <div
+            id="subServiceChips"
+            class="chip-grid"
+        ></div>
+
+
+        <button
+            type="button"
+            class="chip all-services-chip"
+            id="allServicesChip"
+            onclick="toggleAllServices()"
+        >
+
+            <span>✓</span>
+
+
+            <span data-i18n="all_services">
+                All Types of Services
+            </span>
+
+        </button>
+
+    </div>
+
+
+
+    <!-- =====================================
+         SERVICE AREA
+    ===================================== -->
+
+    <div class="form-section">
+
+        <div class="section-title">
+
+            <span data-i18n="service_area">
+                Service Area
+            </span>
+
+
+            <small data-i18n="service_area_hint">
+                Choose where you are available
+            </small>
+
+        </div>
+
+
+        <div class="location-box">
+
+
+            <div
+                class="location-label"
+                data-i18n="district"
+            >
+                District
+            </div>
+
+
+            <div class="district-select">
+
+                <select id="district">
+
+                    <option
+                        value=""
+                        data-i18n="select_district"
+                    >
+                        Select district
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div
+                id="localitySection"
+                style="display:none;"
+            >
+
+                <div
+                    class="location-label"
+                    data-i18n="localities"
+                >
+                    Localities
+                </div>
+
+
+                <div
+                    id="localityChips"
+                    class="chip-grid"
+                ></div>
+
+            </div>
+
+
+
+            <label class="overall-option">
+
+                <input
+                    type="checkbox"
+                    id="overallMadurai"
+                >
+
+
+                <div>
+
+                    <strong data-i18n="entire_madurai">
+                        Entire Madurai
+                    </strong>
+
+
+                    <span data-i18n="entire_madurai_hint">
+                        I can provide my service across Madurai district
+                    </span>
+
+                </div>
+
+            </label>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+         EXPERIENCE
+    ===================================== -->
+
+    <div class="form-section">
+
+        <div class="section-title">
+
+            <span data-i18n="experience">
+                Experience
+            </span>
+
+
+            <small data-i18n="experience_hint">
+                Help customers understand your experience
+            </small>
+
+        </div>
+
+
+        <div class="two-columns">
+
+
+            <div class="field-group">
+
+                <label
+                    for="experience"
+                    data-i18n="years_experience"
+                >
+                    Years of Experience
+                </label>
+
+
+                <select id="experience">
+
+                    <option
+                        value=""
+                        data-i18n="select"
+                    >
+                        Select
+                    </option>
+
+
+                    <option value="0-1">
+                        0 - 1 year
+                    </option>
+
+
+                    <option value="2-5">
+                        2 - 5 years
+                    </option>
+
+
+                    <option value="6-10">
+                        6 - 10 years
+                    </option>
+
+
+                    <option value="10+">
+                        10+ years
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="field-group">
+
+                <label
+                    for="availability"
+                    data-i18n="availability"
+                >
+                    Availability
+                </label>
+
+
+                <select id="availability">
+
+                    <option
+                        value="available"
+                        data-i18n="available"
+                    >
+                        Available
+                    </option>
+
+
+                    <option
+                        value="weekdays"
+                        data-i18n="weekdays"
+                    >
+                        Weekdays
+                    </option>
+
+
+                    <option
+                        value="weekends"
+                        data-i18n="weekends"
+                    >
+                        Weekends
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+         REGISTER BUTTON
+    ===================================== -->
+
+    <button
+        type="button"
+        class="register-button"
+        onclick="registerProvider()"
+    >
+
+        <span data-i18n="register_button">
+            Register My Service
+        </span>
+
+    </button>
+
+
+    <div
+        class="form-note"
+        data-i18n="form_note"
+    >
+        Your details will be used to help customers discover your service.
+    </div>
+
+
+    <div
+        id="successMessage"
+        class="success-message"
+    >
+
+        <p data-i18n="success_message">
+            Your service details are ready for registration.
+        </p>
+
+
+        <a
+            href="login.html"
+            class="login-after-register"
+            data-i18n="continue_login"
+        >
+            Continue to Provider Login
+        </a>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<footer>
+
+    <strong>Seivom</strong>
+
+    —
+
+    <span data-i18n="footer_text">
+        Local services, just around you.
+    </span>
+
+</footer>
+
+
+
+<script>
+
+
+/* =====================================================
+   TRANSLATIONS
+===================================================== */
+
+const translations = {
+
+    en: {
+
+        nav_home:
+            "Home",
+
+        nav_login:
+            "Provider Login",
+
+        provider_badge:
+            "Register your service",
+
+        hero_title:
+            'Let customers <span>find you.</span>',
+
+        hero_description:
+            "Tell people what you do, where you work and how they can contact you. Seivom helps customers discover local service providers directly.",
+
+
+        promise_title:
+            "What Seivom stands for",
+
+        promise_description:
+            "Local services should be simple and direct.",
+
+
+        promise_direct_title:
+            "Direct contact",
+
+        promise_direct_text:
+            "Customers contact you directly. No third person between you and the customer.",
+
+
+        promise_middleman_title:
+            "No middleman",
+
+        promise_middleman_text:
+            "Seivom helps customers discover you. You deal directly with your customer.",
+
+
+        promise_daily_title:
+            "Not daily-wage work",
+
+        promise_daily_text:
+            "You are registering your service and expertise — not looking for daily labour.",
+
+
+        promise_commission_title:
+            "No commission on your work",
+
+        promise_commission_text:
+            "Your work stays between you and your customer. Seivom is not a commission-based job marketplace.",
+
+
+        promise_services_title:
+            "Show what you actually do",
+
+        promise_services_text:
+            "Select your service and the exact sub-services you provide.",
+
+
+        promise_area_title:
+            "Choose your local reach",
+
+        promise_area_text:
+            "Select individual localities or make yourself available across the district.",
+
+
+        form_title:
+            "Register your service",
+
+        form_description:
+            "Add a few details so customers can find the right service for their needs.",
+
+
+        basic_details:
+            "Basic Details",
+
+        basic_details_hint:
+            "Tell customers who they are contacting",
+
+
+        name:
+            "Name",
+
+        name_placeholder:
+            "Your name",
+
+
+        mobile:
+            "Mobile Number",
+
+        mobile_placeholder:
+            "10 digit mobile number",
+
+
+        password:
+            "Password",
+
+        password_placeholder:
+            "Create a password",
+
+        password_hint:
+            "Password must be at least 6 characters.",
+
+
+        confirm_password:
+            "Confirm Password",
+
+        confirm_password_placeholder:
+            "Confirm your password",
+
+
+        about_me:
+            "About Me",
+
+        optional:
+            "(Optional)",
+
+        about_me_placeholder:
+            "Tell customers briefly about your experience or service...",
+
+        about_me_hint:
+            "Keep it short. Tell customers what you do and your experience.",
+
+
+        service:
+            "Service",
+
+        service_hint:
+            "Choose the main service you provide",
+
+        select_service:
+            "Select service",
+
+
+        service_type:
+            "Service Type",
+
+        service_type_hint:
+            "Select the specific services you provide",
+
+        all_services:
+            "All Types of Services",
+
+
+        service_area:
+            "Service Area",
+
+        service_area_hint:
+            "Choose where you are available",
+
+        district:
+            "District",
+
+        select_district:
+            "Select district",
+
+        localities:
+            "Localities",
+
+        entire_madurai:
+            "Entire Madurai",
+
+        entire_madurai_hint:
+            "I can provide my service across Madurai district",
+
+
+        experience:
+            "Experience",
+
+        experience_hint:
+            "Help customers understand your experience",
+
+        years_experience:
+            "Years of Experience",
+
+        select:
+            "Select",
+
+        availability:
+            "Availability",
+
+        available:
+            "Available",
+
+        weekdays:
+            "Weekdays",
+
+        weekends:
+            "Weekends",
+
+
+        register_button:
+            "Register My Service",
+
+        form_note:
+            "Your details will be used to help customers discover your service.",
+
+        success_message:
+            "Your service details are ready. Please continue to Provider Login.",
+
+        continue_login:
+            "Continue to Provider Login",
+
+
+        password_short:
+            "Password must be at least 6 characters.",
+
+        password_mismatch:
+            "Passwords do not match.",
+
+
+        data_load_error:
+            "Unable to load service and location data. Please check that services.json and locations.json are available.",
+
+
+        footer_text:
+            "Local services, just around you."
+
+    },
+
+
+    ta: {
+
+        nav_home:
+            "முகப்பு",
+
+        nav_login:
+            "சேவை வழங்குநர் உள்நுழைவு",
+
+        provider_badge:
+            "உங்கள் சேவையை பதிவு செய்யுங்கள்",
+
+        hero_title:
+            'வாடிக்கையாளர்கள் <span>உங்களை கண்டுபிடிக்கட்டும்.</span>',
+
+        hero_description:
+            "நீங்கள் செய்யும் வேலை, நீங்கள் சேவை செய்யும் இடம் மற்றும் உங்களை தொடர்பு கொள்ளும் வழியை பதிவு செய்யுங்கள். Seivom மூலம் வாடிக்கையாளர்கள் உள்ளூர் சேவை நபர்களை நேரடியாக கண்டுபிடிக்கலாம்.",
+
+
+        promise_title:
+            "Seivom என்ன செய்கிறது?",
+
+        promise_description:
+            "உள்ளூர் சேவைகள் எளிமையாகவும் நேரடியாகவும் இருக்க வேண்டும்.",
+
+
+        promise_direct_title:
+            "நேரடி தொடர்பு",
+
+        promise_direct_text:
+            "வாடிக்கையாளர்கள் உங்களை நேரடியாக தொடர்பு கொள்வார்கள். உங்களுக்கும் வாடிக்கையாளருக்கும் இடையில் மூன்றாவது நபர் இல்லை.",
+
+
+        promise_middleman_title:
+            "இடைத்தரகர் இல்லை",
+
+        promise_middleman_text:
+            "Seivom வாடிக்கையாளர்கள் உங்களை கண்டுபிடிக்க உதவுகிறது. நீங்கள் நேரடியாக உங்கள் வாடிக்கையாளருடன் பேசலாம்.",
+
+
+        promise_daily_title:
+            "தினக்கூலி வேலை அல்ல",
+
+        promise_daily_text:
+            "நீங்கள் உங்கள் சேவை மற்றும் திறமையை பதிவு செய்கிறீர்கள் — தினக்கூலி வேலை தேடுவதற்காக அல்ல.",
+
+
+        promise_commission_title:
+            "உங்கள் வேலையில் கமிஷன் இல்லை",
+
+        promise_commission_text:
+            "உங்கள் வேலை உங்களுக்கும் உங்கள் வாடிக்கையாளருக்கும் இடையிலேயே இருக்கும். Seivom கமிஷன் அடிப்படையிலான வேலை தளம் அல்ல.",
+
+
+        promise_services_title:
+            "நீங்கள் செய்யும் வேலைகளை குறிப்பிடுங்கள்",
+
+        promise_services_text:
+            "நீங்கள் வழங்கும் முக்கிய சேவை மற்றும் குறிப்பிட்ட சேவைகளை தேர்வு செய்யுங்கள்.",
+
+
+        promise_area_title:
+            "உங்கள் சேவை பகுதியை தேர்வு செய்யுங்கள்",
+
+        promise_area_text:
+            "குறிப்பிட்ட பகுதிகளை தேர்வு செய்யலாம் அல்லது மாவட்டம் முழுவதும் சேவை வழங்கலாம்.",
+
+
+        form_title:
+            "உங்கள் சேவையை பதிவு செய்யுங்கள்",
+
+        form_description:
+            "வாடிக்கையாளர்கள் சரியான சேவையை கண்டுபிடிக்க சில விவரங்களை பதிவு செய்யுங்கள்.",
+
+
+        basic_details:
+            "அடிப்படை விவரங்கள்",
+
+        basic_details_hint:
+            "வாடிக்கையாளர்கள் யாரை தொடர்பு கொள்கிறார்கள் என்பதை தெரிந்து கொள்ள",
+
+
+        name:
+            "பெயர்",
+
+        name_placeholder:
+            "உங்கள் பெயர்",
+
+
+        mobile:
+            "மொபைல் எண்",
+
+        mobile_placeholder:
+            "10 இலக்க மொபைல் எண்",
+
+
+        password:
+            "கடவுச்சொல்",
+
+        password_placeholder:
+            "கடவுச்சொல்லை உருவாக்குங்கள்",
+
+        password_hint:
+            "கடவுச்சொல் குறைந்தது 6 எழுத்துகள் இருக்க வேண்டும்.",
+
+
+        confirm_password:
+            "கடவுச்சொல்லை உறுதிப்படுத்தவும்",
+
+        confirm_password_placeholder:
+            "கடவுச்சொல்லை மீண்டும் உள்ளிடுங்கள்",
+
+
+        about_me:
+            "என்னைப் பற்றி",
+
+        optional:
+            "(விருப்பம்)",
+
+        about_me_placeholder:
+            "உங்கள் அனுபவம் அல்லது சேவை பற்றி சுருக்கமாக சொல்லுங்கள்...",
+
+        about_me_hint:
+            "சுருக்கமாக எழுதுங்கள். நீங்கள் செய்யும் வேலை மற்றும் அனுபவத்தை குறிப்பிடுங்கள்.",
+
+
+        service:
+            "சேவை",
+
+        service_hint:
+            "நீங்கள் வழங்கும் முக்கிய சேவையை தேர்வு செய்யுங்கள்",
+
+        select_service:
+            "சேவையை தேர்வு செய்யுங்கள்",
+
+
+        service_type:
+            "சேவை வகை",
+
+        service_type_hint:
+            "நீங்கள் வழங்கும் குறிப்பிட்ட சேவைகளை தேர்வு செய்யுங்கள்",
+
+        all_services:
+            "அனைத்து சேவை வகைகளும்",
+
+
+        service_area:
+            "சேவை பகுதி",
+
+        service_area_hint:
+            "நீங்கள் சேவை வழங்கும் இடத்தை தேர்வு செய்யுங்கள்",
+
+        district:
+            "மாவட்டம்",
+
+        select_district:
+            "மாவட்டத்தை தேர்வு செய்யுங்கள்",
+
+        localities:
+            "பகுதிகள்",
+
+        entire_madurai:
+            "முழு மதுரை",
+
+        entire_madurai_hint:
+            "மதுரை மாவட்டம் முழுவதும் சேவை வழங்க முடியும்",
+
+
+        experience:
+            "அனுபவம்",
+
+        experience_hint:
+            "உங்கள் அனுபவத்தை வாடிக்கையாளர்கள் புரிந்து கொள்ள",
+
+        years_experience:
+            "அனுபவ ஆண்டுகள்",
+
+        select:
+            "தேர்வு செய்யுங்கள்",
+
+        availability:
+            "கிடைக்கும் நேரம்",
+
+        available:
+            "கிடைக்கும்",
+
+        weekdays:
+            "வார நாட்கள்",
+
+        weekends:
+            "வார இறுதி நாட்கள்",
+
+
+        register_button:
+            "என் சேவையை பதிவு செய்யுங்கள்",
+
+        form_note:
+            "வாடிக்கையாளர்கள் உங்கள் சேவையை கண்டுபிடிக்க இந்த விவரங்கள் பயன்படுத்தப்படும்.",
+
+        success_message:
+            "உங்கள் சேவை விவரங்கள் தயாராக உள்ளன. சேவை வழங்குநர் உள்நுழைவுக்கு தொடரவும்.",
+
+        continue_login:
+            "சேவை வழங்குநர் உள்நுழைவுக்கு செல்லுங்கள்",
+
+
+        password_short:
+            "கடவுச்சொல் குறைந்தது 6 எழுத்துகள் இருக்க வேண்டும்.",
+
+        password_mismatch:
+            "கடவுச்சொற்கள் பொருந்தவில்லை.",
+
+
+        data_load_error:
+            "சேவை மற்றும் பகுதி தகவல்களை ஏற்ற முடியவில்லை. services.json மற்றும் locations.json கோப்புகள் சரியான இடத்தில் உள்ளதா என்பதை சரிபார்க்கவும்.",
+
+
+        footer_text:
+            "உள்ளூர் சேவைகள், உங்களைச் சுற்றியே."
+
+    }
+
+};
+
+
+
+/* =====================================================
+   MASTER DATA
+===================================================== */
+
+let servicesData = null;
+
+let locationsData = null;
+
+let serviceCatalog = [];
+
+let districtCatalog = [];
+
+let districtMap = {};
+
+
+
+/* =====================================================
+   STATE
+===================================================== */
+
+let selectedSubServices = [];
+
+let selectedLocalities = [];
+
+let allServicesSelected = false;
+
+let overallMadurai = false;
+
+let currentLanguage =
+    localStorage.getItem(
+        "seivom_language"
+    ) || "en";
+
+
+
+/* =====================================================
+   LOAD JSON FILES
+===================================================== */
+
+async function loadMasterData() {
+
+    try {
+
+        const [
+            servicesResponse,
+            locationsResponse
+        ] = await Promise.all([
+
+            fetch("../services.json"),
+
+            fetch("../locations.json")
+
+        ]);
+
+
+        if (
+            !servicesResponse.ok ||
+            !locationsResponse.ok
+        ) {
+
+            throw new Error(
+                "Failed to load JSON files."
+            );
+
+        }
+
+
+        servicesData =
+            await servicesResponse.json();
+
+
+        locationsData =
+            await locationsResponse.json();
+
+
+        serviceCatalog =
+            Array.isArray(
+                servicesData.services
+            )
+                ? servicesData.services
+                : [];
+
+
+        buildDistrictCatalog();
+
+
+        renderServiceOptions();
+
+        renderDistrictOptions();
+
+        renderCurrentSubServices();
+
+        renderLocalities();
+
+        setLanguage(
+            currentLanguage
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Master data loading error:",
+            error
+        );
+
+
+        alert(
+            translations[
+                currentLanguage
+            ].data_load_error
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   BUILD DISTRICT CATALOG
+===================================================== */
+
+function buildDistrictCatalog() {
+
+    districtCatalog = [];
+
+    districtMap = {};
+
+
+    if (
+        !locationsData ||
+        !Array.isArray(
+            locationsData.states
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    locationsData.states.forEach(
+        state => {
+
+            const districts =
+                Array.isArray(
+                    state.districts
+                )
+                    ? state.districts
+                    : [];
+
+
+            districts.forEach(
+                district => {
+
+                    const districtData = {
+
+                        id:
+                            district.id,
+
+                        name:
+                            district.name,
+
+                        nameTa:
+                            district.nameTa,
+
+                        stateId:
+                            state.id,
+
+                        stateName:
+                            state.name,
+
+                        stateNameTa:
+                            state.nameTa,
+
+                        localities:
+                            Array.isArray(
+                                district.localities
+                            )
+                                ? district.localities
+                                : []
+
+                    };
+
+
+                    districtCatalog.push(
+                        districtData
+                    );
+
+
+                    districtMap[
+                        district.id
+                    ] =
+                        districtData;
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
+
+function setLanguage(
+    language
+) {
+
+    currentLanguage =
+        language;
+
+
+    localStorage.setItem(
+        "seivom_language",
+        language
+    );
+
+
+    document.documentElement.lang =
+        language;
+
+
+    document
+        .querySelectorAll(
+            "[data-i18n]"
+        )
+        .forEach(
+            element => {
+
+                const key =
+                    element.getAttribute(
+                        "data-i18n"
+                    );
+
+
+                if (
+                    translations[language] &&
+                    translations[language][key]
+                ) {
+
+                    element.innerHTML =
+                        translations[
+                            language
+                        ][key];
+
+                }
+
+            }
+        );
+
+
+    document
+        .querySelectorAll(
+            "[data-i18n-placeholder]"
+        )
+        .forEach(
+            element => {
+
+                const key =
+                    element.getAttribute(
+                        "data-i18n-placeholder"
+                    );
+
+
+                if (
+                    translations[language] &&
+                    translations[language][key]
+                ) {
+
+                    element.placeholder =
+                        translations[
+                            language
+                        ][key];
+
+                }
+
+            }
+        );
+
+
+    document
+        .getElementById(
+            "englishBtn"
+        )
+        .classList.toggle(
+            "active",
+            language === "en"
+        );
+
+
+    document
+        .getElementById(
+            "tamilBtn"
+        )
+        .classList.toggle(
+            "active",
+            language === "ta"
+        );
+
+
+    renderServiceOptions();
+
+    renderDistrictOptions();
+
+    renderCurrentSubServices();
+
+    renderLocalities();
+
+}
+
+
+
+/* =====================================================
+   SERVICE OPTIONS FROM services.json
+===================================================== */
+
+function renderServiceOptions() {
+
+    const select =
+        document.getElementById(
+            "service"
+        );
+
+
+    if (!select) {
+        return;
+    }
+
+
+    const currentValue =
+        select.value;
+
+
+    select.innerHTML = "";
+
+
+    const placeholder =
+        document.createElement(
+            "option"
+        );
+
+
+    placeholder.value = "";
+
+
+    placeholder.textContent =
+        translations[
+            currentLanguage
+        ].select_service;
+
+
+    select.appendChild(
+        placeholder
+    );
+
+
+    serviceCatalog.forEach(
+        service => {
+
+            const option =
+                document.createElement(
+                    "option"
+                );
+
+
+            option.value =
+                service.id;
+
+
+            option.textContent =
+                currentLanguage === "ta"
+                    ? service.nameTa
+                    : service.name;
+
+
+            select.appendChild(
+                option
+            );
+
+        }
+    );
+
+
+    if (
+        serviceCatalog.some(
+            service =>
+                service.id === currentValue
+        )
+    ) {
+
+        select.value =
+            currentValue;
+
+    }
+
+}
+
+
+
+/* =====================================================
+   DISTRICT OPTIONS FROM locations.json
+===================================================== */
+
+function renderDistrictOptions() {
+
+    const select =
+        document.getElementById(
+            "district"
+        );
+
+
+    if (!select) {
+        return;
+    }
+
+
+    const currentValue =
+        select.value;
+
+
+    select.innerHTML = "";
+
+
+    const placeholder =
+        document.createElement(
+            "option"
+        );
+
+
+    placeholder.value = "";
+
+
+    placeholder.textContent =
+        translations[
+            currentLanguage
+        ].select_district;
+
+
+    select.appendChild(
+        placeholder
+    );
+
+
+    districtCatalog.forEach(
+        district => {
+
+            const option =
+                document.createElement(
+                    "option"
+                );
+
+
+            option.value =
+                district.id;
+
+
+            option.textContent =
+                currentLanguage === "ta"
+                    ? district.nameTa
+                    : district.name;
+
+
+            select.appendChild(
+                option
+            );
+
+        }
+    );
+
+
+    if (
+        districtCatalog.some(
+            district =>
+                district.id === currentValue
+        )
+    ) {
+
+        select.value =
+            currentValue;
+
+    }
+
+}
+
+
+
+/* =====================================================
+   PASSWORD EYE
+===================================================== */
+
+function togglePassword(
+    inputId,
+    eyeId
+) {
+
+    const input =
+        document.getElementById(
+            inputId
+        );
+
+
+    const eye =
+        document.getElementById(
+            eyeId
+        );
+
+
+    if (
+        input.type === "password"
+    ) {
+
+        input.type = "text";
+
+        eye.textContent =
+            "🙈";
+
+    } else {
+
+        input.type =
+            "password";
+
+        eye.textContent =
+            "👁";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   PASSWORD VALIDATION
+===================================================== */
+
+function validatePassword() {
+
+    const password =
+        document
+            .getElementById(
+                "password"
+            )
+            .value;
+
+
+    const wrapper =
+        document.getElementById(
+            "passwordWrapper"
+        );
+
+
+    const message =
+        document.getElementById(
+            "passwordValidation"
+        );
+
+
+    if (!password) {
+
+        wrapper.classList.remove(
+            "valid",
+            "invalid"
+        );
+
+
+        message.classList.remove(
+            "show"
+        );
+
+
+        message.textContent =
+            "";
+
+
+        return false;
+
+    }
+
+
+    if (
+        password.length < 6
+    ) {
+
+        wrapper.classList.remove(
+            "valid"
+        );
+
+
+        wrapper.classList.add(
+            "invalid"
+        );
+
+
+        message.textContent =
+            translations[
+                currentLanguage
+            ].password_short;
+
+
+        message.classList.add(
+            "show"
+        );
+
+
+        return false;
+
+    }
+
+
+    wrapper.classList.remove(
+        "invalid"
+    );
+
+
+    wrapper.classList.add(
+        "valid"
+    );
+
+
+    message.classList.remove(
+        "show"
+    );
+
+
+    return true;
+
+}
+
+
+
+/* =====================================================
+   CONFIRM PASSWORD VALIDATION
+===================================================== */
+
+function validateConfirmPassword() {
+
+    const password =
+        document
+            .getElementById(
+                "password"
+            )
+            .value;
+
+
+    const confirmPassword =
+        document
+            .getElementById(
+                "confirmPassword"
+            )
+            .value;
+
+
+    const wrapper =
+        document.getElementById(
+            "confirmPasswordWrapper"
+        );
+
+
+    const message =
+        document.getElementById(
+            "confirmPasswordValidation"
+        );
+
+
+    if (!confirmPassword) {
+
+        wrapper.classList.remove(
+            "valid",
+            "invalid"
+        );
+
+
+        message.classList.remove(
+            "show"
+        );
+
+
+        message.textContent =
+            "";
+
+
+        return false;
+
+    }
+
+
+    if (
+        password !==
+        confirmPassword
+    ) {
+
+        wrapper.classList.remove(
+            "valid"
+        );
+
+
+        wrapper.classList.add(
+            "invalid"
+        );
+
+
+        message.textContent =
+            translations[
+                currentLanguage
+            ].password_mismatch;
+
+
+        message.classList.add(
+            "show"
+        );
+
+
+        return false;
+
+    }
+
+
+    wrapper.classList.remove(
+        "invalid"
+    );
+
+
+    wrapper.classList.add(
+        "valid"
+    );
+
+
+    message.classList.remove(
+        "show"
+    );
+
+
+    return true;
+
+}
+
+
+
+/* =====================================================
+   PASSWORD INPUT EVENTS
+===================================================== */
+
+document
+    .getElementById(
+        "password"
+    )
+    .addEventListener(
+        "input",
+        function () {
+
+            validatePassword();
+
+            validateConfirmPassword();
+
+        }
+    );
+
+
+document
+    .getElementById(
+        "confirmPassword"
+    )
+    .addEventListener(
+        "input",
+        function () {
+
+            validateConfirmPassword();
+
+        }
+    );
+
+
+
+/* =====================================================
+   SERVICE CHANGE
+===================================================== */
+
+document
+    .getElementById(
+        "service"
+    )
+    .addEventListener(
+        "change",
+        function () {
+
+            selectedSubServices = [];
+
+            allServicesSelected =
+                false;
+
+
+            document
+                .getElementById(
+                    "allServicesChip"
+                )
+                .classList.remove(
+                    "selected"
+                );
+
+
+            renderCurrentSubServices();
+
+        }
+    );
+
+
+
+/* =====================================================
+   GET CURRENT SERVICE
+===================================================== */
+
+function getCurrentService() {
+
+    const serviceId =
+        document
+            .getElementById(
+                "service"
+            )
+            .value;
+
+
+    return serviceCatalog.find(
+        service =>
+            service.id === serviceId
+    );
+
+}
+
+
+
+/* =====================================================
+   CURRENT SUB SERVICES
+===================================================== */
+
+function renderCurrentSubServices() {
+
+    const service =
+        getCurrentService();
+
+
+    renderSubServices(
+        service
+    );
+
+}
+
+
+
+/* =====================================================
+   RENDER SUB SERVICES
+   FROM services.json
+===================================================== */
+
+function renderSubServices(
+    service
+) {
+
+    const container =
+        document.getElementById(
+            "subServiceChips"
+        );
+
+
+    container.innerHTML =
+        "";
+
+
+    if (
+        !service ||
+        !Array.isArray(
+            service.subServices
+        )
+    ) {
+
+        allServicesSelected =
+            false;
+
+
+        updateAllServicesChip();
+
+        return;
+
+    }
+
+
+    const services =
+        service.subServices;
+
+
+    allServicesSelected =
+        services.length > 0 &&
+        selectedSubServices.length ===
+            services.length;
+
+
+    services.forEach(
+        subService => {
+
+            const chip =
+                document.createElement(
+                    "button"
+                );
+
+
+            chip.type =
+                "button";
+
+
+            chip.className =
+                "chip";
+
+
+            if (
+                selectedSubServices
+                    .includes(
+                        subService.id
+                    )
+            ) {
+
+                chip.classList.add(
+                    "selected"
+                );
+
+            }
+
+
+            const displayName =
+                currentLanguage === "ta"
+                    ? subService.nameTa
+                    : subService.name;
+
+
+            chip.innerHTML =
+                `<span>${displayName}</span>`;
+
+
+            chip.onclick =
+                function () {
+
+                    toggleSubService(
+                        subService.id,
+                        chip
+                    );
+
+                };
+
+
+            container.appendChild(
+                chip
+            );
+
+        }
+    );
+
+
+    updateAllServicesChip();
+
+}
+
+
+
+/* =====================================================
+   TOGGLE SUB SERVICE
+===================================================== */
+
+function toggleSubService(
+    id,
+    chip
+) {
+
+    if (
+        selectedSubServices
+            .includes(id)
+    ) {
+
+        selectedSubServices =
+            selectedSubServices.filter(
+                item =>
+                    item !== id
+            );
+
+
+        chip.classList.remove(
+            "selected"
+        );
+
+    } else {
+
+        selectedSubServices.push(
+            id
+        );
+
+
+        chip.classList.add(
+            "selected"
+        );
+
+    }
+
+
+    const service =
+        getCurrentService();
+
+
+    const services =
+        service &&
+        Array.isArray(
+            service.subServices
+        )
+            ? service.subServices
+            : [];
+
+
+    allServicesSelected =
+        services.length > 0 &&
+        selectedSubServices.length ===
+            services.length;
+
+
+    updateAllServicesChip();
+
+}
+
+
+
+/* =====================================================
+   ALL SERVICES
+===================================================== */
+
+function toggleAllServices() {
+
+    const service =
+        getCurrentService();
+
+
+    if (!service) {
+
+        alert(
+            currentLanguage === "ta"
+                ? "முதலில் ஒரு சேவையை தேர்வு செய்யுங்கள்."
+                : "Please select a service first."
+        );
+
+        return;
+
+    }
+
+
+    const services =
+        Array.isArray(
+            service.subServices
+        )
+            ? service.subServices
+            : [];
+
+
+    allServicesSelected =
+        !allServicesSelected;
+
+
+    if (
+        allServicesSelected
+    ) {
+
+        selectedSubServices =
+            services.map(
+                item =>
+                    item.id
+            );
+
+    } else {
+
+        selectedSubServices =
+            [];
+
+    }
+
+
+    renderSubServices(
+        service
+    );
+
+}
+
+
+
+function updateAllServicesChip() {
+
+    const chip =
+        document.getElementById(
+            "allServicesChip"
+        );
+
+
+    chip.classList.toggle(
+        "selected",
+        allServicesSelected
+    );
+
+}
+
+
+
+/* =====================================================
+   DISTRICT CHANGE
+===================================================== */
+
+document
+    .getElementById(
+        "district"
+    )
+    .addEventListener(
+        "change",
+        function () {
+
+            selectedLocalities =
+                [];
+
+            overallMadurai =
+                false;
+
+
+            document
+                .getElementById(
+                    "overallMadurai"
+                )
+                .checked =
+                false;
+
+
+            renderLocalities();
+
+        }
+    );
+
+
+
+/* =====================================================
+   GET CURRENT DISTRICT
+===================================================== */
+
+function getCurrentDistrict() {
+
+    const districtId =
+        document
+            .getElementById(
+                "district"
+            )
+            .value;
+
+
+    return districtMap[
+        districtId
+    ];
+
+}
+
+
+
+/* =====================================================
+   RENDER LOCALITIES
+   FROM locations.json
+===================================================== */
+
+function renderLocalities() {
+
+    const district =
+        getCurrentDistrict();
+
+
+    const section =
+        document.getElementById(
+            "localitySection"
+        );
+
+
+    const container =
+        document.getElementById(
+            "localityChips"
+        );
+
+
+    container.innerHTML =
+        "";
+
+
+    if (
+        !district ||
+        !Array.isArray(
+            district.localities
+        )
+    ) {
+
+        section.style.display =
+            "none";
+
+
+        return;
+
+    }
+
+
+    section.style.display =
+        "block";
+
+
+    district.localities.forEach(
+        locality => {
+
+            const chip =
+                document.createElement(
+                    "button"
+                );
+
+
+            chip.type =
+                "button";
+
+
+            chip.className =
+                "chip";
+
+
+            if (
+                selectedLocalities
+                    .includes(
+                        locality.id
+                    )
+            ) {
+
+                chip.classList.add(
+                    "selected"
+                );
+
+            }
+
+
+            chip.innerHTML =
+                `<span>${
+                    currentLanguage === "ta"
+                        ? locality.nameTa
+                        : locality.name
+                }</span>`;
+
+
+            chip.onclick =
+                function () {
+
+                    toggleLocality(
+                        locality.id,
+                        chip
+                    );
+
+                };
+
+
+            container.appendChild(
+                chip
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   LOCALITY TOGGLE
+===================================================== */
+
+function toggleLocality(
+    id,
+    chip
+) {
+
+    if (
+        selectedLocalities
+            .includes(id)
+    ) {
+
+        selectedLocalities =
+            selectedLocalities.filter(
+                item =>
+                    item !== id
+            );
+
+
+        chip.classList.remove(
+            "selected"
+        );
+
+    } else {
+
+        selectedLocalities.push(
+            id
+        );
+
+
+        chip.classList.add(
+            "selected"
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   ENTIRE MADURAI
+===================================================== */
+
+document
+    .getElementById(
+        "overallMadurai"
+    )
+    .addEventListener(
+        "change",
+        function () {
+
+            overallMadurai =
+                this.checked;
+
+
+            if (
+                overallMadurai
+            ) {
+
+                selectedLocalities =
+                    [];
+
+
+                document
+                    .querySelectorAll(
+                        "#localityChips .chip"
+                    )
+                    .forEach(
+                        chip => {
+
+                            chip.classList.remove(
+                                "selected"
+                            );
+
+                        }
+                    );
+
+            }
+
+        }
+    );
+
+
+
+/* =====================================================
+   REGISTER PROVIDER
+===================================================== */
+
+function registerProvider() {
+
+
+    const name =
+        document
+            .getElementById(
+                "name"
+            )
+            .value
+            .trim();
+
+
+    const phone =
+        document
+            .getElementById(
+                "phone"
+            )
+            .value
+            .trim();
+
+
+    const password =
+        document
+            .getElementById(
+                "password"
+            )
+            .value;
+
+
+    const confirmPassword =
+        document
+            .getElementById(
+                "confirmPassword"
+            )
+            .value;
+
+
+    const aboutMe =
+        document
+            .getElementById(
+                "aboutMe"
+            )
+            .value
+            .trim();
+
+
+    const service =
+        document
+            .getElementById(
+                "service"
+            )
+            .value;
+
+
+    const district =
+        document
+            .getElementById(
+                "district"
+            )
+            .value;
+
+
+    const experience =
+        document
+            .getElementById(
+                "experience"
+            )
+            .value;
+
+
+    const availability =
+        document
+            .getElementById(
+                "availability"
+            )
+            .value;
+
+
+
+    /* =====================================
+       NAME
+    ===================================== */
+
+    if (!name) {
+
+        alert(
+            currentLanguage === "ta"
+                ? "உங்கள் பெயரை உள்ளிடுங்கள்."
+                : "Please enter your name."
+        );
+
+        return;
+
+    }
+
+
+
+    /* =====================================
+       MOBILE
+    ===================================== */
+
+    if (
+        !phone ||
+        !/^[0-9]{10}$/.test(
+            phone
+        )
+    ) {
+
+        alert(
+            currentLanguage === "ta"
+                ? "சரியான 10 இலக்க மொபைல் எண்ணை உள்ளிடுங்கள்."
+                : "Please enter a valid 10 digit mobile number."
+        );
+
+        return;
+
+    }
+
+
+
+    /* =====================================
+       PASSWORD
+    ===================================== */
+
+    const passwordValid =
+        validatePassword();
+
+
+    if (!passwordValid) {
+
+        document
+            .getElementById(
+                "password"
+            )
+            .focus();
+
+        return;
+
+    }
+
+
+
+    /* =====================================
+       CONFIRM PASSWORD
+    ===================================== */
+
+    const confirmPasswordValid =
+        validateConfirmPassword();
+
+
+    if (!confirmPasswordValid) {
+
+        document
+            .getElementById(
+                "confirmPassword"
+            )
+            .focus();
+
+        return;
+
+    }
+
+
+
+    /* =====================================
+       SERVICE
+    ===================================== */
+
+    if (!service) {
+
+        alert(
+            currentLanguage === "ta"
+                ? "ஒரு சேவையை தேர்வு செய்யுங்கள்."
+                : "Please select a service."
+        );
+
+        return;
+
+    }
+
+
+
+    /* =====================================
+       SUB SERVICE
+    ===================================== */
+
+    if (
+        selectedSubServices.length === 0
+    ) {
+
+        alert(
+            currentLanguage === "ta"
+                ? "குறைந்தது ஒரு சேவை வகையை தேர்வு செய்யுங்கள்."
+                : "Please select at least one service type."
+        );
+
+        return;
+
+    }
+
+
+
+    /* =====================================
+       DISTRICT
+    ===================================== */
+
+    if (!district) {
+
+        alert(
+            currentLanguage === "ta"
+                ? "மாவட்டத்தை தேர்வு செய்யுங்கள்."
+                : "Please select a district."
+        );
+
+        return;
+
+    }
+
+
+
+    /* =====================================
+       LOCALITY
+    ===================================== */
+
+    if (
+        !overallMadurai &&
+        selectedLocalities.length === 0
+    ) {
+
+        alert(
+            currentLanguage === "ta"
+                ? "குறைந்தது ஒரு பகுதியை தேர்வு செய்யுங்கள் அல்லது முழு மதுரையை தேர்வு செய்யுங்கள்."
+                : "Please select at least one locality or choose Entire Madurai."
+        );
+
+        return;
+
+    }
+
+
+
+    /* =====================================
+       PROVIDER OBJECT
+    ===================================== */
+
+    const provider = {
+
+        name:
+            name,
+
+        phone:
+            phone,
+
+        aboutMe:
+            aboutMe,
+
+        service:
+            service,
+
+        subServices:
+            selectedSubServices,
+
+        districtId:
+            district,
+
+        localities:
+            overallMadurai
+                ? ["*"]
+                : selectedLocalities,
+
+        serviceArea:
+            overallMadurai
+                ? "district"
+                : "localities",
+
+        experience:
+            experience,
+
+        availability:
+            availability,
+
+        active:
+            true,
+
+        profileViews:
+            0,
+
+        rating:
+            0,
+
+        reviewCount:
+            0,
+
+        createdAt:
+            Date.now()
+
+    };
+
+
+
+    /* =====================================
+       TEMPORARY DEMO
+    ===================================== */
+
+    console.log(
+        "Provider data:",
+        provider
+    );
+
+
+    const success =
+        document.getElementById(
+            "successMessage"
+        );
+
+
+    success.style.display =
+        "block";
+
+
+    success.scrollIntoView({
+
+        behavior:
+            "smooth",
+
+        block:
+            "center"
+
+    });
+
+}
+
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+loadMasterData();
+
+</script>
+
+
+</body>
+
+</html>

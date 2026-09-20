@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Profile - Seivom</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --orange: #ff6b00;
+            --orange-light: #fff1e7;
+            --black: #171717;
+            --gray: #6b6b6b;
+            --light-gray: #f7f7f7;
+            --border: #e8e8e8;
+            --background: #fffaf7;
+            --white: #ffffff;
+            --green: #159957;
+            --yellow: #f5a623;
+        }
+
+        body {
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+            background: var(--background);
+            color: var(--black);
+
+            line-height: 1.5;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font: inherit;
+            cursor: pointer;
+        }
+
+
+        /* =========================================
+           NAVBAR
+        ========================================= */
+
+        .navbar {
+            height: 68px;
+
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            background: rgba(255, 250, 247, 0.94);
+
+            backdrop-filter: blur(14px);
+
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: 850;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--orange);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .language {
+            display: flex;
+
+            padding: 4px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 30px;
+
+            background: white;
+        }
+
+        .lang-btn {
+            border: none;
+            background: transparent;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+
+            color: #777;
+
+            font-size: 12px;
+            font-weight: 750;
+        }
+
+        .lang-btn.active {
+            background: var(--black);
+            color: white;
+        }
+
+
+        /* =========================================
+           PAGE
+        ========================================= */
+
+        .page {
+            width: min(1050px, 92%);
+
+            margin: auto;
+
+            padding: 45px 0 80px;
+        }
+
+
+        /* =========================================
+           TOP
+        ========================================= */
+
+        .page-top {
+            margin-bottom: 28px;
+        }
+
+        .page-top h1 {
+            font-size: 34px;
+
+            letter-spacing: -1.5px;
+
+            margin-bottom: 5px;
+        }
+
+        .page-top p {
+            color: var(--gray);
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================
+           PROFILE CARD
+        ========================================= */
+
+        .profile-card {
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 28px;
+
+            padding: 30px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 25px;
+
+            box-shadow:
+                0 10px 35px rgba(0, 0, 0, 0.035);
+
+            margin-bottom: 18px;
+        }
+
+        .profile-left {
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
+        }
+
+        .profile-photo {
+            width: 90px;
+            height: 90px;
+
+            border-radius: 50%;
+
+            background: var(--orange-light);
+
+            color: var(--orange);
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 34px;
+
+            font-weight: 850;
+
+            border: 3px solid white;
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .profile-info h2 {
+            font-size: 25px;
+
+            margin-bottom: 3px;
+        }
+
+        .service-name {
+            color: var(--gray);
+
+            font-size: 14px;
+
+            margin-bottom: 8px;
+        }
+
+        .rating-line {
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+        }
+
+        .stars {
+            color: var(--yellow);
+
+            letter-spacing: 1px;
+        }
+
+        .rating-number {
+            font-weight: 800;
+
+            font-size: 14px;
+        }
+
+        .review-count {
+            color: #888;
+
+            font-size: 13px;
+        }
+
+        .edit-btn {
+            border: none;
+
+            background: var(--black);
+
+            color: white;
+
+            border-radius: 13px;
+
+            padding: 12px 18px;
+
+            font-size: 13px;
+
+            font-weight: 750;
+        }
+
+        .edit-btn:hover {
+            background: var(--orange);
+        }
+
+
+        /* =========================================
+           STATS
+        ========================================= */
+
+        .stats {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 14px;
+
+            margin-bottom: 28px;
+        }
+
+        .stat-card {
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 21px;
+
+            padding: 23px;
+
+            position: relative;
+        }
+
+        .stat-icon {
+            width: 38px;
+            height: 38px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: var(--orange-light);
+
+            color: var(--orange);
+
+            font-size: 17px;
+
+            margin-bottom: 14px;
+        }
+
+        .stat-number {
+            font-size: 28px;
+
+            font-weight: 850;
+
+            letter-spacing: -1px;
+
+            margin-bottom: 2px;
+        }
+
+        .stat-label {
+            color: var(--gray);
+
+            font-size: 13px;
+        }
+
+
+        /* =========================================
+           GRID
+        ========================================= */
+
+        .content-grid {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 18px;
+
+            margin-bottom: 18px;
+        }
+
+        .section-card {
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 24px;
+
+            padding: 25px;
+        }
+
+        .section-header {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 18px;
+        }
+
+        .section-header h3 {
+            font-size: 18px;
+        }
+
+        .section-header span {
+            color: #999;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================================
+           ABOUT
+        ========================================= */
+
+        .about-text {
+            color: #5f5f5f;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           SERVICE CHIPS
+        ========================================= */
+
+        .chips {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+        }
+
+        .chip {
+            background: var(--orange-light);
+
+            color: var(--orange);
+
+            border-radius: 30px;
+
+            padding: 9px 13px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================================
+           LOCATION
+        ========================================= */
+
+        .location-list {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+        }
+
+        .location-item {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 12px;
+
+            background: var(--light-gray);
+
+            border-radius: 13px;
+
+            font-size: 13px;
+        }
+
+        .location-icon {
+            width: 30px;
+            height: 30px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: white;
+
+            border-radius: 9px;
+        }
+
+
+        /* =========================================
+           REVIEWS
+        ========================================= */
+
+        .reviews-card {
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 24px;
+
+            padding: 25px;
+        }
+
+        .review {
+            padding: 18px 0;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .review:last-child {
+            border-bottom: none;
+
+            padding-bottom: 0;
+        }
+
+        .review:first-child {
+            padding-top: 0;
+        }
+
+        .review-top {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 7px;
+        }
+
+        .customer {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+        .customer-avatar {
+            width: 35px;
+            height: 35px;
+
+            border-radius: 50%;
+
+            background: #f0f0f0;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 12px;
+
+            font-weight: 800;
+        }
+
+        .customer-name {
+            font-size: 13px;
+
+            font-weight: 750;
+        }
+
+        .review-date {
+            color: #999;
+
+            font-size: 11px;
+        }
+
+        .review-stars {
+            color: var(--yellow);
+
+            font-size: 13px;
+
+            margin-bottom: 5px;
+        }
+
+        .review-text {
+            color: #666;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================================
+           RATING BREAKDOWN
+        ========================================= */
+
+        .rating-breakdown {
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 24px;
+
+            padding: 25px;
+
+            margin-top: 18px;
+        }
+
+        .rating-summary {
+            display: grid;
+
+            grid-template-columns:
+                190px 1fr;
+
+            gap: 35px;
+
+            align-items: center;
+        }
+
+        .rating-big {
+            text-align: center;
+        }
+
+        .rating-big-number {
+            font-size: 48px;
+
+            font-weight: 850;
+
+            line-height: 1;
+
+            letter-spacing: -2px;
+        }
+
+        .rating-big-stars {
+            color: var(--yellow);
+
+            font-size: 20px;
+
+            letter-spacing: 2px;
+
+            margin: 10px 0 5px;
+        }
+
+        .rating-big-count {
+            color: #888;
+
+            font-size: 12px;
+        }
+
+        .rating-bars {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+        }
+
+        .rating-row {
+            display: grid;
+
+            grid-template-columns:
+                35px 1fr 45px;
+
+            align-items: center;
+
+            gap: 9px;
+        }
+
+        .rating-label {
+            font-size: 12px;
+
+            font-weight: 700;
+
+            color: #555;
+        }
+
+        .rating-track {
+            height: 8px;
+
+            background: #eeeeee;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+        }
+
+        .rating-fill {
+            height: 100%;
+
+            background: var(--yellow);
+
+            border-radius: 20px;
+
+            transition: width 0.4s ease;
+        }
+
+        .rating-count {
+            text-align: right;
+
+            color: #888;
+
+            font-size: 11px;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================================
+           VIEW ALL REVIEWS
+        ========================================= */
+
+        .view-all-reviews {
+            margin-top: 20px;
+
+            padding-top: 18px;
+
+            border-top: 1px solid var(--border);
+
+            text-align: center;
+        }
+
+        .view-all-btn {
+            border: none;
+
+            background: var(--black);
+
+            color: white;
+
+            padding: 11px 18px;
+
+            border-radius: 12px;
+
+            font-size: 12px;
+
+            font-weight: 750;
+        }
+
+        .view-all-btn:hover {
+            background: var(--orange);
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            text-align: center;
+
+            color: #999;
+
+            font-size: 12px;
+
+            padding: 20px;
+        }
+
+        footer strong {
+            color: var(--black);
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media(max-width: 700px) {
+
+            .navbar {
+                height: 62px;
+
+                padding: 0 4%;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .page {
+                width: 94%;
+
+                padding-top: 32px;
+            }
+
+            .page-top h1 {
+                font-size: 29px;
+            }
+
+            .profile-card {
+                padding: 21px;
+
+                align-items: flex-start;
+
+                flex-direction: column;
+            }
+
+            .profile-left {
+                width: 100%;
+            }
+
+            .profile-photo {
+                width: 70px;
+                height: 70px;
+
+                font-size: 26px;
+            }
+
+            .profile-info h2 {
+                font-size: 21px;
+            }
+
+            .edit-btn {
+                width: 100%;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+
+                gap: 10px;
+            }
+
+            .stat-card {
+                padding: 18px;
+            }
+
+            .stat-icon {
+                display: inline-flex;
+
+                margin-right: 10px;
+
+                margin-bottom: 0;
+
+                vertical-align: middle;
+            }
+
+            .stat-number {
+                display: inline;
+
+                font-size: 24px;
+            }
+
+            .stat-label {
+                display: block;
+
+                margin-top: 7px;
+
+                margin-left: 50px;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-card,
+            .reviews-card,
+            .rating-breakdown {
+                padding: 20px;
+            }
+
+            .rating-summary {
+                grid-template-columns: 1fr;
+
+                gap: 25px;
+            }
+
+            .rating-big {
+                padding-bottom: 5px;
+            }
+
+            .rating-row {
+                grid-template-columns:
+                    35px 1fr 35px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     NAVBAR
+========================================= -->
+
+<nav class="navbar">
+
+    <a
+            href="../index.html"
+            class="logo"
+    >
+        Seiv<span>om</span>
+    </a>
+
+
+    <div class="nav-right">
+
+        <div class="language">
+
+            <button
+                    class="lang-btn active"
+                    id="englishBtn"
+                    onclick="setLanguage('en')"
+            >
+                EN
+            </button>
+
+            <button
+                    class="lang-btn"
+                    id="tamilBtn"
+                    onclick="setLanguage('ta')"
+            >
+                தமிழ்
+            </button>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<main class="page">
+
+
+    <!-- =====================================
+         PAGE HEADER
+    ===================================== -->
+
+    <div class="page-top">
+
+        <h1 data-i18n="my_profile">
+            My Profile
+        </h1>
+
+        <p data-i18n="profile_description">
+            This is how customers discover and understand your service.
+        </p>
+
+    </div>
+
+
+    <!-- =====================================
+         PROFILE HEADER
+    ===================================== -->
+
+    <section class="profile-card">
+
+        <div class="profile-left">
+
+            <div class="profile-photo">
+                K
+            </div>
+
+
+            <div class="profile-info">
+
+                <h2>
+                    Kumar
+                </h2>
+
+                <div class="service-name">
+                    Plumbing
+                </div>
+
+
+                <div class="rating-line">
+
+                    <span class="stars">
+                        ★★★★★
+                    </span>
+
+                    <span class="rating-number">
+                        4.8
+                    </span>
+
+                    <span class="review-count">
+                        (24 reviews)
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+                class="edit-btn"
+                onclick="editProfile()"
+                data-i18n="edit_profile"
+        >
+            Edit Profile
+        </button>
+
+    </section>
+
+
+    <!-- =====================================
+         PROFILE STATS
+    ===================================== -->
+
+    <section class="stats">
+
+
+        <!-- PROFILE VIEWS -->
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                👁
+            </div>
+
+            <div class="stat-number">
+                248
+            </div>
+
+            <div
+                    class="stat-label"
+                    data-i18n="profile_views"
+            >
+                Profile Views
+            </div>
+
+        </div>
+
+
+        <!-- RATING -->
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ★
+            </div>
+
+            <div class="stat-number">
+                4.8
+            </div>
+
+            <div
+                    class="stat-label"
+                    data-i18n="rating"
+            >
+                Average Rating
+            </div>
+
+        </div>
+
+
+        <!-- REVIEWS -->
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                💬
+            </div>
+
+            <div class="stat-number">
+                24
+            </div>
+
+            <div
+                    class="stat-label"
+                    data-i18n="reviews"
+            >
+                Customer Reviews
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         ABOUT + SERVICES
+    ===================================== -->
+
+    <section class="content-grid">
+
+
+        <!-- ABOUT -->
+
+        <div class="section-card">
+
+            <div class="section-header">
+
+                <h3 data-i18n="about_me">
+                    About Me
+                </h3>
+
+            </div>
+
+
+            <p class="about-text">
+
+                Experienced plumber providing tap repair,
+                leak repair, pipe repair and bathroom plumbing
+                services. I focus on reliable work and direct
+                communication with customers.
+
+            </p>
+
+        </div>
+
+
+        <!-- SERVICES -->
+
+        <div class="section-card">
+
+            <div class="section-header">
+
+                <h3 data-i18n="services">
+                    Services
+                </h3>
+
+                <span>
+                    6
+                </span>
+
+            </div>
+
+
+            <div class="chips">
+
+                <span class="chip">
+                    Tap Repair
+                </span>
+
+                <span class="chip">
+                    Leak Repair
+                </span>
+
+                <span class="chip">
+                    Pipe Repair
+                </span>
+
+                <span class="chip">
+                    Bathroom Plumbing
+                </span>
+
+                <span class="chip">
+                    Sink Repair
+                </span>
+
+                <span class="chip">
+                    Water Tank
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =====================================
+         SERVICE AREA
+    ===================================== -->
+
+    <section class="section-card">
+
+        <div class="section-header">
+
+            <h3 data-i18n="service_area">
+                Service Area
+            </h3>
+
+            <span>
+                Madurai
+            </span>
+
+        </div>
+
+
+        <div class="location-list">
+
+            <div class="location-item">
+
+                <div class="location-icon">
+                    📍
+                </div>
+
+                Anna Nagar
+
+            </div>
+
+
+            <div class="location-item">
+
+                <div class="location-icon">
+                    📍
+                </div>
+
+                KK Nagar
+
+            </div>
+
+
+            <div class="location-item">
+
+                <div class="location-icon">
+                    📍
+                </div>
+
+                Arasaradi
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         REVIEWS
+    ===================================== -->
+
+    <section
+            class="reviews-card"
+            style="margin-top:18px;"
+    >
+
+        <div class="section-header">
+
+            <h3 data-i18n="customer_reviews">
+                Customer Reviews
+            </h3>
+
+            <span id="reviewHeaderCount">
+                24
+            </span>
+
+        </div>
+
+
+        <!-- REVIEW 1 -->
+
+        <div class="review">
+
+            <div class="review-top">
+
+                <div class="customer">
+
+                    <div class="customer-avatar">
+                        R
+                    </div>
+
+                    <div>
+
+                        <div class="customer-name">
+                            Raj
+                        </div>
+
+                        <div class="review-date">
+                            2 days ago
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="review-stars">
+                ★★★★★
+            </div>
+
+
+            <p class="review-text">
+                Very quick response and good work.
+                He fixed the leaking tap properly.
+            </p>
+
+        </div>
+
+
+        <!-- REVIEW 2 -->
+
+        <div class="review">
+
+            <div class="review-top">
+
+                <div class="customer">
+
+                    <div class="customer-avatar">
+                        S
+                    </div>
+
+                    <div>
+
+                        <div class="customer-name">
+                            Suresh
+                        </div>
+
+                        <div class="review-date">
+                            1 week ago
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="review-stars">
+                ★★★★☆
+            </div>
+
+
+            <p class="review-text">
+                Good service and reasonable response time.
+                Would contact again if needed.
+            </p>
+
+        </div>
+
+
+        <!-- REVIEW 3 -->
+
+        <div class="review">
+
+            <div class="review-top">
+
+                <div class="customer">
+
+                    <div class="customer-avatar">
+                        M
+                    </div>
+
+                    <div>
+
+                        <div class="customer-name">
+                            Meena
+                        </div>
+
+                        <div class="review-date">
+                            2 weeks ago
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="review-stars">
+                ★★★★★
+            </div>
+
+
+            <p class="review-text">
+                Excellent plumbing work.
+                He explained the problem clearly
+                before starting the repair.
+            </p>
+
+        </div>
+
+
+        <!-- VIEW ALL -->
+
+        <div
+                class="view-all-reviews"
+                id="viewAllReviews"
+                style="display:none;"
+        >
+
+            <button
+                    class="view-all-btn"
+                    onclick="viewAllReviews()"
+                    data-i18n="view_all_reviews"
+            >
+                View All Reviews →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         RATING BREAKDOWN
+    ===================================== -->
+
+    <section class="rating-breakdown">
+
+        <div class="section-header">
+
+            <h3 data-i18n="rating_breakdown">
+                Rating Breakdown
+            </h3>
+
+            <span data-i18n="based_on">
+                Based on customer reviews
+            </span>
+
+        </div>
+
+
+        <div class="rating-summary">
+
+
+            <!-- BIG RATING -->
+
+            <div class="rating-big">
+
+                <div class="rating-big-number">
+                    4.8
+                </div>
+
+                <div class="rating-big-stars">
+                    ★★★★★
+                </div>
+
+                <div class="rating-big-count">
+                    24 reviews
+                </div>
+
+            </div>
+
+
+            <!-- BARS -->
+
+            <div class="rating-bars">
+
+
+                <!-- 5 STAR -->
+
+                <div class="rating-row">
+
+                    <div class="rating-label">
+                        5★
+                    </div>
+
+                    <div class="rating-track">
+
+                        <div
+                                class="rating-fill"
+                                style="width:75%;"
+                        ></div>
+
+                    </div>
+
+                    <div class="rating-count">
+                        18
+                    </div>
+
+                </div>
+
+
+                <!-- 4 STAR -->
+
+                <div class="rating-row">
+
+                    <div class="rating-label">
+                        4★
+                    </div>
+
+                    <div class="rating-track">
+
+                        <div
+                                class="rating-fill"
+                                style="width:17%;"
+                        ></div>
+
+                    </div>
+
+                    <div class="rating-count">
+                        4
+                    </div>
+
+                </div>
+
+
+                <!-- 3 STAR -->
+
+                <div class="rating-row">
+
+                    <div class="rating-label">
+                        3★
+                    </div>
+
+                    <div class="rating-track">
+
+                        <div
+                                class="rating-fill"
+                                style="width:4%;"
+                        ></div>
+
+                    </div>
+
+                    <div class="rating-count">
+                        1
+                    </div>
+
+                </div>
+
+
+                <!-- 2 STAR -->
+
+                <div class="rating-row">
+
+                    <div class="rating-label">
+                        2★
+                    </div>
+
+                    <div class="rating-track">
+
+                        <div
+                                class="rating-fill"
+                                style="width:4%;"
+                        ></div>
+
+                    </div>
+
+                    <div class="rating-count">
+                        1
+                    </div>
+
+                </div>
+
+
+                <!-- 1 STAR -->
+
+                <div class="rating-row">
+
+                    <div class="rating-label">
+                        1★
+                    </div>
+
+                    <div class="rating-track">
+
+                        <div
+                                class="rating-fill"
+                                style="width:0%;"
+                        ></div>
+
+                    </div>
+
+                    <div class="rating-count">
+                        0
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<footer>
+
+    <strong>Seivom</strong>
+
+    —
+
+    <span data-i18n="footer">
+        Local services, just around you.
+    </span>
+
+</footer>
+
+
+<script>
+
+
+    /* =========================================
+       RATING DATA
+    ========================================= */
+
+    const ratingData = {
+
+        5: 18,
+        4: 4,
+        3: 1,
+        2: 1,
+        1: 0
+
+    };
+
+
+    const totalReviews =
+        Object.values(ratingData)
+            .reduce(
+                (sum, count) => sum + count,
+                0
+            );
+
+
+    /* =========================================
+       SHOW / HIDE VIEW ALL
+    ========================================= */
+
+    function updateReviewVisibility() {
+
+        const viewAll =
+            document.getElementById(
+                "viewAllReviews"
+            );
+
+        if (totalReviews > 5) {
+
+            viewAll.style.display =
+                "block";
+
+        } else {
+
+            viewAll.style.display =
+                "none";
+
+        }
+
+    }
+
+
+    /* =========================================
+       VIEW ALL REVIEWS
+    ========================================= */
+
+    function viewAllReviews() {
+
+        window.location.href =
+            "review.html";
+
+    }
+
+
+    /* =========================================
+       TRANSLATION
+    ========================================= */
+
+    const translations = {
+
+        en: {
+
+            my_profile:
+                "My Profile",
+
+            profile_description:
+                "This is how customers discover and understand your service.",
+
+            edit_profile:
+                "Edit Profile",
+
+            profile_views:
+                "Profile Views",
+
+            rating:
+                "Average Rating",
+
+            reviews:
+                "Customer Reviews",
+
+            about_me:
+                "About Me",
+
+            services:
+                "Services",
+
+            service_area:
+                "Service Area",
+
+            customer_reviews:
+                "Customer Reviews",
+
+            rating_breakdown:
+                "Rating Breakdown",
+
+            based_on:
+                "Based on customer reviews",
+
+            view_all_reviews:
+                "View All Reviews →",
+
+            footer:
+                "Local services, just around you."
+
+        },
+
+
+        ta: {
+
+            my_profile:
+                "என் சுயவிவரம்",
+
+            profile_description:
+                "வாடிக்கையாளர்கள் உங்கள் சேவையை பார்க்கும் மற்றும் புரிந்து கொள்ளும் பகுதி.",
+
+            edit_profile:
+                "சுயவிவரத்தை திருத்து",
+
+            profile_views:
+                "சுயவிவர பார்வைகள்",
+
+            rating:
+                "சராசரி மதிப்பீடு",
+
+            reviews:
+                "வாடிக்கையாளர் விமர்சனங்கள்",
+
+            about_me:
+                "என்னைப் பற்றி",
+
+            services:
+                "சேவைகள்",
+
+            service_area:
+                "சேவை பகுதி",
+
+            customer_reviews:
+                "வாடிக்கையாளர் விமர்சனங்கள்",
+
+            rating_breakdown:
+                "மதிப்பீட்டு விவரம்",
+
+            based_on:
+                "வாடிக்கையாளர் விமர்சனங்களின் அடிப்படையில்",
+
+            view_all_reviews:
+                "அனைத்து விமர்சனங்களையும் பார்க்க →",
+
+            footer:
+                "உள்ளூர் சேவைகள், உங்களைச் சுற்றியே."
+
+        }
+
+    };
+
+
+    /* =========================================
+       LANGUAGE
+    ========================================= */
+
+    let currentLanguage =
+        localStorage.getItem(
+            "seivom_language"
+        ) || "en";
+
+
+    function setLanguage(language) {
+
+        currentLanguage =
+            language;
+
+
+        localStorage.setItem(
+            "seivom_language",
+            language
+        );
+
+
+        document.documentElement.lang =
+            language;
+
+
+        document
+            .querySelectorAll("[data-i18n]")
+            .forEach(element => {
+
+                const key =
+                    element.getAttribute(
+                        "data-i18n"
+                    );
+
+
+                if (
+                    translations[language] &&
+                    translations[language][key]
+                ) {
+
+                    element.innerHTML =
+                        translations[language][key];
+
+                }
+
+            });
+
+
+        document
+            .getElementById("englishBtn")
+            .classList.toggle(
+                "active",
+                language === "en"
+            );
+
+
+        document
+            .getElementById("tamilBtn")
+            .classList.toggle(
+                "active",
+                language === "ta"
+            );
+
+    }
+
+
+    /* =========================================
+       EDIT PROFILE
+    ========================================= */
+
+    function editProfile() {
+
+        window.location.href =
+            "edit_profile.html";
+
+    }
+
+
+    /* =========================================
+       INITIALIZE
+    ========================================= */
+
+    updateReviewVisibility();
+
+    setLanguage(
+        currentLanguage
+    );
+
+
+</script>
+
+
+</body>
+
+</html>

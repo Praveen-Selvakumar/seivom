@@ -1,0 +1,1126 @@
+{
+  "version": 1,
+  "location": "madurai",
+  "services": [
+    {
+      "id": "plumbing",
+      "name": "Plumbing",
+      "nameTa": "குழாய் வேலை",
+      "icon": "🔧",
+      "subServices": [
+        {
+          "id": "tap_repair",
+          "name": "Tap Repair",
+          "nameTa": "குழாய் பழுது"
+        },
+        {
+          "id": "leak_repair",
+          "name": "Leak Repair",
+          "nameTa": "கசிவு பழுது"
+        },
+        {
+          "id": "pipe_repair",
+          "name": "Pipe Repair",
+          "nameTa": "குழாய் பழுது"
+        },
+        {
+          "id": "toilet_repair",
+          "name": "Toilet Repair",
+          "nameTa": "கழிப்பறை பழுது"
+        },
+        {
+          "id": "sink_repair",
+          "name": "Sink Repair",
+          "nameTa": "சிங்க் பழுது"
+        },
+        {
+          "id": "bathroom_plumbing",
+          "name": "Bathroom Plumbing",
+          "nameTa": "குளியலறை குழாய் வேலை"
+        },
+        {
+          "id": "drainage_repair",
+          "name": "Drainage Repair",
+          "nameTa": "வடிகால் பழுது"
+        },
+        {
+          "id": "water_tank",
+          "name": "Water Tank Work",
+          "nameTa": "தண்ணீர் தொட்டி வேலை"
+        },
+        {
+          "id": "motor_pump_repair",
+          "name": "Motor Pump Repair",
+          "nameTa": "மோட்டார் பம்ப் பழுது"
+        }
+      ]
+    },
+    {
+      "id": "electrical",
+      "name": "Electrical",
+      "nameTa": "மின்சார வேலை",
+      "icon": "⚡",
+      "subServices": [
+        {
+          "id": "switch_repair",
+          "name": "Switch Repair",
+          "nameTa": "சுவிட்ச் பழுது"
+        },
+        {
+          "id": "socket_repair",
+          "name": "Socket Repair",
+          "nameTa": "சாக்கெட் பழுது"
+        },
+        {
+          "id": "fan_repair",
+          "name": "Fan Repair",
+          "nameTa": "விசிறி பழுது"
+        },
+        {
+          "id": "light_installation",
+          "name": "Light Installation",
+          "nameTa": "லைட் பொருத்துதல்"
+        },
+        {
+          "id": "wiring",
+          "name": "Wiring",
+          "nameTa": "வயரிங்"
+        },
+        {
+          "id": "mcb_repair",
+          "name": "MCB Repair",
+          "nameTa": "MCB பழுது"
+        },
+        {
+          "id": "short_circuit_repair",
+          "name": "Short Circuit Repair",
+          "nameTa": "ஷார்ட் சர்க்யூட் பழுது"
+        },
+        {
+          "id": "inverter_repair",
+          "name": "Inverter Repair",
+          "nameTa": "இன்வெர்டர் பழுது"
+        },
+        {
+          "id": "meter_work",
+          "name": "Meter Work",
+          "nameTa": "மீட்டர் வேலை"
+        }
+      ]
+    },
+    {
+      "id": "ac_service",
+      "name": "AC Service",
+      "nameTa": "ஏசி சேவை",
+      "icon": "❄️",
+      "subServices": [
+        {
+          "id": "ac_service",
+          "name": "AC Service",
+          "nameTa": "ஏசி சர்வீஸ்"
+        },
+        {
+          "id": "ac_repair",
+          "name": "AC Repair",
+          "nameTa": "ஏசி பழுது"
+        },
+        {
+          "id": "ac_installation",
+          "name": "AC Installation",
+          "nameTa": "ஏசி பொருத்துதல்"
+        },
+        {
+          "id": "ac_uninstallation",
+          "name": "AC Uninstallation",
+          "nameTa": "ஏசி அகற்றுதல்"
+        },
+        {
+          "id": "gas_filling",
+          "name": "Gas Filling",
+          "nameTa": "கேஸ் நிரப்புதல்"
+        },
+        {
+          "id": "ac_cleaning",
+          "name": "AC Cleaning",
+          "nameTa": "ஏசி சுத்தம்"
+        },
+        {
+          "id": "ac_water_leak",
+          "name": "AC Water Leakage",
+          "nameTa": "ஏசி தண்ணீர் கசிவு"
+        }
+      ]
+    },
+    {
+      "id": "appliance_repair",
+      "name": "Appliance Repair",
+      "nameTa": "வீட்டு உபகரண பழுது",
+      "icon": "🔌",
+      "subServices": [
+        {
+          "id": "refrigerator_repair",
+          "name": "Refrigerator Repair",
+          "nameTa": "ஃப்ரிட்ஜ் பழுது"
+        },
+        {
+          "id": "washing_machine_repair",
+          "name": "Washing Machine Repair",
+          "nameTa": "வாஷிங் மெஷின் பழுது"
+        },
+        {
+          "id": "microwave_repair",
+          "name": "Microwave Repair",
+          "nameTa": "மைக்ரோவேவ் பழுது"
+        },
+        {
+          "id": "tv_repair",
+          "name": "TV Repair",
+          "nameTa": "டிவி பழுது"
+        },
+        {
+          "id": "geyser_repair",
+          "name": "Geyser Repair",
+          "nameTa": "கீசர் பழுது"
+        },
+        {
+          "id": "mixer_repair",
+          "name": "Mixer Grinder Repair",
+          "nameTa": "மிக்ஸி பழுது"
+        },
+        {
+          "id": "water_heater_repair",
+          "name": "Water Heater Repair",
+          "nameTa": "வாட்டர் ஹீட்டர் பழுது"
+        }
+      ]
+    },
+    {
+      "id": "ro_water_purifier",
+      "name": "RO & Water Purifier",
+      "nameTa": "RO மற்றும் நீர் சுத்திகரிப்பு",
+      "icon": "🚰",
+      "subServices": [
+        {
+          "id": "ro_service",
+          "name": "RO Service",
+          "nameTa": "RO சர்வீஸ்"
+        },
+        {
+          "id": "ro_repair",
+          "name": "RO Repair",
+          "nameTa": "RO பழுது"
+        },
+        {
+          "id": "filter_replacement",
+          "name": "Filter Replacement",
+          "nameTa": "ஃபில்டர் மாற்றுதல்"
+        },
+        {
+          "id": "ro_installation",
+          "name": "RO Installation",
+          "nameTa": "RO பொருத்துதல்"
+        },
+        {
+          "id": "water_purifier_cleaning",
+          "name": "Purifier Cleaning",
+          "nameTa": "நீர் சுத்திகரிப்பான் சுத்தம்"
+        }
+      ]
+    },
+    {
+      "id": "carpenter",
+      "name": "Carpenter",
+      "nameTa": "தச்சு வேலை",
+      "icon": "🪚",
+      "subServices": [
+        {
+          "id": "door_repair",
+          "name": "Door Repair",
+          "nameTa": "கதவு பழுது"
+        },
+        {
+          "id": "furniture_repair",
+          "name": "Furniture Repair",
+          "nameTa": "பர்னிச்சர் பழுது"
+        },
+        {
+          "id": "cupboard_work",
+          "name": "Cupboard Work",
+          "nameTa": "அலமாரி வேலை"
+        },
+        {
+          "id": "bed_repair",
+          "name": "Bed Repair",
+          "nameTa": "கட்டில் பழுது"
+        },
+        {
+          "id": "shelf_work",
+          "name": "Shelf Work",
+          "nameTa": "ஷெல்ஃப் வேலை"
+        },
+        {
+          "id": "wood_work",
+          "name": "Wood Work",
+          "nameTa": "மர வேலை"
+        },
+        {
+          "id": "modular_furniture",
+          "name": "Modular Furniture",
+          "nameTa": "மாடுலர் பர்னிச்சர்"
+        }
+      ]
+    },
+    {
+      "id": "painting",
+      "name": "Painting",
+      "nameTa": "பெயிண்டிங்",
+      "icon": "🎨",
+      "subServices": [
+        {
+          "id": "home_painting",
+          "name": "Home Painting",
+          "nameTa": "வீட்டு பெயிண்டிங்"
+        },
+        {
+          "id": "wall_painting",
+          "name": "Wall Painting",
+          "nameTa": "சுவர் பெயிண்டிங்"
+        },
+        {
+          "id": "interior_painting",
+          "name": "Interior Painting",
+          "nameTa": "உட்புற பெயிண்டிங்"
+        },
+        {
+          "id": "exterior_painting",
+          "name": "Exterior Painting",
+          "nameTa": "வெளிப்புற பெயிண்டிங்"
+        },
+        {
+          "id": "texture_painting",
+          "name": "Texture Painting",
+          "nameTa": "டெக்ஸ்சர் பெயிண்டிங்"
+        },
+        {
+          "id": "touch_up_painting",
+          "name": "Touch-up Painting",
+          "nameTa": "டச்-அப் பெயிண்டிங்"
+        }
+      ]
+    },
+    {
+      "id": "cleaning",
+      "name": "Cleaning",
+      "nameTa": "சுத்தம் செய்யும் சேவை",
+      "icon": "🧹",
+      "subServices": [
+        {
+          "id": "home_cleaning",
+          "name": "Home Cleaning",
+          "nameTa": "வீட்டு சுத்தம்"
+        },
+        {
+          "id": "deep_cleaning",
+          "name": "Deep Cleaning",
+          "nameTa": "ஆழமான சுத்தம்"
+        },
+        {
+          "id": "bathroom_cleaning",
+          "name": "Bathroom Cleaning",
+          "nameTa": "குளியலறை சுத்தம்"
+        },
+        {
+          "id": "kitchen_cleaning",
+          "name": "Kitchen Cleaning",
+          "nameTa": "சமையலறை சுத்தம்"
+        },
+        {
+          "id": "sofa_cleaning",
+          "name": "Sofa Cleaning",
+          "nameTa": "சோபா சுத்தம்"
+        },
+        {
+          "id": "carpet_cleaning",
+          "name": "Carpet Cleaning",
+          "nameTa": "கார்பெட் சுத்தம்"
+        },
+        {
+          "id": "mattress_cleaning",
+          "name": "Mattress Cleaning",
+          "nameTa": "மெத்தை சுத்தம்"
+        }
+      ]
+    },
+    {
+      "id": "pest_control",
+      "name": "Pest Control",
+      "nameTa": "பூச்சி கட்டுப்பாடு",
+      "icon": "🐜",
+      "subServices": [
+        {
+          "id": "cockroach_control",
+          "name": "Cockroach Control",
+          "nameTa": "கரப்பான் பூச்சி கட்டுப்பாடு"
+        },
+        {
+          "id": "termite_control",
+          "name": "Termite Control",
+          "nameTa": "கரையான் கட்டுப்பாடு"
+        },
+        {
+          "id": "mosquito_control",
+          "name": "Mosquito Control",
+          "nameTa": "கொசு கட்டுப்பாடு"
+        },
+        {
+          "id": "bed_bug_control",
+          "name": "Bed Bug Control",
+          "nameTa": "மூட்டைப்பூச்சி கட்டுப்பாடு"
+        },
+        {
+          "id": "rodent_control",
+          "name": "Rodent Control",
+          "nameTa": "எலி கட்டுப்பாடு"
+        },
+        {
+          "id": "general_pest_control",
+          "name": "General Pest Control",
+          "nameTa": "பொது பூச்சி கட்டுப்பாடு"
+        }
+      ]
+    },
+    {
+      "id": "tiles_flooring",
+      "name": "Tiles & Flooring",
+      "nameTa": "டைல்ஸ் மற்றும் தரை வேலை",
+      "icon": "🧱",
+      "subServices": [
+        {
+          "id": "tile_installation",
+          "name": "Tile Installation",
+          "nameTa": "டைல்ஸ் பொருத்துதல்"
+        },
+        {
+          "id": "tile_replacement",
+          "name": "Tile Replacement",
+          "nameTa": "டைல்ஸ் மாற்றுதல்"
+        },
+        {
+          "id": "tile_repair",
+          "name": "Tile Repair",
+          "nameTa": "டைல்ஸ் பழுது"
+        },
+        {
+          "id": "grouting",
+          "name": "Grouting",
+          "nameTa": "கிரவுட்டிங்"
+        },
+        {
+          "id": "flooring_work",
+          "name": "Flooring Work",
+          "nameTa": "தரை வேலை"
+        },
+        {
+          "id": "marble_work",
+          "name": "Marble Work",
+          "nameTa": "மார்பிள் வேலை"
+        }
+      ]
+    },
+    {
+      "id": "waterproofing",
+      "name": "Waterproofing",
+      "nameTa": "நீர் கசிவு தடுப்பு",
+      "icon": "💧",
+      "subServices": [
+        {
+          "id": "terrace_waterproofing",
+          "name": "Terrace Waterproofing",
+          "nameTa": "மொட்டைமாடி நீர்க்கசிவு தடுப்பு"
+        },
+        {
+          "id": "bathroom_waterproofing",
+          "name": "Bathroom Waterproofing",
+          "nameTa": "குளியலறை நீர்க்கசிவு தடுப்பு"
+        },
+        {
+          "id": "wall_waterproofing",
+          "name": "Wall Waterproofing",
+          "nameTa": "சுவர் நீர்க்கசிவு தடுப்பு"
+        },
+        {
+          "id": "dampness_treatment",
+          "name": "Dampness Treatment",
+          "nameTa": "ஈரப்பதம் சிகிச்சை"
+        },
+        {
+          "id": "leakage_treatment",
+          "name": "Leakage Treatment",
+          "nameTa": "கசிவு சிகிச்சை"
+        }
+      ]
+    },
+    {
+      "id": "masonry_construction",
+      "name": "Masonry & Construction",
+      "nameTa": "கட்டுமான வேலை",
+      "icon": "🏗️",
+      "subServices": [
+        {
+          "id": "brick_work",
+          "name": "Brick Work",
+          "nameTa": "செங்கல் வேலை"
+        },
+        {
+          "id": "plastering",
+          "name": "Plastering",
+          "nameTa": "பிளாஸ்டர் வேலை"
+        },
+        {
+          "id": "wall_repair",
+          "name": "Wall Repair",
+          "nameTa": "சுவர் பழுது"
+        },
+        {
+          "id": "concrete_work",
+          "name": "Concrete Work",
+          "nameTa": "கான்கிரீட் வேலை"
+        },
+        {
+          "id": "renovation",
+          "name": "Renovation",
+          "nameTa": "புதுப்பிப்பு வேலை"
+        },
+        {
+          "id": "minor_construction",
+          "name": "Minor Construction",
+          "nameTa": "சிறிய கட்டுமான வேலை"
+        }
+      ]
+    },
+    {
+      "id": "aluminium_glass",
+      "name": "Aluminium & Glass",
+      "nameTa": "அலுமினியம் மற்றும் கண்ணாடி",
+      "icon": "🪟",
+      "subServices": [
+        {
+          "id": "aluminium_window",
+          "name": "Aluminium Window",
+          "nameTa": "அலுமினிய ஜன்னல்"
+        },
+        {
+          "id": "aluminium_door",
+          "name": "Aluminium Door",
+          "nameTa": "அலுமினிய கதவு"
+        },
+        {
+          "id": "glass_replacement",
+          "name": "Glass Replacement",
+          "nameTa": "கண்ணாடி மாற்றுதல்"
+        },
+        {
+          "id": "glass_partition",
+          "name": "Glass Partition",
+          "nameTa": "கண்ணாடி பார்டிஷன்"
+        },
+        {
+          "id": "shower_partition",
+          "name": "Shower Partition",
+          "nameTa": "ஷவர் பார்டிஷன்"
+        }
+      ]
+    },
+    {
+      "id": "cctv_security",
+      "name": "CCTV & Security",
+      "nameTa": "CCTV மற்றும் பாதுகாப்பு",
+      "icon": "📹",
+      "subServices": [
+        {
+          "id": "cctv_installation",
+          "name": "CCTV Installation",
+          "nameTa": "CCTV பொருத்துதல்"
+        },
+        {
+          "id": "cctv_repair",
+          "name": "CCTV Repair",
+          "nameTa": "CCTV பழுது"
+        },
+        {
+          "id": "camera_setup",
+          "name": "Camera Setup",
+          "nameTa": "கேமரா அமைப்பு"
+        },
+        {
+          "id": "dvr_nvr_setup",
+          "name": "DVR / NVR Setup",
+          "nameTa": "DVR / NVR அமைப்பு"
+        },
+        {
+          "id": "smart_lock",
+          "name": "Smart Lock Installation",
+          "nameTa": "ஸ்மார்ட் லாக் பொருத்துதல்"
+        }
+      ]
+    },
+    {
+      "id": "wifi_networking",
+      "name": "Wi-Fi & Networking",
+      "nameTa": "Wi-Fi மற்றும் நெட்வொர்க்கிங்",
+      "icon": "📡",
+      "subServices": [
+        {
+          "id": "wifi_setup",
+          "name": "Wi-Fi Setup",
+          "nameTa": "Wi-Fi அமைப்பு"
+        },
+        {
+          "id": "router_setup",
+          "name": "Router Setup",
+          "nameTa": "ரூட்டர் அமைப்பு"
+        },
+        {
+          "id": "network_repair",
+          "name": "Network Repair",
+          "nameTa": "நெட்வொர்க் பழுது"
+        },
+        {
+          "id": "internet_setup",
+          "name": "Internet Setup",
+          "nameTa": "இணைய அமைப்பு"
+        },
+        {
+          "id": "lan_setup",
+          "name": "LAN Setup",
+          "nameTa": "LAN அமைப்பு"
+        }
+      ]
+    },
+    {
+      "id": "interior_modular",
+      "name": "Interior & Modular",
+      "nameTa": "இன்டீரியர் மற்றும் மாடுலர்",
+      "icon": "🏠",
+      "subServices": [
+        {
+          "id": "interior_design",
+          "name": "Interior Design",
+          "nameTa": "இன்டீரியர் டிசைன்"
+        },
+        {
+          "id": "modular_kitchen",
+          "name": "Modular Kitchen",
+          "nameTa": "மாடுலர் கிச்சன்"
+        },
+        {
+          "id": "wardrobe",
+          "name": "Wardrobe",
+          "nameTa": "வார்ட்ரோப்"
+        },
+        {
+          "id": "false_ceiling",
+          "name": "False Ceiling",
+          "nameTa": "ஃபால்ஸ் சீலிங்"
+        },
+        {
+          "id": "wall_paneling",
+          "name": "Wall Paneling",
+          "nameTa": "சுவர் பேனலிங்"
+        }
+      ]
+    },
+    {
+      "id": "packers_movers",
+      "name": "Packers & Movers",
+      "nameTa": "பொருள் மாற்றும் சேவை",
+      "icon": "🚚",
+      "subServices": [
+        {
+          "id": "home_shifting",
+          "name": "Home Shifting",
+          "nameTa": "வீடு மாற்றுதல்"
+        },
+        {
+          "id": "office_shifting",
+          "name": "Office Shifting",
+          "nameTa": "அலுவலகம் மாற்றுதல்"
+        },
+        {
+          "id": "loading_unloading",
+          "name": "Loading & Unloading",
+          "nameTa": "ஏற்றுதல் மற்றும் இறக்குதல்"
+        },
+        {
+          "id": "packing_service",
+          "name": "Packing Service",
+          "nameTa": "பேக்கிங் சேவை"
+        },
+        {
+          "id": "local_transport",
+          "name": "Local Transport",
+          "nameTa": "உள்ளூர் போக்குவரத்து"
+        }
+      ]
+    },
+    {
+      "id": "laundry",
+      "name": "Laundry",
+      "nameTa": "துணி துவைக்கும் சேவை",
+      "icon": "🧺",
+      "subServices": [
+        {
+          "id": "washing",
+          "name": "Washing",
+          "nameTa": "துணி துவைத்தல்"
+        },
+        {
+          "id": "ironing",
+          "name": "Ironing",
+          "nameTa": "அயர்னிங்"
+        },
+        {
+          "id": "dry_cleaning",
+          "name": "Dry Cleaning",
+          "nameTa": "ட்ரை கிளீனிங்"
+        },
+        {
+          "id": "laundry_pickup",
+          "name": "Laundry Pickup",
+          "nameTa": "துணி எடுத்துச் செல்லுதல்"
+        },
+        {
+          "id": "laundry_delivery",
+          "name": "Laundry Delivery",
+          "nameTa": "துணி வழங்குதல்"
+        }
+      ]
+    },
+    {
+      "id": "salon_beauty",
+      "name": "Salon & Beauty",
+      "nameTa": "சலூன் மற்றும் அழகு சேவை",
+      "icon": "💇",
+      "subServices": [
+        {
+          "id": "haircut",
+          "name": "Haircut",
+          "nameTa": "முடி வெட்டுதல்"
+        },
+        {
+          "id": "hair_styling",
+          "name": "Hair Styling",
+          "nameTa": "முடி அலங்காரம்"
+        },
+        {
+          "id": "facial",
+          "name": "Facial",
+          "nameTa": "ஃபேஷியல்"
+        },
+        {
+          "id": "makeup",
+          "name": "Makeup",
+          "nameTa": "மேக்கப்"
+        },
+        {
+          "id": "mehendi",
+          "name": "Mehendi",
+          "nameTa": "மெஹந்தி"
+        },
+        {
+          "id": "manicure",
+          "name": "Manicure",
+          "nameTa": "மெனிக்யூர்"
+        },
+        {
+          "id": "pedicure",
+          "name": "Pedicure",
+          "nameTa": "பெடிக்யூர்"
+        }
+      ]
+    },
+    {
+      "id": "gardening",
+      "name": "Gardening",
+      "nameTa": "தோட்ட பராமரிப்பு",
+      "icon": "🌱",
+      "subServices": [
+        {
+          "id": "garden_maintenance",
+          "name": "Garden Maintenance",
+          "nameTa": "தோட்ட பராமரிப்பு"
+        },
+        {
+          "id": "landscaping",
+          "name": "Landscaping",
+          "nameTa": "லேண்ட்ஸ்கேப்பிங்"
+        },
+        {
+          "id": "plant_care",
+          "name": "Plant Care",
+          "nameTa": "செடி பராமரிப்பு"
+        },
+        {
+          "id": "tree_trimming",
+          "name": "Tree Trimming",
+          "nameTa": "மரம் வெட்டுதல்"
+        },
+        {
+          "id": "terrace_gardening",
+          "name": "Terrace Gardening",
+          "nameTa": "மாடித்தோட்டம்"
+        }
+      ]
+    },
+    {
+      "id": "vehicle_services",
+      "name": "Vehicle Services",
+      "nameTa": "வாகன சேவைகள்",
+      "icon": "🚗",
+      "subServices": [
+        {
+          "id": "car_wash",
+          "name": "Car Wash",
+          "nameTa": "கார் வாஷ்"
+        },
+        {
+          "id": "bike_service",
+          "name": "Bike Service",
+          "nameTa": "பைக் சர்வீஸ்"
+        },
+        {
+          "id": "car_service",
+          "name": "Car Service",
+          "nameTa": "கார் சர்வீஸ்"
+        },
+        {
+          "id": "puncture_repair",
+          "name": "Puncture Repair",
+          "nameTa": "பஞ்சர் பழுது"
+        },
+        {
+          "id": "battery_service",
+          "name": "Battery Service",
+          "nameTa": "பேட்டரி சேவை"
+        },
+        {
+          "id": "roadside_assistance",
+          "name": "Roadside Assistance",
+          "nameTa": "சாலை அவசர உதவி"
+        }
+      ]
+    },
+    {
+      "id": "mobile_computer",
+      "name": "Mobile & Computer",
+      "nameTa": "மொபைல் மற்றும் கணினி",
+      "icon": "📱",
+      "subServices": [
+        {
+          "id": "mobile_repair",
+          "name": "Mobile Repair",
+          "nameTa": "மொபைல் பழுது"
+        },
+        {
+          "id": "screen_replacement",
+          "name": "Screen Replacement",
+          "nameTa": "ஸ்கிரீன் மாற்றுதல்"
+        },
+        {
+          "id": "laptop_repair",
+          "name": "Laptop Repair",
+          "nameTa": "லேப்டாப் பழுது"
+        },
+        {
+          "id": "computer_repair",
+          "name": "Computer Repair",
+          "nameTa": "கணினி பழுது"
+        },
+        {
+          "id": "software_installation",
+          "name": "Software Installation",
+          "nameTa": "சாப்ட்வேர் நிறுவுதல்"
+        },
+        {
+          "id": "printer_repair",
+          "name": "Printer Repair",
+          "nameTa": "பிரிண்டர் பழுது"
+        }
+      ]
+    },
+    {
+      "id": "photography_video",
+      "name": "Photography & Video",
+      "nameTa": "புகைப்படம் மற்றும் வீடியோ",
+      "icon": "📸",
+      "subServices": [
+        {
+          "id": "wedding_photography",
+          "name": "Wedding Photography",
+          "nameTa": "திருமண புகைப்படம்"
+        },
+        {
+          "id": "birthday_photography",
+          "name": "Birthday Photography",
+          "nameTa": "பிறந்தநாள் புகைப்படம்"
+        },
+        {
+          "id": "event_photography",
+          "name": "Event Photography",
+          "nameTa": "நிகழ்ச்சி புகைப்படம்"
+        },
+        {
+          "id": "videography",
+          "name": "Videography",
+          "nameTa": "வீடியோ பதிவு"
+        },
+        {
+          "id": "product_photography",
+          "name": "Product Photography",
+          "nameTa": "பொருள் புகைப்படம்"
+        },
+        {
+          "id": "drone_photography",
+          "name": "Drone Photography",
+          "nameTa": "ட்ரோன் புகைப்படம்"
+        }
+      ]
+    },
+    {
+      "id": "wedding_services",
+      "name": "Wedding Services",
+      "nameTa": "திருமண சேவைகள்",
+      "icon": "💍",
+      "subServices": [
+        {
+          "id": "wedding_decoration",
+          "name": "Wedding Decoration",
+          "nameTa": "திருமண அலங்காரம்"
+        },
+        {
+          "id": "bridal_makeup",
+          "name": "Bridal Makeup",
+          "nameTa": "மணப்பெண் மேக்கப்"
+        },
+        {
+          "id": "groom_makeup",
+          "name": "Groom Makeup",
+          "nameTa": "மணமகன் மேக்கப்"
+        },
+        {
+          "id": "mehendi_artist",
+          "name": "Mehendi Artist",
+          "nameTa": "மெஹந்தி கலைஞர்"
+        },
+        {
+          "id": "wedding_catering",
+          "name": "Wedding Catering",
+          "nameTa": "திருமண கேட்டரிங்"
+        },
+        {
+          "id": "wedding_photography",
+          "name": "Wedding Photography",
+          "nameTa": "திருமண புகைப்படம்"
+        }
+      ]
+    },
+    {
+      "id": "driver_services",
+      "name": "Driver Services",
+      "nameTa": "டிரைவர் சேவைகள்",
+      "icon": "🚕",
+      "subServices": [
+        {
+          "id": "local_driver",
+          "name": "Local Driver",
+          "nameTa": "உள்ளூர் டிரைவர்"
+        },
+        {
+          "id": "outstation_driver",
+          "name": "Outstation Driver",
+          "nameTa": "வெளியூர் டிரைவர்"
+        },
+        {
+          "id": "pickup_drop",
+          "name": "Pickup & Drop",
+          "nameTa": "பிக்கப் மற்றும் டிராப்"
+        },
+        {
+          "id": "event_driver",
+          "name": "Event Driver",
+          "nameTa": "நிகழ்ச்சி டிரைவர்"
+        }
+      ]
+    },
+    {
+      "id": "security_housekeeping",
+      "name": "Security & Housekeeping",
+      "nameTa": "பாதுகாப்பு மற்றும் ஹவுஸ்கீப்பிங்",
+      "icon": "👷",
+      "subServices": [
+        {
+          "id": "security_guard",
+          "name": "Security Guard",
+          "nameTa": "பாதுகாப்பு காவலர்"
+        },
+        {
+          "id": "housekeeping",
+          "name": "Housekeeping",
+          "nameTa": "ஹவுஸ்கீப்பிங்"
+        },
+        {
+          "id": "office_cleaning",
+          "name": "Office Cleaning",
+          "nameTa": "அலுவலக சுத்தம்"
+        },
+        {
+          "id": "building_cleaning",
+          "name": "Building Cleaning",
+          "nameTa": "கட்டிட சுத்தம்"
+        }
+      ]
+    },
+    {
+      "id": "tuition_training",
+      "name": "Tuition & Training",
+      "nameTa": "டியூஷன் மற்றும் பயிற்சி",
+      "icon": "👨‍🏫",
+      "subServices": [
+        {
+          "id": "school_tuition",
+          "name": "School Tuition",
+          "nameTa": "பள்ளி டியூஷன்"
+        },
+        {
+          "id": "math_tuition",
+          "name": "Math Tuition",
+          "nameTa": "கணித டியூஷன்"
+        },
+        {
+          "id": "science_tuition",
+          "name": "Science Tuition",
+          "nameTa": "அறிவியல் டியூஷன்"
+        },
+        {
+          "id": "english_training",
+          "name": "Spoken English",
+          "nameTa": "ஸ்போக்கன் இங்கிலீஷ்"
+        },
+        {
+          "id": "computer_training",
+          "name": "Computer Training",
+          "nameTa": "கணினி பயிற்சி"
+        },
+        {
+          "id": "skill_training",
+          "name": "Skill Training",
+          "nameTa": "திறன் பயிற்சி"
+        }
+      ]
+    },
+    {
+      "id": "digital_services",
+      "name": "Digital Services",
+      "nameTa": "டிஜிட்டல் சேவைகள்",
+      "icon": "💻",
+      "subServices": [
+        {
+          "id": "website_development",
+          "name": "Website Development",
+          "nameTa": "வலைத்தள உருவாக்கம்"
+        },
+        {
+          "id": "app_development",
+          "name": "App Development",
+          "nameTa": "ஆப் உருவாக்கம்"
+        },
+        {
+          "id": "graphic_design",
+          "name": "Graphic Design",
+          "nameTa": "கிராஃபிக் டிசைன்"
+        },
+        {
+          "id": "video_editing",
+          "name": "Video Editing",
+          "nameTa": "வீடியோ எடிட்டிங்"
+        },
+        {
+          "id": "social_media",
+          "name": "Social Media Management",
+          "nameTa": "சோஷியல் மீடியா மேலாண்மை"
+        },
+        {
+          "id": "digital_marketing",
+          "name": "Digital Marketing",
+          "nameTa": "டிஜிட்டல் மார்க்கெட்டிங்"
+        }
+      ]
+    },
+    {
+      "id": "architecture_building",
+      "name": "Architecture & Building",
+      "nameTa": "ஆர்கிடெக்சர் மற்றும் கட்டிட ஆலோசனை",
+      "icon": "📐",
+      "subServices": [
+        {
+          "id": "architect",
+          "name": "Architect",
+          "nameTa": "ஆர்கிடெக்ட்"
+        },
+        {
+          "id": "building_plan",
+          "name": "Building Plan",
+          "nameTa": "கட்டிட வரைபடம்"
+        },
+        {
+          "id": "site_planning",
+          "name": "Site Planning",
+          "nameTa": "தள திட்டமிடல்"
+        },
+        {
+          "id": "construction_estimate",
+          "name": "Construction Estimate",
+          "nameTa": "கட்டுமான மதிப்பீடு"
+        },
+        {
+          "id": "building_consultation",
+          "name": "Building Consultation",
+          "nameTa": "கட்டிட ஆலோசனை"
+        }
+      ]
+    },
+    {
+      "id": "fabrication",
+      "name": "Fabrication",
+      "nameTa": "ஃபேப்ரிகேஷன்",
+      "icon": "🔨",
+      "subServices": [
+        {
+          "id": "gate_fabrication",
+          "name": "Gate Fabrication",
+          "nameTa": "கேட் தயாரிப்பு"
+        },
+        {
+          "id": "grill_work",
+          "name": "Grill Work",
+          "nameTa": "கிரில் வேலை"
+        },
+        {
+          "id": "welding",
+          "name": "Welding",
+          "nameTa": "வெல்டிங்"
+        },
+        {
+          "id": "staircase_fabrication",
+          "name": "Staircase Fabrication",
+          "nameTa": "படிக்கட்டு தயாரிப்பு"
+        },
+        {
+          "id": "metal_work",
+          "name": "Metal Work",
+          "nameTa": "உலோக வேலை"
+        }
+      ]
+    }
+  ]
+}

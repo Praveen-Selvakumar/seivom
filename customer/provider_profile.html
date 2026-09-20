@@ -1,0 +1,2921 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Provider Profile - Seivom</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --orange: #ff6b00;
+            --orange-light: #fff1e7;
+            --black: #171717;
+            --gray: #6b6b6b;
+            --light-gray: #f7f7f7;
+            --border: #e8e8e8;
+            --background: #fffaf7;
+            --white: #ffffff;
+            --green: #159957;
+            --yellow: #f5a623;
+            --red: #dc3545;
+        }
+
+        body {
+
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+            background: var(--background);
+
+            color: var(--black);
+
+            line-height: 1.5;
+        }
+
+        button {
+            font: inherit;
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =========================================
+           NAVBAR
+        ========================================= */
+
+        .navbar {
+
+            height: 68px;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            background:
+                rgba(255, 250, 247, 0.94);
+
+            backdrop-filter: blur(14px);
+
+            border-bottom:
+                1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+
+            font-size: 23px;
+
+            font-weight: 850;
+
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--orange);
+        }
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 22px;
+
+            margin-left: auto;
+
+            margin-right: 22px;
+
+            font-size: 13px;
+
+            font-weight: 750;
+
+            color: #666;
+        }
+
+        .nav-links a {
+
+            transition:
+                color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+
+            color:
+                var(--orange);
+        }
+
+        .language {
+
+            display: flex;
+
+            padding: 4px;
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 30px;
+        }
+
+        .lang-btn {
+
+            border: none;
+
+            background: transparent;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+
+            color: #777;
+
+            font-size: 12px;
+
+            font-weight: 750;
+        }
+
+        .lang-btn.active {
+
+            background:
+                var(--black);
+
+            color: white;
+        }
+
+
+        /* =========================================
+           PAGE
+        ========================================= */
+
+        .page {
+
+            width:
+                min(950px, 92%);
+
+            margin: auto;
+
+            padding:
+                38px 0 70px;
+        }
+
+
+        /* =========================================
+           BACK
+        ========================================= */
+
+        .back-link {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            color: #777;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            margin-bottom: 22px;
+        }
+
+        .back-link:hover {
+
+            color:
+                var(--orange);
+        }
+
+
+        /* =========================================
+           PROFILE HERO
+        ========================================= */
+
+        .profile-card {
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 28px;
+
+            padding: 30px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 25px;
+
+            box-shadow:
+                0 12px 40px rgba(0, 0, 0, 0.04);
+
+            margin-bottom: 18px;
+        }
+
+        .profile-left {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
+        }
+
+        .profile-avatar {
+
+            width: 90px;
+
+            height: 90px;
+
+            border-radius: 50%;
+
+            background:
+                var(--orange-light);
+
+            color:
+                var(--orange);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 32px;
+
+            font-weight: 850;
+        }
+
+        .profile-name {
+
+            font-size: 28px;
+
+            letter-spacing: -1px;
+
+            margin-bottom: 3px;
+        }
+
+        .profile-service {
+
+            color:
+                var(--gray);
+
+            font-size: 14px;
+
+            margin-bottom: 8px;
+        }
+
+        .rating-line {
+
+            display: flex;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 7px;
+        }
+
+        .stars {
+
+            color:
+                var(--yellow);
+
+            font-size: 14px;
+
+            letter-spacing: 1px;
+        }
+
+        .rating-number {
+
+            font-weight: 850;
+
+            font-size: 13px;
+        }
+
+        .review-count {
+
+            color: #888;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================================
+           CONTACT ACTIONS
+        ========================================= */
+
+        .contact-actions {
+
+            display: flex;
+
+            gap: 9px;
+
+            flex-wrap: wrap;
+
+            justify-content: flex-end;
+        }
+
+        .contact-btn {
+
+            height: 45px;
+
+            padding:
+                0 16px;
+
+            border-radius: 12px;
+
+            border: none;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            transition: 0.2s;
+        }
+
+        .call-btn {
+
+            background:
+                var(--orange);
+
+            color: white;
+        }
+
+        .whatsapp-btn {
+
+            background:
+                var(--green);
+
+            color: white;
+        }
+
+        .review-btn {
+
+            background:
+                var(--black);
+
+            color: white;
+        }
+
+        .contact-btn:hover {
+
+            transform:
+                translateY(-1px);
+        }
+
+
+        /* =========================================
+           AVAILABLE
+        ========================================= */
+
+        .availability {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding:
+                7px 10px;
+
+            margin-top: 12px;
+
+            background:
+                #eefaf3;
+
+            color:
+                var(--green);
+
+            border-radius: 20px;
+
+            font-size: 11px;
+
+            font-weight: 800;
+        }
+
+        .availability-dot {
+
+            width: 7px;
+
+            height: 7px;
+
+            border-radius: 50%;
+
+            background:
+                var(--green);
+        }
+
+
+        /* =========================================
+           CONTENT GRID
+        ========================================= */
+
+        .content-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 18px;
+
+            margin-bottom: 18px;
+        }
+
+        .section-card {
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 23px;
+
+            padding: 24px;
+        }
+
+        .section-title {
+
+            font-size: 18px;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* =========================================
+           ABOUT
+        ========================================= */
+
+        .about-text {
+
+            color:
+                #636363;
+
+            font-size: 14px;
+
+            line-height: 1.75;
+        }
+
+
+        /* =========================================
+           SERVICES
+        ========================================= */
+
+        .chips {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+        }
+
+        .chip {
+
+            padding:
+                9px 12px;
+
+            border-radius: 25px;
+
+            background:
+                var(--orange-light);
+
+            color:
+                var(--orange);
+
+            font-size: 11px;
+
+            font-weight: 750;
+        }
+
+
+        /* =========================================
+           SERVICE AREA
+        ========================================= */
+
+        .area-list {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 9px;
+        }
+
+        .area-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding:
+                11px 13px;
+
+            border-radius: 12px;
+
+            background:
+                var(--light-gray);
+
+            color: #555;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================================
+           INFO
+        ========================================= */
+
+        .info-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 10px;
+        }
+
+        .info-item {
+
+            background:
+                var(--light-gray);
+
+            border-radius: 14px;
+
+            padding:
+                15px;
+        }
+
+        .info-label {
+
+            color: #999;
+
+            font-size: 10px;
+
+            margin-bottom: 4px;
+        }
+
+        .info-value {
+
+            font-size: 13px;
+
+            font-weight: 800;
+        }
+
+
+        /* =========================================
+           REVIEWS
+        ========================================= */
+
+        .reviews-header {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 15px;
+        }
+
+        .reviews-header h2 {
+
+            font-size: 18px;
+        }
+
+        .review {
+
+            padding:
+                17px 0;
+
+            border-top:
+                1px solid var(--border);
+        }
+
+        .review:first-child {
+
+            border-top: none;
+
+            padding-top: 0;
+        }
+
+        .review-user {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 7px;
+        }
+
+        .review-avatar {
+
+            width: 34px;
+
+            height: 34px;
+
+            border-radius: 50%;
+
+            background:
+                #f1f1f1;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 11px;
+
+            font-weight: 800;
+        }
+
+        .review-name {
+
+            font-size: 12px;
+
+            font-weight: 800;
+        }
+
+        .review-date {
+
+            color:
+                #999;
+
+            font-size: 10px;
+        }
+
+        .review-stars {
+
+            color:
+                var(--yellow);
+
+            font-size: 12px;
+
+            margin-bottom: 4px;
+        }
+
+        .review-text {
+
+            color:
+                #666;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================================
+           MODAL OVERLAY
+        ========================================= */
+
+        .modal-overlay {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 1000;
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 20px;
+
+            background:
+                rgba(0, 0, 0, 0.48);
+
+            backdrop-filter:
+                blur(5px);
+        }
+
+        .modal-overlay.show {
+
+            display: flex;
+        }
+
+
+        /* =========================================
+           MODAL
+        ========================================= */
+
+        .review-modal {
+
+            width: 100%;
+
+            max-width: 470px;
+
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            background: white;
+
+            border-radius: 26px;
+
+            padding: 26px;
+
+            box-shadow:
+                0 25px 80px rgba(0, 0, 0, 0.18);
+
+            animation:
+                modalIn 0.18s ease;
+        }
+
+        @keyframes modalIn {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(10px)
+                    scale(0.98);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+
+            }
+
+        }
+
+        .modal-header {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+
+            font-size: 22px;
+
+            letter-spacing: -0.7px;
+        }
+
+        .modal-subtitle {
+
+            color: #888;
+
+            font-size: 12px;
+
+            margin-top: 4px;
+        }
+
+        .close-modal {
+
+            width: 34px;
+
+            height: 34px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background:
+                var(--light-gray);
+
+            color: #666;
+
+            font-size: 18px;
+        }
+
+        .close-modal:hover {
+
+            background:
+                #eeeeee;
+
+            color:
+                var(--black);
+        }
+
+
+        /* =========================================
+           RATING INPUT
+        ========================================= */
+
+        .rating-input {
+
+            text-align: center;
+
+            margin-bottom: 22px;
+        }
+
+        .rating-input-label {
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            margin-bottom: 10px;
+        }
+
+        .star-buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 7px;
+        }
+
+        .star-button {
+
+            width: 42px;
+
+            height: 42px;
+
+            border: none;
+
+            background: transparent;
+
+            color: #d8d8d8;
+
+            font-size: 30px;
+
+            line-height: 1;
+
+            padding: 0;
+
+            transition: 0.15s;
+        }
+
+        .star-button.active {
+
+            color:
+                var(--yellow);
+        }
+
+        .star-button:hover {
+
+            color:
+                var(--yellow);
+
+            transform:
+                scale(1.05);
+        }
+
+        .selected-rating {
+
+            min-height: 18px;
+
+            margin-top: 7px;
+
+            color:
+                var(--orange);
+
+            font-size: 11px;
+
+            font-weight: 800;
+        }
+
+
+        /* =========================================
+           REVIEW FIELD
+        ========================================= */
+
+        .form-group {
+
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 12px;
+
+            font-weight: 800;
+        }
+
+        .review-input {
+
+            width: 100%;
+
+            min-height: 125px;
+
+            resize: vertical;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 14px;
+
+            padding:
+                13px 14px;
+
+            outline: none;
+
+            color:
+                var(--black);
+
+            background: white;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+        .review-input:focus {
+
+            border-color:
+                var(--orange);
+
+            box-shadow:
+                0 0 0 4px rgba(255, 107, 0, 0.08);
+        }
+
+
+        /* =========================================
+           REVIEW ERROR
+        ========================================= */
+
+        .review-error {
+
+            display: none;
+
+            margin-bottom: 14px;
+
+            padding:
+                10px 12px;
+
+            border-radius: 11px;
+
+            background:
+                #fff1f1;
+
+            border:
+                1px solid #ffd5d5;
+
+            color:
+                var(--red);
+
+            font-size: 11px;
+
+            font-weight: 700;
+        }
+
+        .review-error.show {
+
+            display: block;
+        }
+
+
+        /* =========================================
+           SUBMIT
+        ========================================= */
+
+        .submit-review-button {
+
+            width: 100%;
+
+            height: 48px;
+
+            border: none;
+
+            border-radius: 13px;
+
+            background:
+                var(--orange);
+
+            color: white;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            box-shadow:
+                0 10px 25px rgba(255, 107, 0, 0.18);
+        }
+
+        .submit-review-button:hover {
+
+            transform:
+                translateY(-1px);
+        }
+
+
+        /* =========================================
+           SUCCESS
+        ========================================= */
+
+        .review-success {
+
+            display: none;
+
+            text-align: center;
+
+            padding:
+                20px 10px 5px;
+        }
+
+        .review-success.show {
+
+            display: block;
+        }
+
+        .success-icon {
+
+            width: 56px;
+
+            height: 56px;
+
+            margin:
+                0 auto 12px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                #eefaf3;
+
+            color:
+                var(--green);
+
+            font-size: 25px;
+
+            font-weight: 900;
+        }
+
+        .success-title {
+
+            font-size: 18px;
+
+            font-weight: 850;
+
+            margin-bottom: 5px;
+        }
+
+        .success-text {
+
+            color: #888;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+
+            margin-bottom: 18px;
+        }
+
+        .close-success {
+
+            width: 100%;
+
+            height: 44px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background:
+                var(--black);
+
+            color: white;
+
+            font-size: 12px;
+
+            font-weight: 800;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media(max-width: 750px) {
+
+            .navbar {
+
+                height: 62px;
+
+                padding:
+                    0 4%;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .page {
+
+                width: 94%;
+
+                padding-top:
+                    30px;
+            }
+
+            .profile-card {
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    flex-start;
+
+                padding:
+                    22px;
+            }
+
+            .profile-left {
+
+                width: 100%;
+            }
+
+            .contact-actions {
+
+                width: 100%;
+
+                justify-content:
+                    stretch;
+            }
+
+            .contact-btn {
+
+                flex: 1;
+            }
+
+            .content-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .info-grid {
+
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+
+        }
+
+
+        @media(max-width: 500px) {
+
+            .profile-left {
+
+                align-items:
+                    flex-start;
+            }
+
+            .profile-avatar {
+
+                width: 70px;
+
+                height: 70px;
+
+                font-size: 26px;
+            }
+
+            .profile-name {
+
+                font-size: 22px;
+            }
+
+            .contact-actions {
+
+                display: grid;
+
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .review-btn {
+
+                grid-column:
+                    1 / -1;
+            }
+
+            .info-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .review-modal {
+
+                padding:
+                    22px;
+
+                border-radius:
+                    22px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     NAVBAR
+========================================= -->
+
+<nav class="navbar">
+
+    <a
+        href="../index.html"
+        class="logo"
+    >
+        Seiv<span>om</span>
+    </a>
+
+
+    <div class="nav-links">
+
+        <a
+            href="../index.html"
+            data-i18n="nav_home"
+        >
+            Home
+        </a>
+
+        <a
+            href="find_service.html"
+            data-i18n="nav_find"
+        >
+            Find a Service
+        </a>
+
+    </div>
+
+
+    <div class="language">
+
+        <button
+            class="lang-btn active"
+            id="englishBtn"
+            onclick="setLanguage('en')"
+        >
+            EN
+        </button>
+
+        <button
+            class="lang-btn"
+            id="tamilBtn"
+            onclick="setLanguage('ta')"
+        >
+            தமிழ்
+        </button>
+
+    </div>
+
+</nav>
+
+
+
+<main class="page">
+
+
+    <!-- =====================================
+         BACK
+    ===================================== -->
+
+    <a
+        href="find_service.html"
+        class="back-link"
+    >
+        ←
+
+        <span data-i18n="back">
+            Back to Search
+        </span>
+
+    </a>
+
+
+
+    <!-- =====================================
+         PROFILE HEADER
+    ===================================== -->
+
+    <section class="profile-card">
+
+
+        <div class="profile-left">
+
+            <div
+                class="profile-avatar"
+                id="profileAvatar"
+            >
+                K
+            </div>
+
+
+            <div>
+
+                <h1
+                    class="profile-name"
+                    id="profileName"
+                >
+                    Kumar
+                </h1>
+
+
+                <div
+                    class="profile-service"
+                    id="profileService"
+                >
+                    Plumbing
+                </div>
+
+
+                <div class="rating-line">
+
+                    <span class="stars">
+                        ★★★★★
+                    </span>
+
+                    <span
+                        class="rating-number"
+                        id="profileRating"
+                    >
+                        4.8
+                    </span>
+
+                    <span
+                        class="review-count"
+                        id="profileReviewCount"
+                    >
+                        (24 reviews)
+                    </span>
+
+                </div>
+
+
+                <div class="availability">
+
+                    <span
+                        class="availability-dot"
+                    ></span>
+
+                    <span data-i18n="available_now">
+                        Available
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================
+             CONTACT ACTIONS
+        ===================================== -->
+
+        <div class="contact-actions">
+
+            <button
+                type="button"
+                class="contact-btn call-btn"
+                onclick="callProvider()"
+            >
+                📞
+                <span data-i18n="call">
+                    Call
+                </span>
+            </button>
+
+
+            <button
+                type="button"
+                class="contact-btn whatsapp-btn"
+                onclick="whatsappProvider()"
+            >
+                WhatsApp
+            </button>
+
+
+            <button
+                type="button"
+                class="contact-btn review-btn"
+                onclick="openReviewDialog()"
+            >
+                ★
+                <span data-i18n="review">
+                    Write a Review
+                </span>
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         ABOUT + SERVICES
+    ===================================== -->
+
+    <section class="content-grid">
+
+
+        <!-- ABOUT -->
+
+        <div class="section-card">
+
+            <h2
+                class="section-title"
+                data-i18n="about"
+            >
+                About
+            </h2>
+
+
+            <p
+                class="about-text"
+                id="aboutText"
+            >
+                Experienced plumber providing tap repair,
+                leak repair, pipe repair and bathroom plumbing
+                services. I focus on reliable work and direct
+                communication with customers.
+            </p>
+
+        </div>
+
+
+
+        <!-- SERVICES -->
+
+        <div class="section-card">
+
+            <h2
+                class="section-title"
+                data-i18n="services"
+            >
+                Services
+            </h2>
+
+
+            <div class="chips">
+
+                <span class="chip">
+                    Tap Repair
+                </span>
+
+                <span class="chip">
+                    Leak Repair
+                </span>
+
+                <span class="chip">
+                    Pipe Repair
+                </span>
+
+                <span class="chip">
+                    Bathroom Plumbing
+                </span>
+
+                <span class="chip">
+                    Sink Repair
+                </span>
+
+                <span class="chip">
+                    Water Tank
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         PROVIDER INFORMATION
+    ===================================== -->
+
+    <section class="section-card">
+
+        <h2
+            class="section-title"
+            data-i18n="provider_info"
+        >
+            Provider Information
+        </h2>
+
+
+        <div class="info-grid">
+
+
+            <div class="info-item">
+
+                <div
+                    class="info-label"
+                    data-i18n="experience"
+                >
+                    Experience
+                </div>
+
+                <div
+                    class="info-value"
+                    id="experience"
+                >
+                    8 Years
+                </div>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <div
+                    class="info-label"
+                    data-i18n="service_area"
+                >
+                    Service Area
+                </div>
+
+                <div class="info-value">
+                    Madurai
+                </div>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <div
+                    class="info-label"
+                    data-i18n="reviews"
+                >
+                    Reviews
+                </div>
+
+                <div
+                    class="info-value"
+                    id="reviewTotal"
+                >
+                    24
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         SERVICE AREA
+    ===================================== -->
+
+    <section
+        class="section-card"
+        style="margin-top:18px;"
+    >
+
+        <h2
+            class="section-title"
+            data-i18n="areas"
+        >
+            Service Areas
+        </h2>
+
+
+        <div class="area-list">
+
+            <div class="area-item">
+                📍 Anna Nagar
+            </div>
+
+            <div class="area-item">
+                📍 KK Nagar
+            </div>
+
+            <div class="area-item">
+                📍 Arasaradi
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         CUSTOMER REVIEWS
+    ===================================== -->
+
+    <section
+        class="section-card"
+        style="margin-top:18px;"
+    >
+
+        <div class="reviews-header">
+
+            <h2 data-i18n="customer_reviews">
+                Customer Reviews
+            </h2>
+
+        </div>
+
+
+        <!-- REVIEW 1 -->
+
+        <div class="review">
+
+            <div class="review-user">
+
+                <div class="review-avatar">
+                    R
+                </div>
+
+                <div>
+
+                    <div class="review-name">
+                        Raj
+                    </div>
+
+                    <div class="review-date">
+                        2 days ago
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="review-stars">
+                ★★★★★
+            </div>
+
+
+            <p class="review-text">
+                Very quick response and good work.
+                He fixed the leaking tap properly.
+            </p>
+
+        </div>
+
+
+
+        <!-- REVIEW 2 -->
+
+        <div class="review">
+
+            <div class="review-user">
+
+                <div class="review-avatar">
+                    S
+                </div>
+
+                <div>
+
+                    <div class="review-name">
+                        Suresh
+                    </div>
+
+                    <div class="review-date">
+                        1 week ago
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="review-stars">
+                ★★★★☆
+            </div>
+
+
+            <p class="review-text">
+                Good service and reasonable response time.
+            </p>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================
+     REVIEW MODAL
+========================================= -->
+
+<div
+    class="modal-overlay"
+    id="reviewModal"
+    onclick="handleModalOutsideClick(event)"
+>
+
+
+    <div
+        class="review-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="reviewModalTitle"
+    >
+
+
+        <!-- REVIEW FORM -->
+
+        <div id="reviewFormContainer">
+
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2
+                        class="modal-title"
+                        id="reviewModalTitle"
+                        data-i18n="write_review_title"
+                    >
+                        Write a Review
+                    </h2>
+
+                    <p
+                        class="modal-subtitle"
+                        id="reviewModalSubtitle"
+                    >
+                        Share your experience with Kumar.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="close-modal"
+                    onclick="closeReviewDialog()"
+                    aria-label="Close"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+
+            <!-- ERROR -->
+
+            <div
+                class="review-error"
+                id="reviewError"
+            ></div>
+
+
+
+            <!-- RATING -->
+
+            <div class="rating-input">
+
+                <div
+                    class="rating-input-label"
+                    data-i18n="give_rating"
+                >
+                    Give a rating
+                </div>
+
+
+                <div class="star-buttons">
+
+                    <button
+                        type="button"
+                        class="star-button"
+                        data-rating="1"
+                        onclick="selectRating(1)"
+                        aria-label="1 star"
+                    >
+                        ★
+                    </button>
+
+                    <button
+                        type="button"
+                        class="star-button"
+                        data-rating="2"
+                        onclick="selectRating(2)"
+                        aria-label="2 stars"
+                    >
+                        ★
+                    </button>
+
+                    <button
+                        type="button"
+                        class="star-button"
+                        data-rating="3"
+                        onclick="selectRating(3)"
+                        aria-label="3 stars"
+                    >
+                        ★
+                    </button>
+
+                    <button
+                        type="button"
+                        class="star-button"
+                        data-rating="4"
+                        onclick="selectRating(4)"
+                        aria-label="4 stars"
+                    >
+                        ★
+                    </button>
+
+                    <button
+                        type="button"
+                        class="star-button"
+                        data-rating="5"
+                        onclick="selectRating(5)"
+                        aria-label="5 stars"
+                    >
+                        ★
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="selected-rating"
+                    id="selectedRating"
+                ></div>
+
+            </div>
+
+
+
+            <!-- REVIEW TEXT -->
+
+            <div class="form-group">
+
+                <label
+                    for="reviewText"
+                    data-i18n="your_review"
+                >
+                    Your Review
+                </label>
+
+
+                <textarea
+                    id="reviewText"
+                    class="review-input"
+                    maxlength="500"
+                    placeholder="Tell us about your experience..."
+                    data-i18n-placeholder="review_placeholder"
+                ></textarea>
+
+            </div>
+
+
+
+            <!-- SUBMIT -->
+
+            <button
+                type="button"
+                class="submit-review-button"
+                onclick="submitReview()"
+                data-i18n="submit_review"
+            >
+                Submit Review
+            </button>
+
+        </div>
+
+
+
+        <!-- =====================================
+             SUCCESS
+        ===================================== -->
+
+        <div
+            class="review-success"
+            id="reviewSuccess"
+        >
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+
+            <div
+                class="success-title"
+                data-i18n="review_submitted"
+            >
+                Review Submitted
+            </div>
+
+
+            <div
+                class="success-text"
+                data-i18n="review_submitted_description"
+            >
+                Thank you for sharing your experience.
+            </div>
+
+
+            <button
+                type="button"
+                class="close-success"
+                onclick="closeReviewDialog()"
+                data-i18n="done"
+            >
+                Done
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+
+/* =========================================
+   PROVIDER DATA
+========================================= */
+
+const providerData = {
+
+    kumar: {
+
+        name: "Kumar",
+
+        service: "Plumbing",
+
+        avatar: "K",
+
+        rating: "4.8",
+
+        reviews: 24,
+
+        experience: "8 Years",
+
+        phone: "9876543210",
+
+        about:
+            "Experienced plumber providing tap repair, leak repair, pipe repair and bathroom plumbing services. I focus on reliable work and direct communication with customers."
+
+    },
+
+
+    saravanan: {
+
+        name: "Saravanan",
+
+        service: "Plumbing",
+
+        avatar: "S",
+
+        rating: "4.7",
+
+        reviews: 18,
+
+        experience: "6 Years",
+
+        phone: "9876543211",
+
+        about:
+            "Local plumbing professional specializing in household plumbing, bathroom repairs and water tank work."
+
+    },
+
+
+    rajkumar: {
+
+        name: "Rajkumar",
+
+        service: "Electrical",
+
+        avatar: "R",
+
+        rating: "4.9",
+
+        reviews: 31,
+
+        experience: "10 Years",
+
+        phone: "9876543212",
+
+        about:
+            "Experienced electrician handling residential wiring, fan repair, switch repair and electrical installation work."
+
+    },
+
+
+    mani: {
+
+        name: "Mani",
+
+        service: "AC Service",
+
+        avatar: "M",
+
+        rating: "4.6",
+
+        reviews: 14,
+
+        experience: "7 Years",
+
+        phone: "9876543213",
+
+        about:
+            "AC service professional providing AC repair, maintenance, cleaning and gas filling services."
+
+    },
+
+
+    priya: {
+
+        name: "Priya",
+
+        service: "Home Cleaning",
+
+        avatar: "P",
+
+        rating: "4.9",
+
+        reviews: 21,
+
+        experience: "5 Years",
+
+        phone: "9876543214",
+
+        about:
+            "Home cleaning professional specializing in regular home cleaning, kitchen cleaning and deep cleaning."
+
+    }
+
+};
+
+
+
+/* =========================================
+   GET PROVIDER
+========================================= */
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+const providerId =
+    params.get("id") || "kumar";
+
+
+const provider =
+    providerData[providerId]
+    || providerData.kumar;
+
+
+
+/* =========================================
+   POPULATE PROFILE
+========================================= */
+
+document.getElementById(
+    "profileAvatar"
+).textContent =
+    provider.avatar;
+
+
+document.getElementById(
+    "profileName"
+).textContent =
+    provider.name;
+
+
+document.getElementById(
+    "profileService"
+).textContent =
+    provider.service;
+
+
+document.getElementById(
+    "profileRating"
+).textContent =
+    provider.rating;
+
+
+document.getElementById(
+    "profileReviewCount"
+).textContent =
+    `(${provider.reviews} reviews)`;
+
+
+document.getElementById(
+    "experience"
+).textContent =
+    provider.experience;
+
+
+document.getElementById(
+    "reviewTotal"
+).textContent =
+    provider.reviews;
+
+
+document.getElementById(
+    "aboutText"
+).textContent =
+    provider.about;
+
+
+
+/* =========================================
+   CALL PROVIDER
+========================================= */
+
+function callProvider() {
+
+    window.location.href =
+        `tel:${provider.phone}`;
+
+}
+
+
+
+/* =========================================
+   WHATSAPP PROVIDER
+========================================= */
+
+function whatsappProvider() {
+
+    const message =
+        encodeURIComponent(
+            `Hi ${provider.name}, I found your ${provider.service} service on Seivom.`
+        );
+
+
+    window.open(
+        `https://wa.me/91${provider.phone}?text=${message}`,
+        "_blank"
+    );
+
+}
+
+
+
+/* =========================================
+   REVIEW STATE
+========================================= */
+
+let selectedRating = 0;
+
+
+
+/* =========================================
+   OPEN REVIEW DIALOG
+========================================= */
+
+function openReviewDialog() {
+
+    document
+        .getElementById(
+            "reviewModal"
+        )
+        .classList.add(
+            "show"
+        );
+
+
+    document
+        .getElementById(
+            "reviewModalSubtitle"
+        )
+        .textContent =
+        currentLanguage === "ta"
+            ? `${provider.name} அவர்களைப் பற்றிய உங்கள் அனுபவத்தை பகிருங்கள்.`
+            : `Share your experience with ${provider.name}.`;
+
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+
+/* =========================================
+   CLOSE REVIEW DIALOG
+========================================= */
+
+function closeReviewDialog() {
+
+    document
+        .getElementById(
+            "reviewModal"
+        )
+        .classList.remove(
+            "show"
+        );
+
+
+    document.body.style.overflow =
+        "";
+
+
+    resetReviewForm();
+
+}
+
+
+
+/* =========================================
+   OUTSIDE CLICK
+========================================= */
+
+function handleModalOutsideClick(event) {
+
+    if (
+        event.target.id ===
+        "reviewModal"
+    ) {
+
+        closeReviewDialog();
+
+    }
+
+}
+
+
+
+/* =========================================
+   SELECT RATING
+========================================= */
+
+function selectRating(rating) {
+
+    selectedRating =
+        rating;
+
+
+    document
+        .querySelectorAll(
+            ".star-button"
+        )
+        .forEach(button => {
+
+            const value =
+                Number(
+                    button.dataset.rating
+                );
+
+
+            button.classList.toggle(
+                "active",
+                value <= rating
+            );
+
+        });
+
+
+    const labels = {
+
+        en: {
+
+            1: "Poor",
+
+            2: "Below Average",
+
+            3: "Good",
+
+            4: "Very Good",
+
+            5: "Excellent"
+
+        },
+
+
+        ta: {
+
+            1: "மோசம்",
+
+            2: "சராசரிக்கும் குறைவு",
+
+            3: "நன்று",
+
+            4: "மிக நன்று",
+
+            5: "சிறப்பு"
+
+        }
+
+    };
+
+
+    document
+        .getElementById(
+            "selectedRating"
+        )
+        .textContent =
+        labels[
+            currentLanguage
+        ][rating];
+
+}
+
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+function showReviewError(message) {
+
+    const error =
+        document.getElementById(
+            "reviewError"
+        );
+
+
+    error.textContent =
+        message;
+
+
+    error.classList.add(
+        "show"
+    );
+
+}
+
+
+function clearReviewError() {
+
+    document
+        .getElementById(
+            "reviewError"
+        )
+        .classList.remove(
+            "show"
+        );
+
+}
+
+
+
+/* =========================================
+   SUBMIT REVIEW
+========================================= */
+
+function submitReview() {
+
+    clearReviewError();
+
+
+    const reviewText =
+        document
+            .getElementById(
+                "reviewText"
+            )
+            .value
+            .trim();
+
+
+    if (
+        selectedRating === 0
+    ) {
+
+        showReviewError(
+
+            currentLanguage === "ta"
+
+                ? "முதலில் ஒரு மதிப்பீட்டை தேர்ந்தெடுக்கவும்."
+
+                : "Please select a rating."
+
+        );
+
+        return;
+
+    }
+
+
+    if (
+        reviewText.length < 5
+    ) {
+
+        showReviewError(
+
+            currentLanguage === "ta"
+
+                ? "குறைந்தது 5 எழுத்துகள் கொண்ட விமர்சனத்தை எழுதுங்கள்."
+
+                : "Please write at least 5 characters."
+
+        );
+
+        return;
+
+    }
+
+
+    /*
+     * TEMPORARY DEMO
+     *
+     * Later:
+     *
+     * providers/{uid}/reviews/{reviewId}
+     */
+
+    console.log(
+        "Review submitted:",
+        {
+            providerId:
+                providerId,
+
+            providerName:
+                provider.name,
+
+            rating:
+                selectedRating,
+
+            review:
+                reviewText,
+
+            createdAt:
+                Date.now()
+        }
+    );
+
+
+    document
+        .getElementById(
+            "reviewFormContainer"
+        )
+        .style.display =
+        "none";
+
+
+    document
+        .getElementById(
+            "reviewSuccess"
+        )
+        .classList.add(
+            "show"
+        );
+
+}
+
+
+
+/* =========================================
+   RESET REVIEW FORM
+========================================= */
+
+function resetReviewForm() {
+
+    selectedRating =
+        0;
+
+
+    document
+        .getElementById(
+            "reviewText"
+        )
+        .value =
+        "";
+
+
+    document
+        .getElementById(
+            "selectedRating"
+        )
+        .textContent =
+        "";
+
+
+    document
+        .querySelectorAll(
+            ".star-button"
+        )
+        .forEach(button => {
+
+            button.classList.remove(
+                "active"
+            );
+
+        });
+
+
+    document
+        .getElementById(
+            "reviewError"
+        )
+        .classList.remove(
+            "show"
+        );
+
+
+    document
+        .getElementById(
+            "reviewFormContainer"
+        )
+        .style.display =
+        "block";
+
+
+    document
+        .getElementById(
+            "reviewSuccess"
+        )
+        .classList.remove(
+            "show"
+        );
+
+}
+
+
+
+/* =========================================
+   TRANSLATIONS
+========================================= */
+
+const translations = {
+
+    en: {
+
+        nav_home:
+            "Home",
+
+        nav_find:
+            "Find a Service",
+
+        back:
+            "Back to Search",
+
+        available_now:
+            "Available",
+
+        call:
+            "Call",
+
+        review:
+            "Write a Review",
+
+        about:
+            "About",
+
+        services:
+            "Services",
+
+        provider_info:
+            "Provider Information",
+
+        experience:
+            "Experience",
+
+        service_area:
+            "Service Area",
+
+        reviews:
+            "Reviews",
+
+        areas:
+            "Service Areas",
+
+        customer_reviews:
+            "Customer Reviews",
+
+        write_review_title:
+            "Write a Review",
+
+        give_rating:
+            "Give a rating",
+
+        your_review:
+            "Your Review",
+
+        review_placeholder:
+            "Tell us about your experience...",
+
+        submit_review:
+            "Submit Review",
+
+        review_submitted:
+            "Review Submitted",
+
+        review_submitted_description:
+            "Thank you for sharing your experience.",
+
+        done:
+            "Done"
+
+    },
+
+
+    ta: {
+
+        nav_home:
+            "முகப்பு",
+
+        nav_find:
+            "சேவையை தேடுங்கள்",
+
+        back:
+            "தேடலுக்கு திரும்பு",
+
+        available_now:
+            "கிடைக்கிறது",
+
+        call:
+            "அழைக்க",
+
+        review:
+            "விமர்சனம் எழுதுங்கள்",
+
+        about:
+            "என்னைப் பற்றி",
+
+        services:
+            "சேவைகள்",
+
+        provider_info:
+            "சேவை வழங்குநர் தகவல்",
+
+        experience:
+            "அனுபவம்",
+
+        service_area:
+            "சேவை பகுதி",
+
+        reviews:
+            "விமர்சனங்கள்",
+
+        areas:
+            "சேவை பகுதிகள்",
+
+        customer_reviews:
+            "வாடிக்கையாளர் விமர்சனங்கள்",
+
+        write_review_title:
+            "விமர்சனம் எழுதுங்கள்",
+
+        give_rating:
+            "மதிப்பீட்டை தேர்ந்தெடுக்கவும்",
+
+        your_review:
+            "உங்கள் விமர்சனம்",
+
+        review_placeholder:
+            "உங்கள் அனுபவத்தைப் பற்றி எழுதுங்கள்...",
+
+        submit_review:
+            "விமர்சனத்தை சமர்ப்பிக்கவும்",
+
+        review_submitted:
+            "விமர்சனம் சமர்ப்பிக்கப்பட்டது",
+
+        review_submitted_description:
+            "உங்கள் அனுபவத்தை பகிர்ந்ததற்கு நன்றி.",
+
+        done:
+            "முடிந்தது"
+
+    }
+
+};
+
+
+
+/* =========================================
+   LANGUAGE
+========================================= */
+
+let currentLanguage =
+    localStorage.getItem(
+        "seivom_language"
+    ) || "en";
+
+
+function setLanguage(language) {
+
+    currentLanguage =
+        language;
+
+
+    localStorage.setItem(
+        "seivom_language",
+        language
+    );
+
+
+    document.documentElement.lang =
+        language;
+
+
+    document
+        .querySelectorAll(
+            "[data-i18n]"
+        )
+        .forEach(element => {
+
+            const key =
+                element.getAttribute(
+                    "data-i18n"
+                );
+
+
+            if (
+                translations[language] &&
+                translations[language][key]
+            ) {
+
+                element.innerHTML =
+                    translations[language][key];
+
+            }
+
+        });
+
+
+    document
+        .querySelectorAll(
+            "[data-i18n-placeholder]"
+        )
+        .forEach(element => {
+
+            const key =
+                element.getAttribute(
+                    "data-i18n-placeholder"
+                );
+
+
+            if (
+                translations[language] &&
+                translations[language][key]
+            ) {
+
+                element.placeholder =
+                    translations[language][key];
+
+            }
+
+        });
+
+
+    document
+        .getElementById(
+            "englishBtn"
+        )
+        .classList.toggle(
+            "active",
+            language === "en"
+        );
+
+
+    document
+        .getElementById(
+            "tamilBtn"
+        )
+        .classList.toggle(
+            "active",
+            language === "ta"
+        );
+
+
+    if (
+        selectedRating > 0
+    ) {
+
+        selectRating(
+            selectedRating
+        );
+
+    }
+
+
+    document
+        .getElementById(
+            "reviewModalSubtitle"
+        )
+        .textContent =
+        language === "ta"
+
+            ? `${provider.name} அவர்களைப் பற்றிய உங்கள் அனுபவத்தை பகிருங்கள்.`
+
+            : `Share your experience with ${provider.name}.`;
+
+}
+
+
+
+/* =========================================
+   ESCAPE KEY
+========================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape" &&
+            document
+                .getElementById(
+                    "reviewModal"
+                )
+                .classList.contains(
+                    "show"
+                )
+        ) {
+
+            closeReviewDialog();
+
+        }
+
+    }
+);
+
+
+
+/* =========================================
+   INITIALIZE
+========================================= */
+
+setLanguage(
+    currentLanguage
+);
+
+</script>
+
+
+</body>
+
+</html>

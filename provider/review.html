@@ -1,0 +1,1917 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Customer Reviews - Seivom</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --orange: #ff6b00;
+            --orange-light: #fff1e7;
+            --black: #171717;
+            --gray: #6b6b6b;
+            --light-gray: #f7f7f7;
+            --border: #e8e8e8;
+            --background: #fffaf7;
+            --white: #ffffff;
+            --yellow: #f5a623;
+        }
+
+        body {
+
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+            background: var(--background);
+
+            color: var(--black);
+
+            line-height: 1.5;
+        }
+
+        button {
+            font: inherit;
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =========================================
+           NAVBAR
+        ========================================= */
+
+        .navbar {
+
+            height: 68px;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            background:
+                rgba(255, 250, 247, 0.94);
+
+            backdrop-filter: blur(14px);
+
+            border-bottom:
+                1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+
+            font-size: 23px;
+
+            font-weight: 850;
+
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--orange);
+        }
+
+        .nav-right {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+        }
+
+
+        /* =========================================
+           LANGUAGE
+        ========================================= */
+
+        .language {
+
+            display: flex;
+
+            padding: 4px;
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 30px;
+        }
+
+        .lang-btn {
+
+            border: none;
+
+            background: transparent;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+
+            color: #777;
+
+            font-size: 12px;
+
+            font-weight: 750;
+        }
+
+        .lang-btn.active {
+
+            background: var(--black);
+
+            color: white;
+        }
+
+
+        /* =========================================
+           PAGE
+        ========================================= */
+
+        .page {
+
+            width: min(950px, 92%);
+
+            margin: auto;
+
+            padding: 40px 0 70px;
+        }
+
+
+        /* =========================================
+           BACK
+        ========================================= */
+
+        .back-link {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            margin-bottom: 25px;
+
+            color: #777;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        .back-link:hover {
+            color: var(--orange);
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        .page-header {
+
+            margin-bottom: 25px;
+        }
+
+        .page-header h1 {
+
+            font-size: 35px;
+
+            line-height: 1.1;
+
+            letter-spacing: -1.5px;
+
+            margin-bottom: 7px;
+        }
+
+        .page-header p {
+
+            color: var(--gray);
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================
+           RATING SUMMARY
+        ========================================= */
+
+        .rating-summary {
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 26px;
+
+            padding: 28px;
+
+            display: grid;
+
+            grid-template-columns:
+                200px 1fr;
+
+            gap: 38px;
+
+            align-items: center;
+
+            margin-bottom: 22px;
+
+            box-shadow:
+                0 10px 35px rgba(0, 0, 0, 0.035);
+        }
+
+
+        /* BIG RATING */
+
+        .big-rating {
+
+            text-align: center;
+        }
+
+        .big-rating-number {
+
+            font-size: 52px;
+
+            font-weight: 850;
+
+            letter-spacing: -3px;
+
+            line-height: 1;
+        }
+
+        .big-rating-stars {
+
+            color: var(--yellow);
+
+            font-size: 21px;
+
+            letter-spacing: 2px;
+
+            margin: 10px 0 6px;
+        }
+
+        .big-rating-count {
+
+            color: #888;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================================
+           RATING BARS
+        ========================================= */
+
+        .rating-bars {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+        }
+
+        .rating-row {
+
+            display: grid;
+
+            grid-template-columns:
+                35px 1fr 45px;
+
+            gap: 9px;
+
+            align-items: center;
+        }
+
+        .rating-label {
+
+            font-size: 12px;
+
+            font-weight: 750;
+
+            color: #555;
+        }
+
+        .rating-track {
+
+            height: 8px;
+
+            background: #eeeeee;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+        }
+
+        .rating-fill {
+
+            height: 100%;
+
+            background: var(--yellow);
+
+            border-radius: 20px;
+        }
+
+        .rating-count {
+
+            text-align: right;
+
+            font-size: 11px;
+
+            color: #888;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================================
+           FILTER BAR
+        ========================================= */
+
+        .review-toolbar {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin-bottom: 15px;
+        }
+
+        .review-toolbar h2 {
+
+            font-size: 19px;
+
+            letter-spacing: -0.5px;
+        }
+
+        .filter-buttons {
+
+            display: flex;
+
+            gap: 6px;
+
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+
+            border:
+                1px solid var(--border);
+
+            background: white;
+
+            color: #777;
+
+            padding: 8px 11px;
+
+            border-radius: 10px;
+
+            font-size: 11px;
+
+            font-weight: 750;
+
+            transition: 0.2s;
+        }
+
+        .filter-btn:hover {
+
+            border-color:
+                var(--orange);
+
+            color:
+                var(--orange);
+        }
+
+        .filter-btn.active {
+
+            background:
+                var(--black);
+
+            border-color:
+                var(--black);
+
+            color: white;
+        }
+
+
+        /* =========================================
+           REVIEWS CARD
+        ========================================= */
+
+        .reviews-card {
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 24px;
+
+            padding: 0 25px;
+        }
+
+
+        /* =========================================
+           REVIEW
+        ========================================= */
+
+        .review {
+
+            padding: 22px 0;
+
+            border-bottom:
+                1px solid var(--border);
+        }
+
+        .review:last-child {
+            border-bottom: none;
+        }
+
+
+        /* REVIEW TOP */
+
+        .review-top {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin-bottom: 8px;
+        }
+
+        .customer {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+        }
+
+        .customer-avatar {
+
+            width: 40px;
+
+            height: 40px;
+
+            border-radius: 50%;
+
+            background:
+                var(--orange-light);
+
+            color:
+                var(--orange);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 13px;
+
+            font-weight: 850;
+        }
+
+        .customer-name {
+
+            font-size: 13px;
+
+            font-weight: 800;
+        }
+
+        .review-date {
+
+            color: #999;
+
+            font-size: 11px;
+
+            margin-top: 1px;
+        }
+
+
+        /* REVIEW RATING */
+
+        .review-rating {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+        }
+
+        .review-stars {
+
+            color:
+                var(--yellow);
+
+            font-size: 14px;
+
+            letter-spacing: 1px;
+        }
+
+        .review-rating-number {
+
+            font-size: 11px;
+
+            color: #888;
+
+            font-weight: 700;
+        }
+
+
+        /* REVIEW TEXT */
+
+        .review-text {
+
+            color: #666;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            max-width: 750px;
+        }
+
+
+        /* =========================================
+           LOAD MORE
+        ========================================= */
+
+        .load-more-container {
+
+            text-align: center;
+
+            padding: 25px 0;
+        }
+
+        .load-more-btn {
+
+            border: none;
+
+            background:
+                var(--black);
+
+            color: white;
+
+            padding: 12px 22px;
+
+            border-radius: 13px;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            transition: 0.2s;
+        }
+
+        .load-more-btn:hover {
+
+            background:
+                var(--orange);
+
+            transform:
+                translateY(-1px);
+        }
+
+
+        /* =========================================
+           EMPTY
+        ========================================= */
+
+        .empty-state {
+
+            display: none;
+
+            text-align: center;
+
+            padding: 50px 20px;
+
+            color: #999;
+
+            font-size: 13px;
+        }
+
+        .empty-icon {
+
+            font-size: 35px;
+
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            text-align: center;
+
+            color: #999;
+
+            font-size: 12px;
+
+            padding:
+                0 20px 30px;
+        }
+
+        footer strong {
+            color: var(--black);
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media(max-width: 700px) {
+
+            .navbar {
+
+                height: 62px;
+
+                padding:
+                    0 4%;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .page {
+
+                width: 94%;
+
+                padding-top:
+                    30px;
+            }
+
+            .page-header h1 {
+
+                font-size: 30px;
+            }
+
+            .rating-summary {
+
+                grid-template-columns: 1fr;
+
+                gap: 25px;
+
+                padding: 22px;
+            }
+
+            .big-rating {
+
+                padding-bottom:
+                    5px;
+            }
+
+            .review-toolbar {
+
+                align-items:
+                    flex-start;
+
+                flex-direction:
+                    column;
+            }
+
+            .filter-buttons {
+
+                width: 100%;
+
+                overflow-x: auto;
+
+                flex-wrap: nowrap;
+
+                padding-bottom: 3px;
+            }
+
+            .filter-btn {
+
+                white-space:
+                    nowrap;
+            }
+
+            .reviews-card {
+
+                padding:
+                    0 18px;
+            }
+
+            .review-top {
+
+                align-items:
+                    flex-start;
+
+                flex-direction:
+                    column;
+            }
+
+            .review-rating {
+
+                padding-left:
+                    51px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     NAVBAR
+========================================= -->
+
+<nav class="navbar">
+
+    <a
+        href="../index.html"
+        class="logo"
+    >
+        Seiv<span>om</span>
+    </a>
+
+
+    <div class="nav-right">
+
+        <div class="language">
+
+            <button
+                class="lang-btn active"
+                id="englishBtn"
+                onclick="setLanguage('en')"
+            >
+                EN
+            </button>
+
+            <button
+                class="lang-btn"
+                id="tamilBtn"
+                onclick="setLanguage('ta')"
+            >
+                தமிழ்
+            </button>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<main class="page">
+
+
+    <!-- =====================================
+         BACK
+    ===================================== -->
+
+    <a
+        href="javascript:void(0)"
+        class="back-link"
+        onclick="goBack()"
+    >
+
+        <span>
+            ←
+        </span>
+
+        <span data-i18n="back_profile">
+            Back to Profile
+        </span>
+
+    </a>
+
+
+
+    <!-- =====================================
+         HEADER
+    ===================================== -->
+
+    <div class="page-header">
+
+        <h1 data-i18n="reviews_title">
+            Customer Reviews
+        </h1>
+
+        <p data-i18n="reviews_description">
+            See what customers are saying about your service.
+        </p>
+
+    </div>
+
+
+
+    <!-- =====================================
+         RATING SUMMARY
+    ===================================== -->
+
+    <section class="rating-summary">
+
+
+        <!-- BIG RATING -->
+
+        <div class="big-rating">
+
+            <div class="big-rating-number">
+                4.8
+            </div>
+
+            <div class="big-rating-stars">
+                ★★★★★
+            </div>
+
+            <div
+                class="big-rating-count"
+                data-i18n="based_on_reviews"
+            >
+                Based on 24 reviews
+            </div>
+
+        </div>
+
+
+
+        <!-- RATING BREAKDOWN -->
+
+        <div class="rating-bars">
+
+
+            <div class="rating-row">
+
+                <div class="rating-label">
+                    5★
+                </div>
+
+                <div class="rating-track">
+
+                    <div
+                        class="rating-fill"
+                        style="width:75%;"
+                    ></div>
+
+                </div>
+
+                <div class="rating-count">
+                    18
+                </div>
+
+            </div>
+
+
+
+            <div class="rating-row">
+
+                <div class="rating-label">
+                    4★
+                </div>
+
+                <div class="rating-track">
+
+                    <div
+                        class="rating-fill"
+                        style="width:17%;"
+                    ></div>
+
+                </div>
+
+                <div class="rating-count">
+                    4
+                </div>
+
+            </div>
+
+
+
+            <div class="rating-row">
+
+                <div class="rating-label">
+                    3★
+                </div>
+
+                <div class="rating-track">
+
+                    <div
+                        class="rating-fill"
+                        style="width:4%;"
+                    ></div>
+
+                </div>
+
+                <div class="rating-count">
+                    1
+                </div>
+
+            </div>
+
+
+
+            <div class="rating-row">
+
+                <div class="rating-label">
+                    2★
+                </div>
+
+                <div class="rating-track">
+
+                    <div
+                        class="rating-fill"
+                        style="width:4%;"
+                    ></div>
+
+                </div>
+
+                <div class="rating-count">
+                    1
+                </div>
+
+            </div>
+
+
+
+            <div class="rating-row">
+
+                <div class="rating-label">
+                    1★
+                </div>
+
+                <div class="rating-track">
+
+                    <div
+                        class="rating-fill"
+                        style="width:0%;"
+                    ></div>
+
+                </div>
+
+                <div class="rating-count">
+                    0
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         REVIEW TOOLBAR
+    ===================================== -->
+
+    <section class="review-toolbar">
+
+        <h2 data-i18n="all_reviews">
+            All Reviews
+        </h2>
+
+
+        <div class="filter-buttons">
+
+            <button
+                class="filter-btn active"
+                data-filter="all"
+                onclick="filterReviews('all')"
+            >
+                All
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="5"
+                onclick="filterReviews(5)"
+            >
+                5★
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="4"
+                onclick="filterReviews(4)"
+            >
+                4★
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="3"
+                onclick="filterReviews(3)"
+            >
+                3★
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="2"
+                onclick="filterReviews(2)"
+            >
+                2★
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="1"
+                onclick="filterReviews(1)"
+            >
+                1★
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         REVIEWS
+    ===================================== -->
+
+    <section class="reviews-card">
+
+
+        <!-- REVIEW 1 -->
+
+        <div
+            class="review"
+            data-rating="5"
+        >
+
+            <div class="review-top">
+
+                <div class="customer">
+
+                    <div class="customer-avatar">
+                        R
+                    </div>
+
+                    <div>
+
+                        <div class="customer-name">
+                            Raj
+                        </div>
+
+                        <div class="review-date">
+                            2 days ago
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="review-rating">
+
+                    <span class="review-stars">
+                        ★★★★★
+                    </span>
+
+                    <span class="review-rating-number">
+                        5.0
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <p class="review-text">
+                Very quick response and good work.
+                He fixed the leaking tap properly.
+                Highly recommended.
+            </p>
+
+        </div>
+
+
+
+        <!-- REVIEW 2 -->
+
+        <div
+            class="review"
+            data-rating="4"
+        >
+
+            <div class="review-top">
+
+                <div class="customer">
+
+                    <div class="customer-avatar">
+                        S
+                    </div>
+
+                    <div>
+
+                        <div class="customer-name">
+                            Suresh
+                        </div>
+
+                        <div class="review-date">
+                            1 week ago
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="review-rating">
+
+                    <span class="review-stars">
+                        ★★★★☆
+                    </span>
+
+                    <span class="review-rating-number">
+                        4.0
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <p class="review-text">
+                Good service and reasonable response time.
+                Would contact again if needed.
+            </p>
+
+        </div>
+
+
+
+        <!-- REVIEW 3 -->
+
+        <div
+            class="review"
+            data-rating="5"
+        >
+
+            <div class="review-top">
+
+                <div class="customer">
+
+                    <div class="customer-avatar">
+                        M
+                    </div>
+
+                    <div>
+
+                        <div class="customer-name">
+                            Meena
+                        </div>
+
+                        <div class="review-date">
+                            2 weeks ago
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="review-rating">
+
+                    <span class="review-stars">
+                        ★★★★★
+                    </span>
+
+                    <span class="review-rating-number">
+                        5.0
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <p class="review-text">
+                Excellent plumbing work.
+                He explained the problem clearly
+                before starting the repair.
+            </p>
+
+        </div>
+
+
+
+        <!-- REVIEW 4 -->
+
+        <div
+            class="review"
+            data-rating="5"
+        >
+
+            <div class="review-top">
+
+                <div class="customer">
+
+                    <div class="customer-avatar">
+                        A
+                    </div>
+
+                    <div>
+
+                        <div class="customer-name">
+                            Arun
+                        </div>
+
+                        <div class="review-date">
+                            3 weeks ago
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="review-rating">
+
+                    <span class="review-stars">
+                        ★★★★★
+                    </span>
+
+                    <span class="review-rating-number">
+                        5.0
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <p class="review-text">
+                Came on time and completed the work
+                without any unnecessary delay.
+            </p>
+
+        </div>
+
+
+
+        <!-- REVIEW 5 -->
+
+        <div
+            class="review"
+            data-rating="5"
+        >
+
+            <div class="review-top">
+
+                <div class="customer">
+
+                    <div class="customer-avatar">
+                        P
+                    </div>
+
+                    <div>
+
+                        <div class="customer-name">
+                            Priya
+                        </div>
+
+                        <div class="review-date">
+                            1 month ago
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="review-rating">
+
+                    <span class="review-stars">
+                        ★★★★★
+                    </span>
+
+                    <span class="review-rating-number">
+                        5.0
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <p class="review-text">
+                Very polite and professional.
+                The bathroom plumbing issue was fixed perfectly.
+            </p>
+
+        </div>
+
+
+
+        <!-- REVIEW 6 -->
+
+        <div
+            class="review"
+            data-rating="3"
+        >
+
+            <div class="review-top">
+
+                <div class="customer">
+
+                    <div class="customer-avatar">
+                        K
+                    </div>
+
+                    <div>
+
+                        <div class="customer-name">
+                            Kannan
+                        </div>
+
+                        <div class="review-date">
+                            1 month ago
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="review-rating">
+
+                    <span class="review-stars">
+                        ★★★☆☆
+                    </span>
+
+                    <span class="review-rating-number">
+                        3.0
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <p class="review-text">
+                Work was completed properly.
+                Response time could have been a little faster.
+            </p>
+
+        </div>
+
+
+
+        <!-- REVIEW 7 -->
+
+        <div
+            class="review"
+            data-rating="5"
+        >
+
+            <div class="review-top">
+
+                <div class="customer">
+
+                    <div class="customer-avatar">
+                        V
+                    </div>
+
+                    <div>
+
+                        <div class="customer-name">
+                            Vignesh
+                        </div>
+
+                        <div class="review-date">
+                            1 month ago
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="review-rating">
+
+                    <span class="review-stars">
+                        ★★★★★
+                    </span>
+
+                    <span class="review-rating-number">
+                        5.0
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <p class="review-text">
+                Great service. Explained the issue and
+                the repair cost clearly before starting.
+            </p>
+
+        </div>
+
+
+
+        <!-- REVIEW 8 -->
+
+        <div
+            class="review"
+            data-rating="2"
+        >
+
+            <div class="review-top">
+
+                <div class="customer">
+
+                    <div class="customer-avatar">
+                        N
+                    </div>
+
+                    <div>
+
+                        <div class="customer-name">
+                            Naveen
+                        </div>
+
+                        <div class="review-date">
+                            2 months ago
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="review-rating">
+
+                    <span class="review-stars">
+                        ★★☆☆☆
+                    </span>
+
+                    <span class="review-rating-number">
+                        2.0
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <p class="review-text">
+                The work was completed, but there was
+                some delay in reaching the location.
+            </p>
+
+        </div>
+
+
+
+        <!-- REVIEW 9 -->
+
+        <div
+            class="review"
+            data-rating="5"
+        >
+
+            <div class="review-top">
+
+                <div class="customer">
+
+                    <div class="customer-avatar">
+                        D
+                    </div>
+
+                    <div>
+
+                        <div class="customer-name">
+                            Dinesh
+                        </div>
+
+                        <div class="review-date">
+                            2 months ago
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="review-rating">
+
+                    <span class="review-stars">
+                        ★★★★★
+                    </span>
+
+                    <span class="review-rating-number">
+                        5.0
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <p class="review-text">
+                Excellent service. Will definitely contact
+                him again for future plumbing work.
+            </p>
+
+        </div>
+
+
+
+        <!-- EMPTY -->
+
+        <div
+            class="empty-state"
+            id="emptyState"
+        >
+
+            <div class="empty-icon">
+                ☆
+            </div>
+
+            <div data-i18n="no_reviews">
+                No reviews found for this rating.
+            </div>
+
+        </div>
+
+
+
+        <!-- LOAD MORE -->
+
+        <div class="load-more-container">
+
+            <button
+                class="load-more-btn"
+                onclick="loadMoreReviews()"
+                id="loadMoreButton"
+                data-i18n="load_more"
+            >
+                Load More Reviews
+            </button>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<footer>
+
+    <strong>Seivom</strong>
+
+    —
+
+    <span data-i18n="footer">
+        Local services, just around you.
+    </span>
+
+</footer>
+
+
+
+<script>
+
+
+/* =========================================
+   TRANSLATIONS
+========================================= */
+
+const translations = {
+
+    en: {
+
+        back_profile:
+            "Back to Profile",
+
+        reviews_title:
+            "Customer Reviews",
+
+        reviews_description:
+            "See what customers are saying about your service.",
+
+        based_on_reviews:
+            "Based on 24 reviews",
+
+        all_reviews:
+            "All Reviews",
+
+        no_reviews:
+            "No reviews found for this rating.",
+
+        load_more:
+            "Load More Reviews",
+
+        footer:
+            "Local services, just around you."
+
+    },
+
+
+    ta: {
+
+        back_profile:
+            "சுயவிவரத்திற்கு திரும்பு",
+
+        reviews_title:
+            "வாடிக்கையாளர் விமர்சனங்கள்",
+
+        reviews_description:
+            "உங்கள் சேவையைப் பற்றி வாடிக்கையாளர்கள் கூறியதைப் பார்க்கலாம்.",
+
+        based_on_reviews:
+            "24 விமர்சனங்களின் அடிப்படையில்",
+
+        all_reviews:
+            "அனைத்து விமர்சனங்கள்",
+
+        no_reviews:
+            "இந்த மதிப்பீட்டிற்கு விமர்சனங்கள் இல்லை.",
+
+        load_more:
+            "மேலும் விமர்சனங்களை பார்க்க",
+
+        footer:
+            "உள்ளூர் சேவைகள், உங்களைச் சுற்றியே."
+
+    }
+
+};
+
+
+
+/* =========================================
+   LANGUAGE
+========================================= */
+
+let currentLanguage =
+    localStorage.getItem(
+        "seivom_language"
+    ) || "en";
+
+
+function setLanguage(language) {
+
+    currentLanguage =
+        language;
+
+
+    localStorage.setItem(
+        "seivom_language",
+        language
+    );
+
+
+    document.documentElement.lang =
+        language;
+
+
+    document
+        .querySelectorAll("[data-i18n]")
+        .forEach(element => {
+
+            const key =
+                element.getAttribute(
+                    "data-i18n"
+                );
+
+
+            if (
+                translations[language] &&
+                translations[language][key]
+            ) {
+
+                element.innerHTML =
+                    translations[language][key];
+
+            }
+
+        });
+
+
+    document
+        .getElementById("englishBtn")
+        .classList.toggle(
+            "active",
+            language === "en"
+        );
+
+
+    document
+        .getElementById("tamilBtn")
+        .classList.toggle(
+            "active",
+            language === "ta"
+        );
+
+}
+
+
+
+/* =========================================
+   BACK
+========================================= */
+
+function goBack() {
+
+    window.history.back();
+
+}
+
+
+
+/* =========================================
+   FILTER REVIEWS
+========================================= */
+
+function filterReviews(rating) {
+
+    const reviews =
+        document.querySelectorAll(
+            ".review"
+        );
+
+    const buttons =
+        document.querySelectorAll(
+            ".filter-btn"
+        );
+
+    const emptyState =
+        document.getElementById(
+            "emptyState"
+        );
+
+    let visibleCount = 0;
+
+
+    /* UPDATE BUTTON */
+
+    buttons.forEach(button => {
+
+        button.classList.remove(
+            "active"
+        );
+
+
+        if (
+            button.dataset.filter ==
+            rating
+        ) {
+
+            button.classList.add(
+                "active"
+            );
+
+        }
+
+    });
+
+
+    /* SHOW / HIDE */
+
+    reviews.forEach(review => {
+
+        const reviewRating =
+            Number(
+                review.dataset.rating
+            );
+
+
+        if (
+            rating === "all" ||
+            reviewRating === Number(rating)
+        ) {
+
+            review.style.display =
+                "block";
+
+            visibleCount++;
+
+        } else {
+
+            review.style.display =
+                "none";
+
+        }
+
+    });
+
+
+    /* EMPTY */
+
+    emptyState.style.display =
+        visibleCount === 0
+            ? "block"
+            : "none";
+
+}
+
+
+
+/* =========================================
+   LOAD MORE
+========================================= */
+
+function loadMoreReviews() {
+
+    const button =
+        document.getElementById(
+            "loadMoreButton"
+        );
+
+
+    /*
+     * Temporary demo behaviour.
+     *
+     * Later this will fetch more reviews
+     * from Firebase using pagination.
+     */
+
+    button.textContent =
+        currentLanguage === "ta"
+            ? "அனைத்து விமர்சனங்களும் காட்டப்பட்டுள்ளன"
+            : "All available reviews shown";
+
+
+    button.disabled =
+        true;
+
+
+    button.style.opacity =
+        "0.55";
+
+}
+
+
+
+/* =========================================
+   INITIALIZE
+========================================= */
+
+setLanguage(
+    currentLanguage
+);
+
+
+</script>
+
+
+</body>
+
+</html>

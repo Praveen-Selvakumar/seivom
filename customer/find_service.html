@@ -1,0 +1,2104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Find a Service - Seivom</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --orange: #ff6b00;
+            --orange-light: #fff1e7;
+            --black: #171717;
+            --gray: #6b6b6b;
+            --light-gray: #f7f7f7;
+            --border: #e8e8e8;
+            --background: #fffaf7;
+            --white: #ffffff;
+            --green: #159957;
+        }
+
+        body {
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+            background: var(--background);
+            color: var(--black);
+
+            line-height: 1.5;
+        }
+
+        button,
+        input,
+        select {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =========================================
+           NAVBAR
+        ========================================= */
+
+        .navbar {
+            height: 68px;
+
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            background:
+                rgba(255, 250, 247, 0.94);
+
+            backdrop-filter: blur(14px);
+
+            border-bottom:
+                1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: 850;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--orange);
+        }
+
+        .language {
+            display: flex;
+            padding: 4px;
+
+            border: 1px solid var(--border);
+            border-radius: 30px;
+
+            background: white;
+        }
+
+        .lang-btn {
+            border: none;
+            background: transparent;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+
+            color: #777;
+
+            font-size: 12px;
+            font-weight: 750;
+        }
+
+        .lang-btn.active {
+            background: var(--black);
+            color: white;
+        }
+
+
+        /* =========================================
+           PAGE
+        ========================================= */
+
+        .page {
+            width: min(1100px, 92%);
+            margin: auto;
+
+            padding: 45px 0 80px;
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+            margin-bottom: 28px;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 48px);
+
+            line-height: 1.05;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 12px;
+        }
+
+        .hero h1 span {
+            color: var(--orange);
+        }
+
+        .hero p {
+            max-width: 650px;
+
+            color: var(--gray);
+
+            font-size: 15px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           SEARCH CARD
+        ========================================= */
+
+        .search-card {
+
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 26px;
+
+            padding: 24px;
+
+            box-shadow:
+                0 12px 40px rgba(0, 0, 0, 0.04);
+
+            margin-bottom: 32px;
+        }
+
+        .search-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr 1fr auto;
+
+            gap: 12px;
+
+            align-items: end;
+        }
+
+
+        /* =========================================
+           FIELD
+        ========================================= */
+
+        .field label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 12px;
+
+            font-weight: 800;
+        }
+
+        .field select {
+
+            width: 100%;
+
+            height: 50px;
+
+            padding: 0 13px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 13px;
+
+            background: white;
+
+            color: var(--black);
+
+            outline: none;
+        }
+
+        .field select:focus {
+
+            border-color:
+                var(--orange);
+
+            box-shadow:
+                0 0 0 4px rgba(255, 107, 0, 0.08);
+        }
+
+        .search-button {
+
+            height: 50px;
+
+            border: none;
+
+            border-radius: 13px;
+
+            padding: 0 22px;
+
+            background: var(--orange);
+
+            color: white;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            box-shadow:
+                0 10px 25px rgba(255, 107, 0, 0.18);
+        }
+
+        .search-button:hover {
+
+            transform: translateY(-1px);
+        }
+
+
+        /* =========================================
+           RESULT HEADER
+        ========================================= */
+
+        .result-header {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-bottom: 16px;
+        }
+
+        .result-header h2 {
+
+            font-size: 20px;
+
+            letter-spacing: -0.5px;
+        }
+
+        .result-count {
+
+            color: #888;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================================
+           PROVIDER GRID
+        ========================================= */
+
+        .provider-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 16px;
+        }
+
+
+        /* =========================================
+           PROVIDER CARD
+        ========================================= */
+
+        .provider-card {
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 22px;
+
+            padding: 20px;
+
+            transition: 0.2s;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.025);
+        }
+
+        .provider-card:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, 0.07);
+        }
+
+        .provider-top {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin-bottom: 15px;
+        }
+
+        .provider-avatar {
+
+            width: 52px;
+            height: 52px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background:
+                var(--orange-light);
+
+            color:
+                var(--orange);
+
+            font-size: 19px;
+
+            font-weight: 850;
+        }
+
+        .provider-name {
+
+            font-size: 16px;
+
+            font-weight: 850;
+
+            margin-bottom: 2px;
+        }
+
+        .provider-service {
+
+            color: var(--gray);
+
+            font-size: 12px;
+        }
+
+
+        /* =========================================
+           RATING
+        ========================================= */
+
+        .rating {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            margin-bottom: 12px;
+        }
+
+        .stars {
+
+            color: #f5a623;
+
+            font-size: 13px;
+
+            letter-spacing: 1px;
+        }
+
+        .rating-value {
+
+            font-size: 12px;
+
+            font-weight: 800;
+        }
+
+        .review-count {
+
+            color: #999;
+
+            font-size: 11px;
+        }
+
+
+        /* =========================================
+           LOCATION
+        ========================================= */
+
+        .location {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            color: #777;
+
+            font-size: 12px;
+
+            margin-bottom: 13px;
+        }
+
+
+        /* =========================================
+           SERVICES
+        ========================================= */
+
+        .mini-services {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 6px;
+
+            margin-bottom: 15px;
+        }
+
+        .mini-chip {
+
+            padding: 6px 9px;
+
+            border-radius: 20px;
+
+            background: var(--orange-light);
+
+            color: var(--orange);
+
+            font-size: 10px;
+
+            font-weight: 750;
+        }
+
+
+        /* =========================================
+           CARD ACTIONS
+        ========================================= */
+
+        .card-actions {
+
+            display: grid;
+
+            grid-template-columns:
+                42px 42px 1fr;
+
+            gap: 8px;
+
+            align-items: center;
+        }
+
+        .icon-button {
+
+            width: 42px;
+
+            height: 42px;
+
+            border: none;
+
+            border-radius: 11px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 17px;
+
+            transition: 0.2s;
+
+            color: white;
+        }
+
+        .call-button {
+
+            background:
+                var(--orange);
+        }
+
+        .call-button:hover {
+
+            background:
+                #e85d04;
+
+            transform:
+                translateY(-1px);
+        }
+
+        .whatsapp-button {
+
+            background:
+                var(--green);
+        }
+
+        .whatsapp-button:hover {
+
+            background:
+                #128548;
+
+            transform:
+                translateY(-1px);
+        }
+
+
+        /* =========================================
+           CARD BUTTON
+        ========================================= */
+
+        .profile-button {
+
+            width: 100%;
+
+            height: 42px;
+
+            border:
+                1px solid var(--black);
+
+            border-radius: 11px;
+
+            background: var(--black);
+
+            color: white;
+
+            font-size: 12px;
+
+            font-weight: 800;
+        }
+
+        .profile-button:hover {
+
+            background:
+                var(--orange);
+
+            border-color:
+                var(--orange);
+        }
+
+
+        /* =========================================
+           OTHER SERVICES
+        ========================================= */
+
+        .other-services {
+
+            margin-top: 34px;
+        }
+
+        .other-services-header {
+
+            margin-bottom: 15px;
+        }
+
+        .other-services-header h2 {
+
+            font-size: 20px;
+
+            margin-bottom: 4px;
+        }
+
+        .other-services-header p {
+
+            color: #888;
+
+            font-size: 12px;
+        }
+
+        .service-options {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 12px;
+        }
+
+        .service-option {
+
+            padding: 18px;
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 10px;
+        }
+
+        .service-option-name {
+
+            font-size: 13px;
+
+            font-weight: 800;
+        }
+
+        .service-option-count {
+
+            color: var(--orange);
+
+            font-size: 11px;
+
+            font-weight: 750;
+        }
+
+
+        /* =========================================
+           EMPTY
+        ========================================= */
+
+        .empty-state {
+
+            display: none;
+
+            text-align: center;
+
+            padding: 50px 20px;
+
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 22px;
+
+            color: #888;
+        }
+
+        .empty-icon {
+
+            font-size: 32px;
+
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            text-align: center;
+
+            color: #999;
+
+            font-size: 11px;
+
+            padding: 0 20px 30px;
+        }
+
+        footer strong {
+            color: var(--black);
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 850px) {
+
+            .search-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .search-button {
+
+                width: 100%;
+            }
+
+            .provider-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .service-options {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .navbar {
+
+                height: 62px;
+
+                padding:
+                    0 4%;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .page {
+
+                width: 94%;
+
+                padding-top: 32px;
+            }
+
+            .hero h1 {
+
+                font-size: 34px;
+
+                letter-spacing: -1.5px;
+            }
+
+            .search-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .provider-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .service-options {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .search-card {
+
+                padding: 20px;
+            }
+
+        }
+
+        @media (max-width: 380px) {
+
+            .card-actions {
+
+                grid-template-columns:
+                    38px 38px 1fr;
+
+                gap: 6px;
+            }
+
+            .icon-button {
+
+                width: 38px;
+
+                height: 38px;
+
+                font-size: 15px;
+            }
+
+            .profile-button {
+
+                height: 38px;
+
+                font-size: 11px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     NAVBAR
+========================================= -->
+
+<nav class="navbar">
+
+    <a
+        href="../index.html"
+        class="logo"
+    >
+        Seiv<span>om</span>
+    </a>
+
+
+    <div class="language">
+
+        <button
+            class="lang-btn active"
+            id="englishBtn"
+            onclick="setLanguage('en')"
+        >
+            EN
+        </button>
+
+        <button
+            class="lang-btn"
+            id="tamilBtn"
+            onclick="setLanguage('ta')"
+        >
+            தமிழ்
+        </button>
+
+    </div>
+
+</nav>
+
+
+
+<main class="page">
+
+
+    <!-- =====================================
+         HERO
+    ===================================== -->
+
+    <section class="hero">
+
+        <h1 data-i18n="hero_title">
+            Find the right
+            <span>service.</span>
+        </h1>
+
+        <p data-i18n="hero_description">
+            Find local service providers around you.
+            View their profile, ratings and services,
+            then contact them directly.
+        </p>
+
+    </section>
+
+
+
+    <!-- =====================================
+         SEARCH
+    ===================================== -->
+
+    <section class="search-card">
+
+        <div class="search-grid">
+
+
+            <!-- DISTRICT -->
+
+            <div class="field">
+
+                <label
+                    data-i18n="district"
+                    for="district"
+                >
+                    District
+                </label>
+
+                <select id="district">
+
+                    <option value="madurai">
+                        Madurai
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- LOCALITY -->
+
+            <div class="field">
+
+                <label
+                    data-i18n="locality"
+                    for="locality"
+                >
+                    Locality
+                </label>
+
+                <select id="locality">
+
+                    <option value="">
+                        Select locality
+                    </option>
+
+                    <option value="anna_nagar">
+                        Anna Nagar
+                    </option>
+
+                    <option value="kk_nagar">
+                        KK Nagar
+                    </option>
+
+                    <option value="arasaradi">
+                        Arasaradi
+                    </option>
+
+                    <option value="thirunagar">
+                        Thirunagar
+                    </option>
+
+                    <option value="mattuthavani">
+                        Mattuthavani
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- SERVICE -->
+
+            <div class="field">
+
+                <label
+                    data-i18n="service"
+                    for="service"
+                >
+                    Service
+                </label>
+
+                <select id="service">
+
+                    <option value="">
+                        Select service
+                    </option>
+
+                    <option value="plumbing">
+                        Plumbing
+                    </option>
+
+                    <option value="electrical">
+                        Electrical
+                    </option>
+
+                    <option value="ac_service">
+                        AC Service
+                    </option>
+
+                    <option value="carpenter">
+                        Carpenter
+                    </option>
+
+                    <option value="cleaning">
+                        Cleaning
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- SEARCH BUTTON -->
+
+            <button
+                class="search-button"
+                onclick="searchProviders()"
+                data-i18n="find_button"
+            >
+                Find Services
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         RESULT HEADER
+    ===================================== -->
+
+    <section class="result-header">
+
+        <h2 data-i18n="nearby_providers">
+            Providers near you
+        </h2>
+
+        <div
+            class="result-count"
+            id="resultCount"
+        >
+            5 providers available
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         PROVIDERS
+    ===================================== -->
+
+    <section
+        class="provider-grid"
+        id="providerGrid"
+    >
+
+
+        <!-- PROVIDER 1 -->
+
+        <article
+            class="provider-card"
+            data-service="plumbing"
+            data-localities="anna_nagar,kk_nagar,arasaradi"
+        >
+
+            <div class="provider-top">
+
+                <div class="provider-avatar">
+                    K
+                </div>
+
+                <div>
+
+                    <div class="provider-name">
+                        Kumar
+                    </div>
+
+                    <div class="provider-service">
+                        Plumbing
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="rating">
+
+                <span class="stars">
+                    ★★★★★
+                </span>
+
+                <span class="rating-value">
+                    4.8
+                </span>
+
+                <span class="review-count">
+                    (24)
+                </span>
+
+            </div>
+
+
+            <div class="location">
+                📍 Anna Nagar, KK Nagar
+            </div>
+
+
+            <div class="mini-services">
+
+                <span class="mini-chip">
+                    Tap Repair
+                </span>
+
+                <span class="mini-chip">
+                    Leak Repair
+                </span>
+
+                <span class="mini-chip">
+                    Pipe Repair
+                </span>
+
+            </div>
+
+
+            <div class="card-actions">
+
+                <button
+                    type="button"
+                    class="icon-button call-button"
+                    onclick="callProvider('9876543210')"
+                    aria-label="Call Kumar"
+                    title="Call"
+                >
+                    📞
+                </button>
+
+                <button
+                    type="button"
+                    class="icon-button whatsapp-button"
+                    onclick="whatsappProvider('9876543210', 'Kumar')"
+                    aria-label="WhatsApp Kumar"
+                    title="WhatsApp"
+                >
+                    💬
+                </button>
+
+                <button
+                    type="button"
+                    class="profile-button"
+                    onclick="openProfile('kumar')"
+                    data-i18n="view_profile"
+                >
+                    View Profile
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- PROVIDER 2 -->
+
+        <article
+            class="provider-card"
+            data-service="plumbing"
+            data-localities="anna_nagar,arasaradi"
+        >
+
+            <div class="provider-top">
+
+                <div class="provider-avatar">
+                    S
+                </div>
+
+                <div>
+
+                    <div class="provider-name">
+                        Saravanan
+                    </div>
+
+                    <div class="provider-service">
+                        Plumbing
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="rating">
+
+                <span class="stars">
+                    ★★★★★
+                </span>
+
+                <span class="rating-value">
+                    4.7
+                </span>
+
+                <span class="review-count">
+                    (18)
+                </span>
+
+            </div>
+
+
+            <div class="location">
+                📍 Anna Nagar, Arasaradi
+            </div>
+
+
+            <div class="mini-services">
+
+                <span class="mini-chip">
+                    Tap Repair
+                </span>
+
+                <span class="mini-chip">
+                    Bathroom
+                </span>
+
+                <span class="mini-chip">
+                    Water Tank
+                </span>
+
+            </div>
+
+
+            <div class="card-actions">
+
+                <button
+                    type="button"
+                    class="icon-button call-button"
+                    onclick="callProvider('9876543211')"
+                    aria-label="Call Saravanan"
+                    title="Call"
+                >
+                    📞
+                </button>
+
+                <button
+                    type="button"
+                    class="icon-button whatsapp-button"
+                    onclick="whatsappProvider('9876543211', 'Saravanan')"
+                    aria-label="WhatsApp Saravanan"
+                    title="WhatsApp"
+                >
+                    💬
+                </button>
+
+                <button
+                    type="button"
+                    class="profile-button"
+                    onclick="openProfile('saravanan')"
+                    data-i18n="view_profile"
+                >
+                    View Profile
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- PROVIDER 3 -->
+
+        <article
+            class="provider-card"
+            data-service="electrical"
+            data-localities="kk_nagar,mattuthavani"
+        >
+
+            <div class="provider-top">
+
+                <div class="provider-avatar">
+                    R
+                </div>
+
+                <div>
+
+                    <div class="provider-name">
+                        Rajkumar
+                    </div>
+
+                    <div class="provider-service">
+                        Electrical
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="rating">
+
+                <span class="stars">
+                    ★★★★★
+                </span>
+
+                <span class="rating-value">
+                    4.9
+                </span>
+
+                <span class="review-count">
+                    (31)
+                </span>
+
+            </div>
+
+
+            <div class="location">
+                📍 KK Nagar, Mattuthavani
+            </div>
+
+
+            <div class="mini-services">
+
+                <span class="mini-chip">
+                    Fan Repair
+                </span>
+
+                <span class="mini-chip">
+                    Wiring
+                </span>
+
+                <span class="mini-chip">
+                    Switch Repair
+                </span>
+
+            </div>
+
+
+            <div class="card-actions">
+
+                <button
+                    type="button"
+                    class="icon-button call-button"
+                    onclick="callProvider('9876543212')"
+                    aria-label="Call Rajkumar"
+                    title="Call"
+                >
+                    📞
+                </button>
+
+                <button
+                    type="button"
+                    class="icon-button whatsapp-button"
+                    onclick="whatsappProvider('9876543212', 'Rajkumar')"
+                    aria-label="WhatsApp Rajkumar"
+                    title="WhatsApp"
+                >
+                    💬
+                </button>
+
+                <button
+                    type="button"
+                    class="profile-button"
+                    onclick="openProfile('rajkumar')"
+                    data-i18n="view_profile"
+                >
+                    View Profile
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- PROVIDER 4 -->
+
+        <article
+            class="provider-card"
+            data-service="ac_service"
+            data-localities="anna_nagar,kk_nagar"
+        >
+
+            <div class="provider-top">
+
+                <div class="provider-avatar">
+                    M
+                </div>
+
+                <div>
+
+                    <div class="provider-name">
+                        Mani
+                    </div>
+
+                    <div class="provider-service">
+                        AC Service
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="rating">
+
+                <span class="stars">
+                    ★★★★☆
+                </span>
+
+                <span class="rating-value">
+                    4.6
+                </span>
+
+                <span class="review-count">
+                    (14)
+                </span>
+
+            </div>
+
+
+            <div class="location">
+                📍 Anna Nagar, KK Nagar
+            </div>
+
+
+            <div class="mini-services">
+
+                <span class="mini-chip">
+                    AC Service
+                </span>
+
+                <span class="mini-chip">
+                    AC Repair
+                </span>
+
+                <span class="mini-chip">
+                    Gas Filling
+                </span>
+
+            </div>
+
+
+            <div class="card-actions">
+
+                <button
+                    type="button"
+                    class="icon-button call-button"
+                    onclick="callProvider('9876543213')"
+                    aria-label="Call Mani"
+                    title="Call"
+                >
+                    📞
+                </button>
+
+                <button
+                    type="button"
+                    class="icon-button whatsapp-button"
+                    onclick="whatsappProvider('9876543213', 'Mani')"
+                    aria-label="WhatsApp Mani"
+                    title="WhatsApp"
+                >
+                    💬
+                </button>
+
+                <button
+                    type="button"
+                    class="profile-button"
+                    onclick="openProfile('mani')"
+                    data-i18n="view_profile"
+                >
+                    View Profile
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- PROVIDER 5 -->
+
+        <article
+            class="provider-card"
+            data-service="cleaning"
+            data-localities="anna_nagar,thirunagar"
+        >
+
+            <div class="provider-top">
+
+                <div class="provider-avatar">
+                    P
+                </div>
+
+                <div>
+
+                    <div class="provider-name">
+                        Priya
+                    </div>
+
+                    <div class="provider-service">
+                        Home Cleaning
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="rating">
+
+                <span class="stars">
+                    ★★★★★
+                </span>
+
+                <span class="rating-value">
+                    4.9
+                </span>
+
+                <span class="review-count">
+                    (21)
+                </span>
+
+            </div>
+
+
+            <div class="location">
+                📍 Anna Nagar, Thirunagar
+            </div>
+
+
+            <div class="mini-services">
+
+                <span class="mini-chip">
+                    Home Cleaning
+                </span>
+
+                <span class="mini-chip">
+                    Kitchen
+                </span>
+
+                <span class="mini-chip">
+                    Deep Cleaning
+                </span>
+
+            </div>
+
+
+            <div class="card-actions">
+
+                <button
+                    type="button"
+                    class="icon-button call-button"
+                    onclick="callProvider('9876543214')"
+                    aria-label="Call Priya"
+                    title="Call"
+                >
+                    📞
+                </button>
+
+                <button
+                    type="button"
+                    class="icon-button whatsapp-button"
+                    onclick="whatsappProvider('9876543214', 'Priya')"
+                    aria-label="WhatsApp Priya"
+                    title="WhatsApp"
+                >
+                    💬
+                </button>
+
+                <button
+                    type="button"
+                    class="profile-button"
+                    onclick="openProfile('priya')"
+                    data-i18n="view_profile"
+                >
+                    View Profile
+                </button>
+
+            </div>
+
+        </article>
+
+
+    </section>
+
+
+
+    <!-- =====================================
+         EMPTY STATE
+    ===================================== -->
+
+    <section
+        class="empty-state"
+        id="emptyState"
+    >
+
+        <div class="empty-icon">
+            🔍
+        </div>
+
+        <div
+            data-i18n="no_providers"
+        >
+            No providers found in this area.
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         OTHER SERVICES
+    ===================================== -->
+
+    <section class="other-services">
+
+        <div class="other-services-header">
+
+            <h2 data-i18n="other_services">
+                Other services available near you
+            </h2>
+
+            <p data-i18n="other_services_description">
+                Services currently available in the selected locality.
+            </p>
+
+        </div>
+
+
+        <div class="service-options">
+
+
+            <div class="service-option">
+
+                <div class="service-option-name">
+                    Plumbing
+                </div>
+
+                <div class="service-option-count">
+                    12 providers
+                </div>
+
+            </div>
+
+
+            <div class="service-option">
+
+                <div class="service-option-name">
+                    Electrical
+                </div>
+
+                <div class="service-option-count">
+                    8 providers
+                </div>
+
+            </div>
+
+
+            <div class="service-option">
+
+                <div class="service-option-name">
+                    AC Service
+                </div>
+
+                <div class="service-option-count">
+                    5 providers
+                </div>
+
+            </div>
+
+
+            <div class="service-option">
+
+                <div class="service-option-name">
+                    Carpenter
+                </div>
+
+                <div class="service-option-count">
+                    4 providers
+                </div>
+
+            </div>
+
+
+            <div class="service-option">
+
+                <div class="service-option-name">
+                    Cleaning
+                </div>
+
+                <div class="service-option-count">
+                    7 providers
+                </div>
+
+            </div>
+
+
+            <div class="service-option">
+
+                <div class="service-option-name">
+                    CCTV
+                </div>
+
+                <div class="service-option-count">
+                    3 providers
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<footer>
+
+    <strong>Seivom</strong>
+
+    —
+
+    <span data-i18n="footer">
+        Local services, just around you.
+    </span>
+
+</footer>
+
+
+
+<script>
+
+
+/* =========================================
+   PROVIDER PROFILES
+========================================= */
+
+const providers = {
+
+    kumar: {
+        name: "Kumar",
+        phone: "9876543210"
+    },
+
+    saravanan: {
+        name: "Saravanan",
+        phone: "9876543211"
+    },
+
+    rajkumar: {
+        name: "Rajkumar",
+        phone: "9876543212"
+    },
+
+    mani: {
+        name: "Mani",
+        phone: "9876543213"
+    },
+
+    priya: {
+        name: "Priya",
+        phone: "9876543214"
+    }
+
+};
+
+
+
+/* =========================================
+   TRANSLATIONS
+========================================= */
+
+const translations = {
+
+    en: {
+
+        hero_title:
+            'Find the right <span>service.</span>',
+
+        hero_description:
+            "Find local service providers around you. View their profile, ratings and services, then contact them directly.",
+
+        district:
+            "District",
+
+        locality:
+            "Locality",
+
+        service:
+            "Service",
+
+        find_button:
+            "Find Services",
+
+        nearby_providers:
+            "Providers near you",
+
+        view_profile:
+            "View Profile",
+
+        no_providers:
+            "No providers found in this area.",
+
+        other_services:
+            "Other services available near you",
+
+        other_services_description:
+            "Services currently available in the selected locality.",
+
+        footer:
+            "Local services, just around you."
+
+    },
+
+
+    ta: {
+
+        hero_title:
+            'சரியான <span>சேவையை</span> கண்டுபிடிக்கவும்.',
+
+        hero_description:
+            "உங்களைச் சுற்றியுள்ள உள்ளூர் சேவை வழங்குநர்களைக் கண்டறியுங்கள். அவர்களின் சுயவிவரம், மதிப்பீடுகள் மற்றும் சேவைகளைப் பார்த்து நேரடியாக தொடர்பு கொள்ளுங்கள்.",
+
+        district:
+            "மாவட்டம்",
+
+        locality:
+            "பகுதி",
+
+        service:
+            "சேவை",
+
+        find_button:
+            "சேவைகளை தேடு",
+
+        nearby_providers:
+            "உங்களுக்கு அருகிலுள்ள சேவை வழங்குநர்கள்",
+
+        view_profile:
+            "சுயவிவரத்தை பார்க்க",
+
+        no_providers:
+            "இந்த பகுதியில் சேவை வழங்குநர்கள் இல்லை.",
+
+        other_services:
+            "உங்களுக்கு அருகில் கிடைக்கும் பிற சேவைகள்",
+
+        other_services_description:
+            "தேர்ந்தெடுக்கப்பட்ட பகுதியில் தற்போது கிடைக்கும் சேவைகள்.",
+
+        footer:
+            "உள்ளூர் சேவைகள், உங்களைச் சுற்றியே."
+
+    }
+
+};
+
+
+
+/* =========================================
+   LANGUAGE
+========================================= */
+
+let currentLanguage =
+    localStorage.getItem(
+        "seivom_language"
+    ) || "en";
+
+
+function setLanguage(language) {
+
+    currentLanguage =
+        language;
+
+    localStorage.setItem(
+        "seivom_language",
+        language
+    );
+
+    document.documentElement.lang =
+        language;
+
+
+    document
+        .querySelectorAll("[data-i18n]")
+        .forEach(element => {
+
+            const key =
+                element.getAttribute(
+                    "data-i18n"
+                );
+
+            if (
+                translations[language] &&
+                translations[language][key]
+            ) {
+
+                element.innerHTML =
+                    translations[language][key];
+
+            }
+
+        });
+
+
+    document
+        .getElementById("englishBtn")
+        .classList.toggle(
+            "active",
+            language === "en"
+        );
+
+
+    document
+        .getElementById("tamilBtn")
+        .classList.toggle(
+            "active",
+            language === "ta"
+        );
+
+}
+
+
+
+/* =========================================
+   SEARCH
+========================================= */
+
+function searchProviders() {
+
+    const locality =
+        document
+            .getElementById("locality")
+            .value;
+
+    const service =
+        document
+            .getElementById("service")
+            .value;
+
+
+    const cards =
+        document.querySelectorAll(
+            ".provider-card"
+        );
+
+    const emptyState =
+        document.getElementById(
+            "emptyState"
+        );
+
+    const resultCount =
+        document.getElementById(
+            "resultCount"
+        );
+
+
+    let visibleCount = 0;
+
+
+    cards.forEach(card => {
+
+        const cardService =
+            card.dataset.service;
+
+        const cardLocalities =
+            card.dataset.localities
+                .split(",");
+
+
+        const serviceMatch =
+            !service ||
+            cardService === service;
+
+
+        const localityMatch =
+            !locality ||
+            cardLocalities.includes(
+                locality
+            );
+
+
+        if (
+            serviceMatch &&
+            localityMatch
+        ) {
+
+            card.style.display =
+                "block";
+
+            visibleCount++;
+
+        } else {
+
+            card.style.display =
+                "none";
+
+        }
+
+    });
+
+
+    if (visibleCount === 0) {
+
+        emptyState.style.display =
+            "block";
+
+    } else {
+
+        emptyState.style.display =
+            "none";
+
+    }
+
+
+    resultCount.textContent =
+        currentLanguage === "ta"
+            ? `${visibleCount} சேவை வழங்குநர்கள் உள்ளனர்`
+            : `${visibleCount} providers available`;
+
+}
+
+
+
+/* =========================================
+   CALL PROVIDER
+========================================= */
+
+function callProvider(phone) {
+
+    window.location.href =
+        `tel:${phone}`;
+
+}
+
+
+
+/* =========================================
+   WHATSAPP PROVIDER
+========================================= */
+
+function whatsappProvider(
+    phone,
+    name
+) {
+
+    const message =
+        encodeURIComponent(
+            `Hi ${name}, I found your service on Seivom.`
+        );
+
+
+    window.open(
+        `https://wa.me/91${phone}?text=${message}`,
+        "_blank"
+    );
+
+}
+
+
+
+/* =========================================
+   OPEN PROFILE
+========================================= */
+
+function openProfile(providerId) {
+
+    window.location.href =
+        `provider_profile.html?id=${providerId}`;
+
+}
+
+
+
+/* =========================================
+   INITIALIZE
+========================================= */
+
+setLanguage(
+    currentLanguage
+);
+
+</script>
+
+
+</body>
+
+</html>

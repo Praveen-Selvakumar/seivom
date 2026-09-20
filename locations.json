@@ -1,0 +1,262 @@
+{
+  "version": 1,
+  "country": {
+    "id": "india",
+    "name": "India",
+    "nameTa": "இந்தியா"
+  },
+
+  "states": [
+    {
+      "id": "tamil_nadu",
+      "name": "Tamil Nadu",
+      "nameTa": "தமிழ்நாடு",
+
+      "districts": [
+        {
+          "id": "madurai",
+          "name": "Madurai",
+          "nameTa": "மதுரை",
+
+          "localities": [
+            {
+              "id": "alagar_kovil_road",
+              "name": "Alagar Kovil Road",
+              "nameTa": "அழகர் கோவில் சாலை"
+            },
+            {
+              "id": "alwarpuram",
+              "name": "Alwarpuram",
+              "nameTa": "அழ்வார்புரம்"
+            },
+            {
+              "id": "anaiyur",
+              "name": "Anaiyur",
+              "nameTa": "அணையூர்"
+            },
+            {
+              "id": "anna_nagar",
+              "name": "Anna Nagar",
+              "nameTa": "அண்ணா நகர்"
+            },
+            {
+              "id": "anuppanadi",
+              "name": "Anuppanadi",
+              "nameTa": "அனுப்பானடி"
+            },
+            {
+              "id": "arappalayam",
+              "name": "Arappalayam",
+              "nameTa": "அரப்பாளையம்"
+            },
+            {
+              "id": "arasaradi",
+              "name": "Arasaradi",
+              "nameTa": "அரசரடி"
+            },
+            {
+              "id": "avaniyapuram",
+              "name": "Avaniyapuram",
+              "nameTa": "அவனியாபுரம்"
+            },
+            {
+              "id": "bibikulam",
+              "name": "Bibikulam",
+              "nameTa": "பிபிகுளம்"
+            },
+            {
+              "id": "chokkikulam",
+              "name": "Chokkikulam",
+              "nameTa": "சொக்கிகுளம்"
+            },
+            {
+              "id": "ellis_nagar",
+              "name": "Ellis Nagar",
+              "nameTa": "எல்லிஸ் நகர்"
+            },
+            {
+              "id": "gandhi_nagar",
+              "name": "Gandhi Nagar",
+              "nameTa": "காந்தி நகர்"
+            },
+            {
+              "id": "goripalayam",
+              "name": "Goripalayam",
+              "nameTa": "கோரிப்பாளையம்"
+            },
+            {
+              "id": "iyer_bungalow",
+              "name": "Iyer Bungalow",
+              "nameTa": "ஐயர் பங்களா"
+            },
+            {
+              "id": "jaihindpuram",
+              "name": "Jaihindpuram",
+              "nameTa": "ஜெய்ஹிந்துபுரம்"
+            },
+            {
+              "id": "kk_nagar",
+              "name": "KK Nagar",
+              "nameTa": "கே.கே. நகர்"
+            },
+            {
+              "id": "k_pudur",
+              "name": "K. Pudur",
+              "nameTa": "கே. புதூர்"
+            },
+            {
+              "id": "koodal_nagar",
+              "name": "Koodal Nagar",
+              "nameTa": "கூடல் நகர்"
+            },
+            {
+              "id": "krishnapuram_colony",
+              "name": "Krishnapuram Colony",
+              "nameTa": "கிருஷ்ணாபுரம் காலனி"
+            },
+            {
+              "id": "lakshmipuram",
+              "name": "Lakshmipuram",
+              "nameTa": "லட்சுமிபுரம்"
+            },
+            {
+              "id": "madurai_main",
+              "name": "Madurai Main",
+              "nameTa": "மதுரை மெயின்"
+            },
+            {
+              "id": "mahaboopalayam",
+              "name": "Mahaboopalayam",
+              "nameTa": "மஹபூப்பாளையம்"
+            },
+            {
+              "id": "meenambalpuram",
+              "name": "Meenambalpuram",
+              "nameTa": "மீனாம்பாள்புரம்"
+            },
+            {
+              "id": "moondrumavadi",
+              "name": "Moondrumavadi",
+              "nameTa": "மூன்றுமாவடி"
+            },
+            {
+              "id": "munichallai",
+              "name": "Munichallai",
+              "nameTa": "முனிச்சாலை"
+            },
+            {
+              "id": "narimedu",
+              "name": "Narimedu",
+              "nameTa": "நரிமேடு"
+            },
+            {
+              "id": "palanganatham",
+              "name": "Palanganatham",
+              "nameTa": "பழங்காநத்தம்"
+            },
+            {
+              "id": "paravai",
+              "name": "Paravai",
+              "nameTa": "பரவை"
+            },
+            {
+              "id": "pasumalai",
+              "name": "Pasumalai",
+              "nameTa": "பசுமலை"
+            },
+            {
+              "id": "ponmeni",
+              "name": "Ponmeni",
+              "nameTa": "பொன்மேனி"
+            },
+            {
+              "id": "ponnagaram",
+              "name": "Ponnagaram",
+              "nameTa": "பொன்னகரம்"
+            },
+            {
+              "id": "sellur",
+              "name": "Sellur",
+              "nameTa": "செல்லூர்"
+            },
+            {
+              "id": "shenoy_nagar",
+              "name": "Shenoy Nagar",
+              "nameTa": "ஷெனாய் நகர்"
+            },
+            {
+              "id": "simmakkal",
+              "name": "Simmakkal",
+              "nameTa": "சிம்மக்கல்"
+            },
+            {
+              "id": "subramaniapuram",
+              "name": "Subramaniapuram",
+              "nameTa": "சுப்பிரமணியபுரம்"
+            },
+            {
+              "id": "tallakulam",
+              "name": "Tallakulam",
+              "nameTa": "தல்லாகுளம்"
+            },
+            {
+              "id": "thasildar_nagar",
+              "name": "Thasildar Nagar",
+              "nameTa": "தாசில்தார் நகர்"
+            },
+            {
+              "id": "thirunagar",
+              "name": "Thirunagar",
+              "nameTa": "திருநகர்"
+            },
+            {
+              "id": "thiruppalai",
+              "name": "Thiruppalai",
+              "nameTa": "திருப்பாலை"
+            },
+            {
+              "id": "thirupparankundram",
+              "name": "Thirupparankundram",
+              "nameTa": "திருப்பரங்குன்றம்"
+            },
+            {
+              "id": "tvs_nagar",
+              "name": "TVS Nagar",
+              "nameTa": "TVS நகர்"
+            },
+            {
+              "id": "uthangudi",
+              "name": "Uthangudi",
+              "nameTa": "உத்தங்குடி"
+            },
+            {
+              "id": "vandiyur",
+              "name": "Vandiyur",
+              "nameTa": "வண்டியூர்"
+            },
+            {
+              "id": "vilangudi",
+              "name": "Vilangudi",
+              "nameTa": "விளாங்குடி"
+            },
+            {
+              "id": "villapuram",
+              "name": "Villapuram",
+              "nameTa": "வில்லாபுரம்"
+            },
+            {
+              "id": "viraganoor",
+              "name": "Viraganoor",
+              "nameTa": "விரகனூர்"
+            },
+            {
+              "id": "vishwanathapuram",
+              "name": "Vishwanathapuram",
+              "nameTa": "விஸ்வநாதபுரம்"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

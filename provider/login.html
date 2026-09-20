@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Provider Login - Seivom</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --orange: #ff6b00;
+            --orange-light: #fff1e7;
+            --black: #171717;
+            --gray: #666;
+            --light-gray: #f7f7f7;
+            --border: #e8e8e8;
+            --background: #fffaf7;
+            --white: #ffffff;
+            --red: #dc3545;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+            background: var(--background);
+
+            color: var(--black);
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+
+        /* =========================================
+           NAVBAR
+        ========================================= */
+
+        .navbar {
+
+            height: 68px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            background:
+                rgba(255, 250, 247, 0.92);
+
+            backdrop-filter: blur(14px);
+
+            border-bottom:
+                1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+
+            text-decoration: none;
+
+            color: var(--black);
+
+            font-size: 23px;
+
+            font-weight: 850;
+
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--orange);
+        }
+
+
+        /* =========================================
+           LANGUAGE
+        ========================================= */
+
+        .language-switcher {
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 4px;
+
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 30px;
+        }
+
+        .lang-btn {
+
+            border: none;
+
+            background: transparent;
+
+            color: #777;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            font-weight: 750;
+        }
+
+        .lang-btn.active {
+
+            background: var(--black);
+
+            color: white;
+        }
+
+
+        /* =========================================
+           PAGE
+        ========================================= */
+
+        .page {
+
+            min-height:
+                calc(100vh - 68px);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 50px 20px 70px;
+        }
+
+
+        /* =========================================
+           LOGIN CONTAINER
+        ========================================= */
+
+        .login-container {
+
+            width: 100%;
+
+            max-width: 440px;
+        }
+
+
+        /* =========================================
+           TOP ICON
+        ========================================= */
+
+        .login-icon {
+
+            width: 66px;
+
+            height: 66px;
+
+            margin: 0 auto 22px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 20px;
+
+            background: var(--orange-light);
+
+            color: var(--orange);
+
+            font-size: 29px;
+
+            box-shadow:
+                0 10px 30px rgba(255, 107, 0, 0.10);
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        .login-header {
+
+            text-align: center;
+
+            margin-bottom: 30px;
+        }
+
+        .login-header h1 {
+
+            font-size:
+                clamp(32px, 6vw, 43px);
+
+            line-height: 1.05;
+
+            letter-spacing: -1.8px;
+
+            font-weight: 850;
+
+            margin-bottom: 12px;
+        }
+
+        .login-header h1 span {
+            color: var(--orange);
+        }
+
+        .login-header p {
+
+            color: var(--gray);
+
+            font-size: 15px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================================
+           LOGIN CARD
+        ========================================= */
+
+        .login-card {
+
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 26px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 18px 55px rgba(0, 0, 0, 0.05);
+        }
+
+
+        /* =========================================
+           FIELD
+        ========================================= */
+
+        .field-group {
+
+            margin-bottom: 20px;
+        }
+
+        .field-group label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 13px;
+
+            font-weight: 750;
+        }
+
+        input {
+
+            width: 100%;
+
+            height: 52px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            background: white;
+
+            color: var(--black);
+
+            padding: 0 15px;
+
+            outline: none;
+
+            transition: 0.2s;
+        }
+
+        input:focus {
+
+            border-color: var(--orange);
+
+            box-shadow:
+                0 0 0 4px rgba(255, 107, 0, 0.08);
+        }
+
+
+        /* =========================================
+           PASSWORD
+        ========================================= */
+
+        .password-wrapper {
+
+            position: relative;
+        }
+
+        .password-wrapper input {
+
+            padding-right: 52px;
+        }
+
+        .password-eye {
+
+            position: absolute;
+
+            right: 10px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 38px;
+
+            height: 38px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border: none;
+
+            background: transparent;
+
+            border-radius: 10px;
+
+            font-size: 18px;
+
+            color: #777;
+        }
+
+        .password-eye:hover {
+
+            background: #f5f5f5;
+
+            color: var(--black);
+        }
+
+
+        /* =========================================
+           ERROR
+        ========================================= */
+
+        .error-message {
+
+            display: none;
+
+            margin-bottom: 16px;
+
+            padding: 12px 14px;
+
+            border-radius: 12px;
+
+            background: #fff1f1;
+
+            border: 1px solid #ffd4d4;
+
+            color: var(--red);
+
+            font-size: 12px;
+
+            font-weight: 650;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+
+        /* =========================================
+           LOGIN BUTTON
+        ========================================= */
+
+        .login-button {
+
+            width: 100%;
+
+            height: 54px;
+
+            border: none;
+
+            border-radius: 15px;
+
+            background: var(--orange);
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: 800;
+
+            box-shadow:
+                0 10px 25px rgba(255, 107, 0, 0.20);
+
+            transition: 0.2s;
+        }
+
+        .login-button:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 14px 30px rgba(255, 107, 0, 0.28);
+        }
+
+        .login-button:active {
+
+            transform: translateY(0);
+        }
+
+
+        /* =========================================
+           FORGOT PASSWORD
+        ========================================= */
+
+        .forgot-password {
+
+            display: block;
+
+            width: fit-content;
+
+            margin: 16px auto 0;
+
+            border: none;
+
+            background: transparent;
+
+            color: var(--orange);
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================================
+           DIVIDER
+        ========================================= */
+
+        .divider {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin: 25px 0;
+
+            color: #aaa;
+
+            font-size: 11px;
+        }
+
+        .divider::before,
+        .divider::after {
+
+            content: "";
+
+            flex: 1;
+
+            height: 1px;
+
+            background: var(--border);
+        }
+
+
+        /* =========================================
+           REGISTER BOX
+        ========================================= */
+
+        .register-box {
+
+            padding: 17px;
+
+            border-radius: 16px;
+
+            background: #fafafa;
+
+            border: 1px solid var(--border);
+
+            text-align: center;
+        }
+
+        .register-box p {
+
+            color: #777;
+
+            font-size: 12px;
+
+            margin-bottom: 9px;
+        }
+
+        .register-link {
+
+            display: inline-block;
+
+            text-decoration: none;
+
+            color: var(--black);
+
+            font-size: 13px;
+
+            font-weight: 800;
+        }
+
+        .register-link span {
+            color: var(--orange);
+        }
+
+
+        /* =========================================
+           TRUST NOTE
+        ========================================= */
+
+        .trust-note {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 7px;
+
+            margin-top: 18px;
+
+            color: #999;
+
+            font-size: 11px;
+
+            text-align: center;
+        }
+
+        .trust-icon {
+
+            color: #159957;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            text-align: center;
+
+            color: #999;
+
+            font-size: 11px;
+
+            padding: 0 20px 30px;
+        }
+
+        footer strong {
+            color: var(--black);
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 600px) {
+
+            .navbar {
+
+                height: 62px;
+
+                padding: 0 4%;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .page {
+
+                min-height:
+                    calc(100vh - 62px);
+
+                align-items: flex-start;
+
+                padding-top: 42px;
+            }
+
+            .login-card {
+
+                padding: 22px;
+
+                border-radius: 22px;
+            }
+
+            .login-icon {
+
+                width: 58px;
+
+                height: 58px;
+
+                border-radius: 17px;
+
+                font-size: 25px;
+            }
+
+            .login-header {
+
+                margin-bottom: 25px;
+            }
+
+            .login-header h1 {
+
+                font-size: 34px;
+
+                letter-spacing: -1.5px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     NAVBAR
+========================================= -->
+
+<nav class="navbar">
+
+    <a
+        href="../index.html"
+        class="logo"
+    >
+        Seiv<span>om</span>
+    </a>
+
+
+    <div class="language-switcher">
+
+        <button
+            type="button"
+            class="lang-btn active"
+            id="englishBtn"
+            onclick="setLanguage('en')"
+        >
+            EN
+        </button>
+
+
+        <button
+            type="button"
+            class="lang-btn"
+            id="tamilBtn"
+            onclick="setLanguage('ta')"
+        >
+            தமிழ்
+        </button>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================================
+     PAGE
+========================================= -->
+
+<main class="page">
+
+
+    <div class="login-container">
+
+
+        <!-- ICON -->
+
+        <div class="login-icon">
+            ⚒
+        </div>
+
+
+
+        <!-- HEADER -->
+
+        <div class="login-header">
+
+            <h1 data-i18n="login_title">
+                Welcome <span>back.</span>
+            </h1>
+
+
+            <p data-i18n="login_description">
+                Login to manage your Seivom service profile.
+            </p>
+
+        </div>
+
+
+
+        <!-- LOGIN CARD -->
+
+        <div class="login-card">
+
+
+            <!-- ERROR -->
+
+            <div
+                class="error-message"
+                id="errorMessage"
+            ></div>
+
+
+
+            <!-- MOBILE -->
+
+            <div class="field-group">
+
+                <label
+                    for="phone"
+                    data-i18n="mobile"
+                >
+                    Mobile Number
+                </label>
+
+
+                <input
+                    type="tel"
+                    id="phone"
+                    maxlength="10"
+                    inputmode="numeric"
+                    autocomplete="tel"
+                    placeholder="10 digit mobile number"
+                    data-i18n-placeholder="mobile_placeholder"
+                >
+
+            </div>
+
+
+
+            <!-- PASSWORD -->
+
+            <div class="field-group">
+
+                <label
+                    for="password"
+                    data-i18n="password"
+                >
+                    Password
+                </label>
+
+
+                <div class="password-wrapper">
+
+                    <input
+                        type="password"
+                        id="password"
+                        autocomplete="current-password"
+                        placeholder="Enter your password"
+                        data-i18n-placeholder="password_placeholder"
+                    >
+
+
+                    <button
+                        type="button"
+                        class="password-eye"
+                        onclick="togglePassword()"
+                        aria-label="Show password"
+                    >
+
+                        <span id="passwordEye">
+                            👁
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- LOGIN -->
+
+            <button
+                type="button"
+                class="login-button"
+                onclick="loginProvider()"
+            >
+
+                <span data-i18n="login_button">
+                    Login
+                </span>
+
+            </button>
+
+
+
+            <!-- FORGOT -->
+
+            <button
+                type="button"
+                class="forgot-password"
+                onclick="forgotPassword()"
+                data-i18n="forgot_password"
+            >
+                Forgot password?
+            </button>
+
+
+
+            <!-- DIVIDER -->
+
+            <div
+                class="divider"
+                data-i18n="or"
+            >
+                OR
+            </div>
+
+
+
+            <!-- REGISTER -->
+
+            <div class="register-box">
+
+                <p data-i18n="new_provider">
+                    New to Seivom?
+                </p>
+
+
+                <a
+                    href="register.html"
+                    class="register-link"
+                >
+
+                    <span data-i18n="register_now">
+                        Register your service →
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- TRUST -->
+
+        <div class="trust-note">
+
+            <span class="trust-icon">
+                ✓
+            </span>
+
+            <span data-i18n="secure_note">
+                Your login details are securely handled.
+            </span>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<footer>
+
+    <strong>Seivom</strong>
+
+    —
+
+    <span data-i18n="footer_text">
+        Local services, just around you.
+    </span>
+
+</footer>
+
+
+
+<script>
+
+
+/* =====================================================
+   TRANSLATIONS
+===================================================== */
+
+const translations = {
+
+    en: {
+
+        login_title:
+            'Welcome <span>back.</span>',
+
+        login_description:
+            "Login to manage your Seivom service profile.",
+
+        mobile:
+            "Mobile Number",
+
+        mobile_placeholder:
+            "10 digit mobile number",
+
+        password:
+            "Password",
+
+        password_placeholder:
+            "Enter your password",
+
+        login_button:
+            "Login",
+
+        forgot_password:
+            "Forgot password?",
+
+        or:
+            "OR",
+
+        new_provider:
+            "New to Seivom?",
+
+        register_now:
+            "Register your service →",
+
+        secure_note:
+            "Your login details are securely handled.",
+
+        footer_text:
+            "Local services, just around you.",
+
+        invalid_mobile:
+            "Please enter a valid 10 digit mobile number.",
+
+        enter_password:
+            "Please enter your password.",
+
+        login_failed:
+            "Invalid mobile number or password.",
+
+        forgot_message:
+            "Password recovery will be available soon."
+
+    },
+
+
+    ta: {
+
+        login_title:
+            'மீண்டும் <span>வரவேற்கிறோம்.</span>',
+
+        login_description:
+            "உங்கள் Seivom சேவை சுயவிவரத்தை நிர்வகிக்க உள்நுழையுங்கள்.",
+
+        mobile:
+            "மொபைல் எண்",
+
+        mobile_placeholder:
+            "10 இலக்க மொபைல் எண்",
+
+        password:
+            "கடவுச்சொல்",
+
+        password_placeholder:
+            "உங்கள் கடவுச்சொல்லை உள்ளிடுங்கள்",
+
+        login_button:
+            "உள்நுழைய",
+
+        forgot_password:
+            "கடவுச்சொல் மறந்துவிட்டதா?",
+
+        or:
+            "அல்லது",
+
+        new_provider:
+            "Seivom-க்கு புதியவரா?",
+
+        register_now:
+            "உங்கள் சேவையை பதிவு செய்யுங்கள் →",
+
+        secure_note:
+            "உங்கள் உள்நுழைவு விவரங்கள் பாதுகாப்பாக கையாளப்படும்.",
+
+        footer_text:
+            "உள்ளூர் சேவைகள், உங்களைச் சுற்றியே.",
+
+        invalid_mobile:
+            "சரியான 10 இலக்க மொபைல் எண்ணை உள்ளிடுங்கள்.",
+
+        enter_password:
+            "உங்கள் கடவுச்சொல்லை உள்ளிடுங்கள்.",
+
+        login_failed:
+            "மொபைல் எண் அல்லது கடவுச்சொல் தவறாக உள்ளது.",
+
+        forgot_message:
+            "கடவுச்சொல் மீட்பு விரைவில் கிடைக்கும்."
+
+    }
+
+};
+
+
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
+
+let currentLanguage =
+    localStorage.getItem(
+        "seivom_language"
+    ) || "en";
+
+
+function setLanguage(language) {
+
+    currentLanguage =
+        language;
+
+
+    localStorage.setItem(
+        "seivom_language",
+        language
+    );
+
+
+    document.documentElement.lang =
+        language;
+
+
+    document
+        .querySelectorAll("[data-i18n]")
+        .forEach(element => {
+
+            const key =
+                element.getAttribute(
+                    "data-i18n"
+                );
+
+
+            if (
+                translations[language] &&
+                translations[language][key]
+            ) {
+
+                element.innerHTML =
+                    translations[language][key];
+
+            }
+
+        });
+
+
+    document
+        .querySelectorAll(
+            "[data-i18n-placeholder]"
+        )
+        .forEach(element => {
+
+            const key =
+                element.getAttribute(
+                    "data-i18n-placeholder"
+                );
+
+
+            if (
+                translations[language] &&
+                translations[language][key]
+            ) {
+
+                element.placeholder =
+                    translations[language][key];
+
+            }
+
+        });
+
+
+    document
+        .getElementById("englishBtn")
+        .classList.toggle(
+            "active",
+            language === "en"
+        );
+
+
+    document
+        .getElementById("tamilBtn")
+        .classList.toggle(
+            "active",
+            language === "ta"
+        );
+
+}
+
+
+
+/* =====================================================
+   PASSWORD TOGGLE
+===================================================== */
+
+function togglePassword() {
+
+    const password =
+        document.getElementById(
+            "password"
+        );
+
+
+    const eye =
+        document.getElementById(
+            "passwordEye"
+        );
+
+
+    if (
+        password.type === "password"
+    ) {
+
+        password.type = "text";
+
+        eye.textContent = "🙈";
+
+    } else {
+
+        password.type = "password";
+
+        eye.textContent = "👁";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+function showError(message) {
+
+    const error =
+        document.getElementById(
+            "errorMessage"
+        );
+
+
+    error.textContent =
+        message;
+
+
+    error.classList.add(
+        "show"
+    );
+
+}
+
+
+function clearError() {
+
+    document
+        .getElementById(
+            "errorMessage"
+        )
+        .classList.remove(
+            "show"
+        );
+
+}
+
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+function loginProvider() {
+
+    clearError();
+
+
+    const phone =
+        document
+            .getElementById("phone")
+            .value
+            .trim();
+
+
+    const password =
+        document
+            .getElementById("password")
+            .value;
+
+
+
+    /* MOBILE VALIDATION */
+
+    if (
+        !/^[0-9]{10}$/.test(phone)
+    ) {
+
+        showError(
+            translations[
+                currentLanguage
+            ].invalid_mobile
+        );
+
+        document
+            .getElementById("phone")
+            .focus();
+
+        return;
+
+    }
+
+
+
+    /* PASSWORD VALIDATION */
+
+    if (!password) {
+
+        showError(
+            translations[
+                currentLanguage
+            ].enter_password
+        );
+
+        document
+            .getElementById("password")
+            .focus();
+
+        return;
+
+    }
+
+
+
+    /*
+     * TEMPORARY LOGIN
+     *
+     * For now, no Firebase/authentication.
+     * Simply open the provider profile.
+     */
+
+    window.location.href =
+        "my_profile.html";
+
+}
+
+
+
+/* =====================================================
+   FORGOT PASSWORD
+===================================================== */
+
+function forgotPassword() {
+
+    alert(
+        translations[
+            currentLanguage
+        ].forgot_message
+    );
+
+}
+
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+setLanguage(
+    currentLanguage
+);
+
+
+
+/* =====================================================
+   ENTER KEY LOGIN
+===================================================== */
+
+document
+    .getElementById("password")
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                loginProvider();
+
+            }
+
+        }
+    );
+
+
+</script>
+
+
+</body>
+
+</html>
